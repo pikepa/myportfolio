@@ -892,6 +892,22 @@ table {
   background-color: #ffebef;
 }
 
+.bg-menu {
+  background-color: #161313;
+}
+
+.bg-sub-menu {
+  background-color: #ebe9e9;
+}
+
+.bg-frontpage {
+  background-color: #2e3333;
+}
+
+.bg-mainpage {
+  background-color: #f5f5f5;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1184,6 +1200,22 @@ table {
   background-color: #ffebef;
 }
 
+.hover\:bg-menu:hover {
+  background-color: #161313;
+}
+
+.hover\:bg-sub-menu:hover {
+  background-color: #ebe9e9;
+}
+
+.hover\:bg-frontpage:hover {
+  background-color: #2e3333;
+}
+
+.hover\:bg-mainpage:hover {
+  background-color: #f5f5f5;
+}
+
 .focus\:bg-transparent:focus {
   background-color: transparent;
 }
@@ -1474,6 +1506,22 @@ table {
 
 .focus\:bg-pink-lightest:focus {
   background-color: #ffebef;
+}
+
+.focus\:bg-menu:focus {
+  background-color: #161313;
+}
+
+.focus\:bg-sub-menu:focus {
+  background-color: #ebe9e9;
+}
+
+.focus\:bg-frontpage:focus {
+  background-color: #2e3333;
+}
+
+.focus\:bg-mainpage:focus {
+  background-color: #f5f5f5;
 }
 
 .bg-bottom {
@@ -1840,6 +1888,22 @@ table {
   border-color: #ffebef;
 }
 
+.border-menu {
+  border-color: #161313;
+}
+
+.border-sub-menu {
+  border-color: #ebe9e9;
+}
+
+.border-frontpage {
+  border-color: #2e3333;
+}
+
+.border-mainpage {
+  border-color: #f5f5f5;
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -2132,6 +2196,22 @@ table {
   border-color: #ffebef;
 }
 
+.hover\:border-menu:hover {
+  border-color: #161313;
+}
+
+.hover\:border-sub-menu:hover {
+  border-color: #ebe9e9;
+}
+
+.hover\:border-frontpage:hover {
+  border-color: #2e3333;
+}
+
+.hover\:border-mainpage:hover {
+  border-color: #f5f5f5;
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -2422,6 +2502,22 @@ table {
 
 .focus\:border-pink-lightest:focus {
   border-color: #ffebef;
+}
+
+.focus\:border-menu:focus {
+  border-color: #161313;
+}
+
+.focus\:border-sub-menu:focus {
+  border-color: #ebe9e9;
+}
+
+.focus\:border-frontpage:focus {
+  border-color: #2e3333;
+}
+
+.focus\:border-mainpage:focus {
+  border-color: #f5f5f5;
 }
 
 .rounded-none {
@@ -5179,6 +5275,22 @@ table {
   color: #ffebef;
 }
 
+.text-menu {
+  color: #161313;
+}
+
+.text-sub-menu {
+  color: #ebe9e9;
+}
+
+.text-frontpage {
+  color: #2e3333;
+}
+
+.text-mainpage {
+  color: #f5f5f5;
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -5471,6 +5583,22 @@ table {
   color: #ffebef;
 }
 
+.hover\:text-menu:hover {
+  color: #161313;
+}
+
+.hover\:text-sub-menu:hover {
+  color: #ebe9e9;
+}
+
+.hover\:text-frontpage:hover {
+  color: #2e3333;
+}
+
+.hover\:text-mainpage:hover {
+  color: #f5f5f5;
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -5761,6 +5889,22 @@ table {
 
 .focus\:text-pink-lightest:focus {
   color: #ffebef;
+}
+
+.focus\:text-menu:focus {
+  color: #161313;
+}
+
+.focus\:text-sub-menu:focus {
+  color: #ebe9e9;
+}
+
+.focus\:text-frontpage:focus {
+  color: #2e3333;
+}
+
+.focus\:text-mainpage:focus {
+  color: #f5f5f5;
 }
 
 .text-xs {
@@ -6188,6 +6332,26 @@ table {
  * @import "utilities/skew-transforms";
  */
 
+.button {
+  background-color: #3490dc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: .5rem;
+  font-size: .875rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-shadow: 0 2px 7px 0 #b0eaff;
+}
+
+.card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
@@ -6504,6 +6668,22 @@ table {
     background-color: #ffebef;
   }
 
+  .sm\:bg-menu {
+    background-color: #161313;
+  }
+
+  .sm\:bg-sub-menu {
+    background-color: #ebe9e9;
+  }
+
+  .sm\:bg-frontpage {
+    background-color: #2e3333;
+  }
+
+  .sm\:bg-mainpage {
+    background-color: #f5f5f5;
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -6796,6 +6976,22 @@ table {
     background-color: #ffebef;
   }
 
+  .sm\:hover\:bg-menu:hover {
+    background-color: #161313;
+  }
+
+  .sm\:hover\:bg-sub-menu:hover {
+    background-color: #ebe9e9;
+  }
+
+  .sm\:hover\:bg-frontpage:hover {
+    background-color: #2e3333;
+  }
+
+  .sm\:hover\:bg-mainpage:hover {
+    background-color: #f5f5f5;
+  }
+
   .sm\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -7086,6 +7282,22 @@ table {
 
   .sm\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .sm\:focus\:bg-menu:focus {
+    background-color: #161313;
+  }
+
+  .sm\:focus\:bg-sub-menu:focus {
+    background-color: #ebe9e9;
+  }
+
+  .sm\:focus\:bg-frontpage:focus {
+    background-color: #2e3333;
+  }
+
+  .sm\:focus\:bg-mainpage:focus {
+    background-color: #f5f5f5;
   }
 
   .sm\:bg-bottom {
@@ -7444,6 +7656,22 @@ table {
     border-color: #ffebef;
   }
 
+  .sm\:border-menu {
+    border-color: #161313;
+  }
+
+  .sm\:border-sub-menu {
+    border-color: #ebe9e9;
+  }
+
+  .sm\:border-frontpage {
+    border-color: #2e3333;
+  }
+
+  .sm\:border-mainpage {
+    border-color: #f5f5f5;
+  }
+
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -7736,6 +7964,22 @@ table {
     border-color: #ffebef;
   }
 
+  .sm\:hover\:border-menu:hover {
+    border-color: #161313;
+  }
+
+  .sm\:hover\:border-sub-menu:hover {
+    border-color: #ebe9e9;
+  }
+
+  .sm\:hover\:border-frontpage:hover {
+    border-color: #2e3333;
+  }
+
+  .sm\:hover\:border-mainpage:hover {
+    border-color: #f5f5f5;
+  }
+
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -8026,6 +8270,22 @@ table {
 
   .sm\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .sm\:focus\:border-menu:focus {
+    border-color: #161313;
+  }
+
+  .sm\:focus\:border-sub-menu:focus {
+    border-color: #ebe9e9;
+  }
+
+  .sm\:focus\:border-frontpage:focus {
+    border-color: #2e3333;
+  }
+
+  .sm\:focus\:border-mainpage:focus {
+    border-color: #f5f5f5;
   }
 
   .sm\:rounded-none {
@@ -10767,6 +11027,22 @@ table {
     color: #ffebef;
   }
 
+  .sm\:text-menu {
+    color: #161313;
+  }
+
+  .sm\:text-sub-menu {
+    color: #ebe9e9;
+  }
+
+  .sm\:text-frontpage {
+    color: #2e3333;
+  }
+
+  .sm\:text-mainpage {
+    color: #f5f5f5;
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -11059,6 +11335,22 @@ table {
     color: #ffebef;
   }
 
+  .sm\:hover\:text-menu:hover {
+    color: #161313;
+  }
+
+  .sm\:hover\:text-sub-menu:hover {
+    color: #ebe9e9;
+  }
+
+  .sm\:hover\:text-frontpage:hover {
+    color: #2e3333;
+  }
+
+  .sm\:hover\:text-mainpage:hover {
+    color: #f5f5f5;
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -11349,6 +11641,22 @@ table {
 
   .sm\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .sm\:focus\:text-menu:focus {
+    color: #161313;
+  }
+
+  .sm\:focus\:text-sub-menu:focus {
+    color: #ebe9e9;
+  }
+
+  .sm\:focus\:text-frontpage:focus {
+    color: #2e3333;
+  }
+
+  .sm\:focus\:text-mainpage:focus {
+    color: #f5f5f5;
   }
 
   .sm\:text-xs {
@@ -12078,6 +12386,22 @@ table {
     background-color: #ffebef;
   }
 
+  .md\:bg-menu {
+    background-color: #161313;
+  }
+
+  .md\:bg-sub-menu {
+    background-color: #ebe9e9;
+  }
+
+  .md\:bg-frontpage {
+    background-color: #2e3333;
+  }
+
+  .md\:bg-mainpage {
+    background-color: #f5f5f5;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -12370,6 +12694,22 @@ table {
     background-color: #ffebef;
   }
 
+  .md\:hover\:bg-menu:hover {
+    background-color: #161313;
+  }
+
+  .md\:hover\:bg-sub-menu:hover {
+    background-color: #ebe9e9;
+  }
+
+  .md\:hover\:bg-frontpage:hover {
+    background-color: #2e3333;
+  }
+
+  .md\:hover\:bg-mainpage:hover {
+    background-color: #f5f5f5;
+  }
+
   .md\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -12660,6 +13000,22 @@ table {
 
   .md\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .md\:focus\:bg-menu:focus {
+    background-color: #161313;
+  }
+
+  .md\:focus\:bg-sub-menu:focus {
+    background-color: #ebe9e9;
+  }
+
+  .md\:focus\:bg-frontpage:focus {
+    background-color: #2e3333;
+  }
+
+  .md\:focus\:bg-mainpage:focus {
+    background-color: #f5f5f5;
   }
 
   .md\:bg-bottom {
@@ -13018,6 +13374,22 @@ table {
     border-color: #ffebef;
   }
 
+  .md\:border-menu {
+    border-color: #161313;
+  }
+
+  .md\:border-sub-menu {
+    border-color: #ebe9e9;
+  }
+
+  .md\:border-frontpage {
+    border-color: #2e3333;
+  }
+
+  .md\:border-mainpage {
+    border-color: #f5f5f5;
+  }
+
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -13310,6 +13682,22 @@ table {
     border-color: #ffebef;
   }
 
+  .md\:hover\:border-menu:hover {
+    border-color: #161313;
+  }
+
+  .md\:hover\:border-sub-menu:hover {
+    border-color: #ebe9e9;
+  }
+
+  .md\:hover\:border-frontpage:hover {
+    border-color: #2e3333;
+  }
+
+  .md\:hover\:border-mainpage:hover {
+    border-color: #f5f5f5;
+  }
+
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -13600,6 +13988,22 @@ table {
 
   .md\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .md\:focus\:border-menu:focus {
+    border-color: #161313;
+  }
+
+  .md\:focus\:border-sub-menu:focus {
+    border-color: #ebe9e9;
+  }
+
+  .md\:focus\:border-frontpage:focus {
+    border-color: #2e3333;
+  }
+
+  .md\:focus\:border-mainpage:focus {
+    border-color: #f5f5f5;
   }
 
   .md\:rounded-none {
@@ -16341,6 +16745,22 @@ table {
     color: #ffebef;
   }
 
+  .md\:text-menu {
+    color: #161313;
+  }
+
+  .md\:text-sub-menu {
+    color: #ebe9e9;
+  }
+
+  .md\:text-frontpage {
+    color: #2e3333;
+  }
+
+  .md\:text-mainpage {
+    color: #f5f5f5;
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -16633,6 +17053,22 @@ table {
     color: #ffebef;
   }
 
+  .md\:hover\:text-menu:hover {
+    color: #161313;
+  }
+
+  .md\:hover\:text-sub-menu:hover {
+    color: #ebe9e9;
+  }
+
+  .md\:hover\:text-frontpage:hover {
+    color: #2e3333;
+  }
+
+  .md\:hover\:text-mainpage:hover {
+    color: #f5f5f5;
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -16923,6 +17359,22 @@ table {
 
   .md\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .md\:focus\:text-menu:focus {
+    color: #161313;
+  }
+
+  .md\:focus\:text-sub-menu:focus {
+    color: #ebe9e9;
+  }
+
+  .md\:focus\:text-frontpage:focus {
+    color: #2e3333;
+  }
+
+  .md\:focus\:text-mainpage:focus {
+    color: #f5f5f5;
   }
 
   .md\:text-xs {
@@ -17652,6 +18104,22 @@ table {
     background-color: #ffebef;
   }
 
+  .lg\:bg-menu {
+    background-color: #161313;
+  }
+
+  .lg\:bg-sub-menu {
+    background-color: #ebe9e9;
+  }
+
+  .lg\:bg-frontpage {
+    background-color: #2e3333;
+  }
+
+  .lg\:bg-mainpage {
+    background-color: #f5f5f5;
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -17944,6 +18412,22 @@ table {
     background-color: #ffebef;
   }
 
+  .lg\:hover\:bg-menu:hover {
+    background-color: #161313;
+  }
+
+  .lg\:hover\:bg-sub-menu:hover {
+    background-color: #ebe9e9;
+  }
+
+  .lg\:hover\:bg-frontpage:hover {
+    background-color: #2e3333;
+  }
+
+  .lg\:hover\:bg-mainpage:hover {
+    background-color: #f5f5f5;
+  }
+
   .lg\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -18234,6 +18718,22 @@ table {
 
   .lg\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .lg\:focus\:bg-menu:focus {
+    background-color: #161313;
+  }
+
+  .lg\:focus\:bg-sub-menu:focus {
+    background-color: #ebe9e9;
+  }
+
+  .lg\:focus\:bg-frontpage:focus {
+    background-color: #2e3333;
+  }
+
+  .lg\:focus\:bg-mainpage:focus {
+    background-color: #f5f5f5;
   }
 
   .lg\:bg-bottom {
@@ -18592,6 +19092,22 @@ table {
     border-color: #ffebef;
   }
 
+  .lg\:border-menu {
+    border-color: #161313;
+  }
+
+  .lg\:border-sub-menu {
+    border-color: #ebe9e9;
+  }
+
+  .lg\:border-frontpage {
+    border-color: #2e3333;
+  }
+
+  .lg\:border-mainpage {
+    border-color: #f5f5f5;
+  }
+
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -18884,6 +19400,22 @@ table {
     border-color: #ffebef;
   }
 
+  .lg\:hover\:border-menu:hover {
+    border-color: #161313;
+  }
+
+  .lg\:hover\:border-sub-menu:hover {
+    border-color: #ebe9e9;
+  }
+
+  .lg\:hover\:border-frontpage:hover {
+    border-color: #2e3333;
+  }
+
+  .lg\:hover\:border-mainpage:hover {
+    border-color: #f5f5f5;
+  }
+
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -19174,6 +19706,22 @@ table {
 
   .lg\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .lg\:focus\:border-menu:focus {
+    border-color: #161313;
+  }
+
+  .lg\:focus\:border-sub-menu:focus {
+    border-color: #ebe9e9;
+  }
+
+  .lg\:focus\:border-frontpage:focus {
+    border-color: #2e3333;
+  }
+
+  .lg\:focus\:border-mainpage:focus {
+    border-color: #f5f5f5;
   }
 
   .lg\:rounded-none {
@@ -21915,6 +22463,22 @@ table {
     color: #ffebef;
   }
 
+  .lg\:text-menu {
+    color: #161313;
+  }
+
+  .lg\:text-sub-menu {
+    color: #ebe9e9;
+  }
+
+  .lg\:text-frontpage {
+    color: #2e3333;
+  }
+
+  .lg\:text-mainpage {
+    color: #f5f5f5;
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -22207,6 +22771,22 @@ table {
     color: #ffebef;
   }
 
+  .lg\:hover\:text-menu:hover {
+    color: #161313;
+  }
+
+  .lg\:hover\:text-sub-menu:hover {
+    color: #ebe9e9;
+  }
+
+  .lg\:hover\:text-frontpage:hover {
+    color: #2e3333;
+  }
+
+  .lg\:hover\:text-mainpage:hover {
+    color: #f5f5f5;
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -22497,6 +23077,22 @@ table {
 
   .lg\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .lg\:focus\:text-menu:focus {
+    color: #161313;
+  }
+
+  .lg\:focus\:text-sub-menu:focus {
+    color: #ebe9e9;
+  }
+
+  .lg\:focus\:text-frontpage:focus {
+    color: #2e3333;
+  }
+
+  .lg\:focus\:text-mainpage:focus {
+    color: #f5f5f5;
   }
 
   .lg\:text-xs {
@@ -23226,6 +23822,22 @@ table {
     background-color: #ffebef;
   }
 
+  .xl\:bg-menu {
+    background-color: #161313;
+  }
+
+  .xl\:bg-sub-menu {
+    background-color: #ebe9e9;
+  }
+
+  .xl\:bg-frontpage {
+    background-color: #2e3333;
+  }
+
+  .xl\:bg-mainpage {
+    background-color: #f5f5f5;
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -23518,6 +24130,22 @@ table {
     background-color: #ffebef;
   }
 
+  .xl\:hover\:bg-menu:hover {
+    background-color: #161313;
+  }
+
+  .xl\:hover\:bg-sub-menu:hover {
+    background-color: #ebe9e9;
+  }
+
+  .xl\:hover\:bg-frontpage:hover {
+    background-color: #2e3333;
+  }
+
+  .xl\:hover\:bg-mainpage:hover {
+    background-color: #f5f5f5;
+  }
+
   .xl\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -23808,6 +24436,22 @@ table {
 
   .xl\:focus\:bg-pink-lightest:focus {
     background-color: #ffebef;
+  }
+
+  .xl\:focus\:bg-menu:focus {
+    background-color: #161313;
+  }
+
+  .xl\:focus\:bg-sub-menu:focus {
+    background-color: #ebe9e9;
+  }
+
+  .xl\:focus\:bg-frontpage:focus {
+    background-color: #2e3333;
+  }
+
+  .xl\:focus\:bg-mainpage:focus {
+    background-color: #f5f5f5;
   }
 
   .xl\:bg-bottom {
@@ -24166,6 +24810,22 @@ table {
     border-color: #ffebef;
   }
 
+  .xl\:border-menu {
+    border-color: #161313;
+  }
+
+  .xl\:border-sub-menu {
+    border-color: #ebe9e9;
+  }
+
+  .xl\:border-frontpage {
+    border-color: #2e3333;
+  }
+
+  .xl\:border-mainpage {
+    border-color: #f5f5f5;
+  }
+
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -24458,6 +25118,22 @@ table {
     border-color: #ffebef;
   }
 
+  .xl\:hover\:border-menu:hover {
+    border-color: #161313;
+  }
+
+  .xl\:hover\:border-sub-menu:hover {
+    border-color: #ebe9e9;
+  }
+
+  .xl\:hover\:border-frontpage:hover {
+    border-color: #2e3333;
+  }
+
+  .xl\:hover\:border-mainpage:hover {
+    border-color: #f5f5f5;
+  }
+
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -24748,6 +25424,22 @@ table {
 
   .xl\:focus\:border-pink-lightest:focus {
     border-color: #ffebef;
+  }
+
+  .xl\:focus\:border-menu:focus {
+    border-color: #161313;
+  }
+
+  .xl\:focus\:border-sub-menu:focus {
+    border-color: #ebe9e9;
+  }
+
+  .xl\:focus\:border-frontpage:focus {
+    border-color: #2e3333;
+  }
+
+  .xl\:focus\:border-mainpage:focus {
+    border-color: #f5f5f5;
   }
 
   .xl\:rounded-none {
@@ -27489,6 +28181,22 @@ table {
     color: #ffebef;
   }
 
+  .xl\:text-menu {
+    color: #161313;
+  }
+
+  .xl\:text-sub-menu {
+    color: #ebe9e9;
+  }
+
+  .xl\:text-frontpage {
+    color: #2e3333;
+  }
+
+  .xl\:text-mainpage {
+    color: #f5f5f5;
+  }
+
   .xl\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -27781,6 +28489,22 @@ table {
     color: #ffebef;
   }
 
+  .xl\:hover\:text-menu:hover {
+    color: #161313;
+  }
+
+  .xl\:hover\:text-sub-menu:hover {
+    color: #ebe9e9;
+  }
+
+  .xl\:hover\:text-frontpage:hover {
+    color: #2e3333;
+  }
+
+  .xl\:hover\:text-mainpage:hover {
+    color: #f5f5f5;
+  }
+
   .xl\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -28071,6 +28795,22 @@ table {
 
   .xl\:focus\:text-pink-lightest:focus {
     color: #ffebef;
+  }
+
+  .xl\:focus\:text-menu:focus {
+    color: #161313;
+  }
+
+  .xl\:focus\:text-sub-menu:focus {
+    color: #ebe9e9;
+  }
+
+  .xl\:focus\:text-frontpage:focus {
+    color: #2e3333;
+  }
+
+  .xl\:focus\:text-mainpage:focus {
+    color: #f5f5f5;
   }
 
   .xl\:text-xs {
