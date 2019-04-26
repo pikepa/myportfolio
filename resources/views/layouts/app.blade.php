@@ -14,12 +14,10 @@
 
 <div id="app">
     @include('layouts.partials.nav')
-
+    
     @yield('content')
 
-
-    @include('layouts.partials.scripts')
 </div>
 </body>
-
+@include('layouts.partials.scripts')
 </html>
