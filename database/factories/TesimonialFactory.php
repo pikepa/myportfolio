@@ -13,6 +13,9 @@ $factory->define(Testimonial::class, function (Faker $faker) {
         'story' =>$faker->paragraph,
         'img_name' =>$faker->name,
         'approved' =>'Yes',
+        'owner_id' => function(){
+            return factory(App\User::class)->create()->id;
+        }    
     ];
 
 

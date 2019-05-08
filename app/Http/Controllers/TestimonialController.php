@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
+        /**
+     * Instantiate a new UserController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => [
+            'index',
+            'show',
+        ]]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +39,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('testimonials.create');
     }
 
     /**
@@ -38,8 +50,16 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $attributes = request()->validate([
+            'client_name' => 'required', 
+            'country' => 'required', 
+            'story'=>'required',
+            'img_name'=>'required',
+            'approved'=>'required'
+        ]);
+        auth()->user()->testimonials()->create($attributes);
+
+        return redirect('/testimonials');    }
 
     /**
      * Display the specified resource.
@@ -49,7 +69,9 @@ class TestimonialController extends Controller
      */
     public function show($id)
     {
-        //
+        $testimonial = Testimonial::findorFail($id);
+             
+        return view('homepages.testimonial_detail',compact('testimonial'));
     }
 
     /**
@@ -58,9 +80,11 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Testimonial $testimonial)
     {
-        //
+        $testimonial = Testimonial::findorFail($testimonial->id);
+                     
+        return view('testimonials.edit',compact('testimonial'));
     }
 
     /**
@@ -70,10 +94,17 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Testimonial $testimonial)
     {
-        //
-    }
+            $attributes = request()->validate([
+            'client_name' => 'required', 
+            'country'=>'required',
+            'story'=>'required'
+        ]);
+
+     //   $this->authorize('update', $testimonial);
+        $testimonial->update($attributes);
+        return redirect($testimonial->path());         }
 
     /**
      * Remove the specified resource from storage.
@@ -81,8 +112,9 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Testimonial $testimonial)
     {
-        //
-    }
+        $this->authorize('manage', $testimonial);
+        $testimonial->delete();
+        return redirect('/testimonials');    }
 }

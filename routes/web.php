@@ -17,10 +17,12 @@ Route::get('/program/how_it_works', function () {return view('homepages.how_it_w
 Route::get('/program/nutrition', function () {return view('homepages.nutrition');});
 Route::get('/program/motivation', function () {return view('homepages.motivation');});
 Route::get('/program/community', function () {return view('homepages.community');});
-
-Route::Resource('testimonials','TestimonialController');
+   Route::Resource('testimonials','TestimonialController');
 
 Auth::routes();
+
+Route::group(['middleware' => 'auth'],function(){
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

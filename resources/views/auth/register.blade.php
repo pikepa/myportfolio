@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
+@section('title', 'Login')
+
 @section('content')
+
+@include('layouts.partials.pageheader')
     <div class="container mx-auto">
         <div class="mt-12 flex flex-wrap justify-center">
             <div class="w-full max-w-sm">

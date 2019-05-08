@@ -17,19 +17,27 @@
                         <img class="p-4 rounded-full h-40 w-40" width=140px src="{{URL::asset('images/uploads/DaniBuckingham.png')}}">
                     </div>
                     <div class="card w-2/3">
-                        <p class="text-pink uppercase text-xl pb-2"> {{ $testimonial->client_name }}</p>
-                        <p class="text-grey pb-2"> {{ $testimonial->country }}</p>
-                        <p> {{ substr(nl2br($testimonial->story), 0, 420) }}
-                            <a class="no-underline" href="{{ $url = action('TestimonialController@show', ['id' => $testimonial->id]) }}" >...more...</a></p>
-                    </div>
+                        <div> 
+                            <p class="text-pink uppercase text-xl pb-2"> {{ $testimonial->client_name }}</p>
+                            <p class="text-grey pb-2"> {{ $testimonial->country }}</p>
+                            <p> {!! substr(nl2br($testimonial->story), 0, 420) !!}
+                        </div>
+                        <div class="mt-2">
+                            <a class="text-base no-underline" href="{{ $url = action('TestimonialController@show', ['id' => $testimonial->id]) }}" >... more <i class="fas fa-angle-double-right"></i></a></p>
+                        </div> 
+                   </div>
                 </div> 
             @else
                     <div class="mt-12 flex justify-around items-center flex-col md:flex-row">
                     <div class="card w-2/3">
-                        <p class="text-pink  text-right uppercase text-xl pb-2"> {{ $testimonial->client_name }}</p>
-                        <p class="text-grey text-right pb-2"> {{ $testimonial->country }}</p>
-                        <p> {{ substr(nl2br($testimonial->story), 0, 420) }}
-                            <a class="no-underline" href="{{ $url = action('TestimonialController@show', ['id' => $testimonial->id]) }}" >...more...</a></p>
+                        <div> 
+                            <p class="text-pink uppercase text-xl pb-2"> {{ $testimonial->client_name }}</p>
+                            <p class="text-grey pb-2"> {{ $testimonial->country }}</p>
+                            <p> {!! substr(nl2br($testimonial->story), 0, 420) !!}
+                        </div>
+                        <div class="mt-2">
+                            <a class="text-base no-underline" href="{{ $url = action('TestimonialController@show', ['id' => $testimonial->id]) }}" >... more <i class="fas fa-angle-double-right"></i></i></a></p>
+                        </div> 
                     </div>
                     <div class="flex items-center justify-center">
                         <img class="rounded-full h-40 w-40" width=140px src="{{URL::asset('images/uploads/TimBuckingham.png')}}">

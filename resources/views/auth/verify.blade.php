@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Verify')
+
 @section('content')
-    <div class="container mx-auto">
+
+@include('layouts.partials.pageheader')    
+<div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
 
