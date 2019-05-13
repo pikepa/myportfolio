@@ -66,38 +66,27 @@ class ManageTestimonialsTest extends TestCase
             }
 
             /** @test */
-            function a_user_can_delete_an_album()
+            function a_user_can_delete_their_testimonial()
             {
                 $testimonial = TestimonialFactory::create();
+
                 $this->actingAs($testimonial->owner)
                      ->delete($testimonial->path())
                      ->assertRedirect('/testimonials');
-                     
                 $this->assertDatabaseMissing('testimonials', $testimonial->only('id'));
             }
 
 
             /** @test */
-            function an_admin_can_delete_any_testimonial()
-            {
-                
-            }
-            /** @test */
-            public function it_has_a_path()
-            {
-                $this->withoutExceptionHandling();
-                $testimonial = TestimonialFactory::create();
-
-                $this->assertEquals('/testimonials/'. $testimonial->id,$testimonial->path());
-            }   
-
-            /** @test */
-            public function an_testimonial_belongs_to_an_owner()
+            function a_user_can_not_delete_another_users_testimonial()
             {
                 $testimonial = TestimonialFactory::create();
 
-                $this->assertInstanceOf('App\User', $testimonial->owner);
-            }
+                $this->signIn();
 
+                $this->delete($testimonial->path())
+                     ->assertStatus(403);
+                $this->assertDatabaseHas('testimonials', $testimonial->only('id'));
+            }
 
 }

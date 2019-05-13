@@ -25,7 +25,11 @@
                             <p><a class="no-underline"  href="{{ $url = action('TestimonialController@edit', $testimonial->id) }}" ><i class="far fa-edit"></i> Edit</a></p>
                         </div>
                         <div class="text-sm">
-                            <p><a class="no-underline"  href="{{ $url = action('TestimonialController@destroy', $testimonial->id) }}" ><i class="far fa-trash-alt"></i> Delete</a></p>
+                            <form method="POST" action="{{ $testimonial->path() }}" class="text-right">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="text-sm"><i class="far fa-trash-alt"></i> Delete</button>
+                            </form>
                         </div>
                     @endauth
                 </div>

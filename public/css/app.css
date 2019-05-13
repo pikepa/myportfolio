@@ -2844,6 +2844,10 @@ table {
   border-radius: .5rem;
 }
 
+.rounded-xlg {
+  border-radius: .75rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2928,6 +2932,26 @@ table {
   border-bottom-left-radius: .5rem;
 }
 
+.rounded-t-xlg {
+  border-top-left-radius: .75rem;
+  border-top-right-radius: .75rem;
+}
+
+.rounded-r-xlg {
+  border-top-right-radius: .75rem;
+  border-bottom-right-radius: .75rem;
+}
+
+.rounded-b-xlg {
+  border-bottom-right-radius: .75rem;
+  border-bottom-left-radius: .75rem;
+}
+
+.rounded-l-xlg {
+  border-top-left-radius: .75rem;
+  border-bottom-left-radius: .75rem;
+}
+
 .rounded-t-full {
   border-top-left-radius: 9999px;
   border-top-right-radius: 9999px;
@@ -3010,6 +3034,22 @@ table {
 
 .rounded-bl-lg {
   border-bottom-left-radius: .5rem;
+}
+
+.rounded-tl-xlg {
+  border-top-left-radius: .75rem;
+}
+
+.rounded-tr-xlg {
+  border-top-right-radius: .75rem;
+}
+
+.rounded-br-xlg {
+  border-bottom-right-radius: .75rem;
+}
+
+.rounded-bl-xlg {
+  border-bottom-left-radius: .75rem;
 }
 
 .rounded-tl-full {
@@ -3363,7 +3403,7 @@ table {
 }
 
 .font-sans {
-  font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Muli, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .font-serif {
@@ -6663,9 +6703,17 @@ table {
 
 .card {
   background-color: #fff;
-  padding: 1rem;
+  padding: .5rem;
   border-radius: .5rem;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.img_card {
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: .5rem;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  width: .75rem;
 }
 
 @media (min-width: 576px) {
@@ -8928,6 +8976,10 @@ table {
     border-radius: .5rem;
   }
 
+  .sm\:rounded-xlg {
+    border-radius: .75rem;
+  }
+
   .sm\:rounded-full {
     border-radius: 9999px;
   }
@@ -9012,6 +9064,26 @@ table {
     border-bottom-left-radius: .5rem;
   }
 
+  .sm\:rounded-t-xlg {
+    border-top-left-radius: .75rem;
+    border-top-right-radius: .75rem;
+  }
+
+  .sm\:rounded-r-xlg {
+    border-top-right-radius: .75rem;
+    border-bottom-right-radius: .75rem;
+  }
+
+  .sm\:rounded-b-xlg {
+    border-bottom-right-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
+  .sm\:rounded-l-xlg {
+    border-top-left-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
   .sm\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -9094,6 +9166,22 @@ table {
 
   .sm\:rounded-bl-lg {
     border-bottom-left-radius: .5rem;
+  }
+
+  .sm\:rounded-tl-xlg {
+    border-top-left-radius: .75rem;
+  }
+
+  .sm\:rounded-tr-xlg {
+    border-top-right-radius: .75rem;
+  }
+
+  .sm\:rounded-br-xlg {
+    border-bottom-right-radius: .75rem;
+  }
+
+  .sm\:rounded-bl-xlg {
+    border-bottom-left-radius: .75rem;
   }
 
   .sm\:rounded-tl-full {
@@ -9447,7 +9535,7 @@ table {
   }
 
   .sm\:font-sans {
-    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Muli, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .sm\:font-serif {
@@ -14962,6 +15050,10 @@ table {
     border-radius: .5rem;
   }
 
+  .md\:rounded-xlg {
+    border-radius: .75rem;
+  }
+
   .md\:rounded-full {
     border-radius: 9999px;
   }
@@ -15046,6 +15138,26 @@ table {
     border-bottom-left-radius: .5rem;
   }
 
+  .md\:rounded-t-xlg {
+    border-top-left-radius: .75rem;
+    border-top-right-radius: .75rem;
+  }
+
+  .md\:rounded-r-xlg {
+    border-top-right-radius: .75rem;
+    border-bottom-right-radius: .75rem;
+  }
+
+  .md\:rounded-b-xlg {
+    border-bottom-right-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
+  .md\:rounded-l-xlg {
+    border-top-left-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
   .md\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -15128,6 +15240,22 @@ table {
 
   .md\:rounded-bl-lg {
     border-bottom-left-radius: .5rem;
+  }
+
+  .md\:rounded-tl-xlg {
+    border-top-left-radius: .75rem;
+  }
+
+  .md\:rounded-tr-xlg {
+    border-top-right-radius: .75rem;
+  }
+
+  .md\:rounded-br-xlg {
+    border-bottom-right-radius: .75rem;
+  }
+
+  .md\:rounded-bl-xlg {
+    border-bottom-left-radius: .75rem;
   }
 
   .md\:rounded-tl-full {
@@ -15481,7 +15609,7 @@ table {
   }
 
   .md\:font-sans {
-    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Muli, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .md\:font-serif {
@@ -20996,6 +21124,10 @@ table {
     border-radius: .5rem;
   }
 
+  .lg\:rounded-xlg {
+    border-radius: .75rem;
+  }
+
   .lg\:rounded-full {
     border-radius: 9999px;
   }
@@ -21080,6 +21212,26 @@ table {
     border-bottom-left-radius: .5rem;
   }
 
+  .lg\:rounded-t-xlg {
+    border-top-left-radius: .75rem;
+    border-top-right-radius: .75rem;
+  }
+
+  .lg\:rounded-r-xlg {
+    border-top-right-radius: .75rem;
+    border-bottom-right-radius: .75rem;
+  }
+
+  .lg\:rounded-b-xlg {
+    border-bottom-right-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
+  .lg\:rounded-l-xlg {
+    border-top-left-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
   .lg\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -21162,6 +21314,22 @@ table {
 
   .lg\:rounded-bl-lg {
     border-bottom-left-radius: .5rem;
+  }
+
+  .lg\:rounded-tl-xlg {
+    border-top-left-radius: .75rem;
+  }
+
+  .lg\:rounded-tr-xlg {
+    border-top-right-radius: .75rem;
+  }
+
+  .lg\:rounded-br-xlg {
+    border-bottom-right-radius: .75rem;
+  }
+
+  .lg\:rounded-bl-xlg {
+    border-bottom-left-radius: .75rem;
   }
 
   .lg\:rounded-tl-full {
@@ -21515,7 +21683,7 @@ table {
   }
 
   .lg\:font-sans {
-    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Muli, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .lg\:font-serif {
@@ -27030,6 +27198,10 @@ table {
     border-radius: .5rem;
   }
 
+  .xl\:rounded-xlg {
+    border-radius: .75rem;
+  }
+
   .xl\:rounded-full {
     border-radius: 9999px;
   }
@@ -27114,6 +27286,26 @@ table {
     border-bottom-left-radius: .5rem;
   }
 
+  .xl\:rounded-t-xlg {
+    border-top-left-radius: .75rem;
+    border-top-right-radius: .75rem;
+  }
+
+  .xl\:rounded-r-xlg {
+    border-top-right-radius: .75rem;
+    border-bottom-right-radius: .75rem;
+  }
+
+  .xl\:rounded-b-xlg {
+    border-bottom-right-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
+  .xl\:rounded-l-xlg {
+    border-top-left-radius: .75rem;
+    border-bottom-left-radius: .75rem;
+  }
+
   .xl\:rounded-t-full {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
@@ -27196,6 +27388,22 @@ table {
 
   .xl\:rounded-bl-lg {
     border-bottom-left-radius: .5rem;
+  }
+
+  .xl\:rounded-tl-xlg {
+    border-top-left-radius: .75rem;
+  }
+
+  .xl\:rounded-tr-xlg {
+    border-top-right-radius: .75rem;
+  }
+
+  .xl\:rounded-br-xlg {
+    border-bottom-right-radius: .75rem;
+  }
+
+  .xl\:rounded-bl-xlg {
+    border-bottom-left-radius: .75rem;
   }
 
   .xl\:rounded-tl-full {
@@ -27549,7 +27757,7 @@ table {
   }
 
   .xl\:font-sans {
-    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Muli, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .xl\:font-serif {

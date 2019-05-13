@@ -82,6 +82,8 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
+        $this->authorize('manage', $testimonial);
+
         $testimonial = Testimonial::findorFail($testimonial->id);
                      
         return view('testimonials.edit',compact('testimonial'));
@@ -102,7 +104,7 @@ class TestimonialController extends Controller
             'story'=>'required'
         ]);
 
-     //   $this->authorize('update', $testimonial);
+        $this->authorize('manage', $testimonial);
         $testimonial->update($attributes);
         return redirect($testimonial->path());         }
 
@@ -114,7 +116,9 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
+                             
         $this->authorize('manage', $testimonial);
+
         $testimonial->delete();
         return redirect('/testimonials');    }
 }

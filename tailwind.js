@@ -205,6 +205,7 @@ module.exports = {
       '-apple-system',
       'Segoe UI',
       'Roboto',
+      'Muli',
       'Oxygen',
       'Ubuntu',
       'Cantarell',
@@ -459,6 +460,7 @@ module.exports = {
     'sm': '.125rem',
     default: '.25rem',
     'lg': '.5rem',
+    'xlg': '.75rem',
     'full': '9999px',
   },
 
