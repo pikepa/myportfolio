@@ -6716,6 +6716,13 @@ table {
   width: .75rem;
 }
 
+.img_fill {
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('{{ $product->featured_img }}');
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

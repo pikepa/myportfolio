@@ -14,6 +14,8 @@
 Route::get('/', function () {return view('homepages.welcome');});
 Route::get('/theartist', function () {return view('homepages.theartist');});
 
+Route::resource('product','ProductController');
+
 
 Auth::routes();
 

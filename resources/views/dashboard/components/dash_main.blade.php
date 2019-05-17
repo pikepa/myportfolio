@@ -1,21 +1,44 @@
-<main class=" font-moli flex flex-1  flex-wrap justify-between -mx-2 px-2 py-4">
+<main class=" flex flex-1  flex-wrap justify-between -mx-2 px-2 py-4">
  
-@for ($i=1;$i<=10;$i++)
-    <div class="card mb-2" style=" width:325px">
-        <div>
-            <img class="w-full rounded-lg" src="images/uploads/Baja_3393.jpg" alt="Sunset in the mountains">
-
+@foreach ($products as $product)
+    <div class="flex flex-col card  mb-2 " style=" width:325px">
+        <div class="flex-1 ">
+            <div class="mx-auto text-center">
+                 <img class="w-auto rounded-lg" src={{ $product->featured_img }} style='height:325px' alt="Sunset in the mountains">
+            </div>
         </div>
-        <div class=" text-center">
-            <h4 class="p-2">Baja</h4>
-        </div>
-        <div>
-            <p class="mt-4">{{ substr('Worked on this for few months using old newspapers and other recycling stuff. Inspired on a Black Boxfish (Ostracion Meleagris).
-                Painted with acrylics and glossy varnish (brand: Amsterdam from Royal Talens).',0,150) }}</p>
+        <div class=" card mt-2 text-center">
+            <h4 class="p-2">{{ $product->title }}</h4>
         </div>
         <div>
-            <h4 class="my-4">Price: Rm 1233.00</h4>
+            <p class="mt-4">{{ substr($product->description ,0,150) }}</p>
         </div>
+        <div class="flex flex-row justify-between">
+            @if ( $product->status === 'For Sale')
+                <div>
+                    <h4 class="my-4">{{ $product->status }}</h4>
+                </div> 
+                <div>
+                    <h4 class="my-4">Rm {{ number_format($product->price/100,2,'.', ',')}}</h4>
+                </div>           
+            @elseif ($product->status === 'Sold')
+                <div>
+                    <h4 class="my-4">{{ $product->status }}</h4>
+                </div> 
+                <div>
+                    <h4 class=" line-through my-4">Rm {{ number_format($product->price/100,2,'.', ',')}}</h4>
+                </div>             
+            @else
+                <div>
+                    <h4 class="my-4">{{ $product->status }}</h4>
+                </div> 
+            @endif
+            
+            
+        </div>
+     
     </div>
-@endfor
-</div>
+@endforeach
+
+
+</main>

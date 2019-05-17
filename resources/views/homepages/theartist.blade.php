@@ -14,14 +14,14 @@
             
             <div class="container mx-auto pb-4">
                 <div class="text-center">
-                    <h1 class="m-4 uppercase">Hellen Dutch</h1>
+                    <h1 class="m-4 ">Hellen Dutch</h1>
                 </div>
                 <div class="flex flex-col md:flex-row ">
                     <div class="card mx-auto px-4 mx-2">
                        <img class="rounded-lg border-white border-8" src="{{URL::asset('images/aboutme.jpg')}}" width=400px  alt="Profile Pic">
                     </div>
 
-                    <div class="flex flex-col flex-1 card items-center m-4 md:m-0">
+                    <div class="flex flex-col flex-1 card items-center ml-4 ">
                         <div class="text-base p-4">
                             <div class="text-justify">
                                 <p class="pb-2">Hellen is a Dutch lady who came to live in Borneo in early 2011. </p>

@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="antialiased">
+<body class="font-sans antialiased">
 
 <div id="app">
     @include('layouts.partials.nav')

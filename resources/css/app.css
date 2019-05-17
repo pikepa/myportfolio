@@ -67,4 +67,9 @@
  .img_card {
     @apply .card w-3;
  }
+ .img_fill {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
 

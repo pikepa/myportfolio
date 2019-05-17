@@ -1,8 +1,8 @@
-<div class="font-moli card bg-grey-light mx-4 mt-4 md:ml-0 md:w-1/6">
+<div class="font-sans card bg-grey-light mx-4 mt-4 md:ml-0 md:w-1/6">
     
     <div class="mb-2 mt-12">
         <ul class="list-reset">
-            <li><a href="{{ url('/') }}" class="no-underline">Home.</a></li>
+            <li><a href="{{ url('/product') }}" class="no-underline">Home.</a></li>
             <li><a href="{{ url('/theartist') }}" class="no-underline">The Artist.</a></li>
             <li><a href="{{ url('/whyborneo') }}" class="no-underline">Why Borneo.</a></li>
             <li><a href="{{ url('/materials') }}" class="no-underline">Use of Materials.</a></li>
