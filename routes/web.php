@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {return view('homepages.welcome');});
+Route::get('/', 'ProductController@index')->name('root');
 Route::get('/theartist', function () {return view('homepages.theartist');});
+Route::get('/whyborneo', function () {return view('homepages.whyborneo');});
+Route::get('/materials', function () {return view('homepages.materials');});
 
 Route::resource('product','ProductController');
 

@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->text('featured_img');
             $table->text('title');
             $table->text('description');
-            $table->integer('price');
+            $table->integer('price')->unsigned();
             $table->integer('discount')->unsigned();
             $table->timestamp('published');
             $table->text('status');

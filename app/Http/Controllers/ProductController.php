@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $products = Product::get();
                                                        
-        return view('homepages.welcome',compact('products'));
+        return view('dashboard.home',compact('products'));
 
     }
 
@@ -69,9 +69,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $testimonial = Product::findorFail($id);
+        $product = Product::findorFail($id);
              
-        return view('homepages.testimonial_detail',compact('testimonial'));
+        return view('homepages.product_detail',compact('product'));
     }
 
     /**

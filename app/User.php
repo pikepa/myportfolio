@@ -40,6 +40,6 @@ class User extends Authenticatable
 
 
     public function testimonials(){
-        return $this->hasMany(Testimonial::class,'owner_id') ;
+        return $this->hasMany(Product::class,'owner_id') ;
     }
 }

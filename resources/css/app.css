@@ -4,9 +4,14 @@
  *
  * You can see the styles here:
  * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- */
-@tailwind preflight;
+ *@tailwind preflight;
+*/
+@tailwind base;
 
+html {
+  font-family: sans-serif;
+
+}
 /**
  * This injects any component classes registered by plugins.
  *
@@ -57,10 +62,14 @@
  * @import "utilities/skew-transforms";
  */
 .button{
-    @apply .bg-blue .text-white .no-underline .rounded-lg .text-sm .py-2 .px-5;
+    @apply  .text-white .no-underline .rounded-lg .text-sm .py-2 .px-5;
     box-shadow: 0 2px 7px 0 #b0eaff;
  }
 
+ .p{
+    @apply .text-lg;
+ }
+ 
  .card {
     @apply .bg-white .p-2 .rounded-lg .shadow-lg;
  }

@@ -8,19 +8,21 @@
             </div>
         </div>
         <div class=" card mt-2 text-center">
-            <h4 class="p-2">{{ $product->title }}</h4>
+            <h1 class="text-xl font-semibold p-2">{{ $product->title }}</h1>
         </div>
         <div>
-            <p class="mt-4">{{ substr($product->description ,0,150) }}</p>
+            <p class="mt-4">{{ substr($product->description ,0,150) }}  
+            <a class="text-base no-underline" href="{{ $url = action('ProductController@show', ['id' => $product->id]) }}" >... more <i class="fas fa-angle-double-right"></i></a></p>
         </div>
         <div class="flex flex-row justify-between">
             @if ( $product->status === 'For Sale')
                 <div>
                     <h4 class="my-4">{{ $product->status }}</h4>
                 </div> 
-                <div>
-                    <h4 class="my-4">Rm {{ number_format($product->price/100,2,'.', ',')}}</h4>
-                </div>           
+                    <div>
+                        <h4 class="my-4">Rm {{ number_format($product->price/100,2,'.', ',')}}</h4>
+                    </div> 
+
             @elseif ($product->status === 'Sold')
                 <div>
                     <h4 class="my-4">{{ $product->status }}</h4>

@@ -24,9 +24,9 @@ class HomePageTests extends TestCase
     /** @test */
     function the_static_pages_are_loaded_when_guest_clicks_menu_link()
     {
-        $response=$this->get('/aboutme');
+        $response=$this->get('/artist');
         $response->assertStatus(200);
-        $response->assertSee('Pippa');
+        $response->assertSee('Hellen Dutch');
 
         $response=$this->get('/program/how_it_works');
         $response->assertStatus(200);

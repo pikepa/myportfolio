@@ -12,7 +12,6 @@
 
              @include('dashboard.components.dash_main')
 
-             @include('dashboard.components.dash_right')
          </div>
     </div>
 
