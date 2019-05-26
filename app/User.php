@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
 
 
-    public function testimonials(){
+    public function products(){
         return $this->hasMany(Product::class,'owner_id') ;
     }
 }

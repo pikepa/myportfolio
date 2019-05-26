@@ -32,7 +32,7 @@ class ProductFactory
      * @return Product
      */
     public function create()
-    {
+    {                     
         $product = factory(Product::class)->create([
             'owner_id' => $this->user ?? factory(User::class)
         ]);

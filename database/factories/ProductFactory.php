@@ -15,7 +15,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'discount' =>'Yes',
         'published' =>$faker->date,
         'status' =>$faker->randomElement(['For Sale', 'Sold', 'Not for Sale']),
-         
     ];
 
 

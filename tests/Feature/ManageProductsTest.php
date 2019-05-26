@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\User;
 use Tests\TestCase;
+use Illuminate\Auth\Middleware\Auth;
 use Facades\Tests\Setup\ProductFactory;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -15,54 +16,60 @@ class ManageProductsTest extends TestCase
             /** @test */
             public function a_guest_can_view_all_products()
             {
-             $product = ProductFactory::create('5');
+             $product = ProductFactory::create();
   
-              $this->get('/product')
+               
+              $this->get('/')
                    ->assertSee($product->title)
-                   ->assertSee($product->description)
-                   ->assertSee($product->price)
-             //      ->assertSee($product->special_price)
+                   ->assertSee(substr($product->description ,0,150))
+                   ->assertSee(number_format($product->price/100,2,'.', ','))
                    ->assertSee($product->status);
                 
             }
             
             /** @test */
-            function a_guest_gets_redirected_if_they_try_to_manage_testimonials()
+            function a_guest_gets_redirected_if_they_try_to_manage_products()
             {
-                $testimonial = TestimonialFactory::create();
+                $product = ProductFactory::create();
 
-                $this->get('/testimonials/create')->assertRedirect('login');
-                $this->get($testimonial->path().'/edit')->assertRedirect('login');
-                $this->post('/testimonials', $testimonial->toArray())->assertRedirect('login');
+                $this->get('/product/create')->assertRedirect('login');
+                $this->get($product->path().'/edit')->assertRedirect('login');
+                $this->post('/product', $product->toArray())->assertRedirect('login');
             }
 
             /** @test */
-            function a_signed_in_user_can_edit_their_testimonial()
+            function a_signed_in_user_can_edit_their_product()
             {
-                $this->signIn();
-                $testimonial = TestimonialFactory::create();
-                $this->get($testimonial->path().'/edit')->assertStatus(200);
+                $user=$this->signIn();                                                                                     
+                $product = ProductFactory::create();        
+                $this->get($product->path().'/edit')->assertStatus(200);
+               // $this->signIn();                             
+                                                                                                                                                                                                                                                                                                                                                       
+               // $this->get($product->path().'/edit')->assertStatus(200);
  
             }
 
             /** @test */
-            function a_registered_user_can_add_their_testimonial()
+            function a_registered_user_can_add_their_product()
             {
+                $this->withoutExceptionHandling();
                 $this->signIn();
-                $this->get('testimonials/create')->assertStatus(200);
 
-                $attributes=[
-                'client_name' =>$this->faker->name, 
-                'country' => $this->faker->country, 
-                'story'=>$this->faker->paragraph,
-                'img_name'=>'null',
-                'approved'=>'no'
-                ];
+                $this->get('/product/create')->assertStatus(200);
+
+                 $attributes=[
+                    'title' => $this->faker->name, 
+                    'description'=>$this->faker->paragraph,
+                    'status'=>$this->faker->randomElement(['For Sale', 'Sold', 'Not for Sale']),
+                    'price' => 99999,
+                    'featured_img'=>'/images/uploads/Cudis_3939.jpg',
+                    'discount' => 0,
+                    ];
              
-                $this->post('/testimonials',$attributes)->assertRedirect('/testimonials');
+                $this->post('product',$attributes)->assertStatus(200);
 
-                $this->assertDatabaseHas('testimonials',$attributes);
-                $this->get('/testimonials')->assertSee($attributes['client_name']);
+          //     $this->assertDatabaseHas('testimonials',$attributes);
+          //      $this->get('/testimonials')->assertSee($attributes['client_name']);
 
             }
 

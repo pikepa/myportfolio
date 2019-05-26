@@ -8,6 +8,8 @@ class Product extends Model
 {
     protected $guarded=[];
 
+    protected $dates = ['publish_at'];
+
      /**
      * Get the user's discounted Price.
      *
@@ -19,15 +21,18 @@ class Product extends Model
       return $this->price - $discount ;
       // return number_format( ($this->price - $discount ),2,'.', ',');
     }
-        /**
-        * query to get products with status.
-        *
-        * @return string
-        */
-        public function scopeStatus($query,$value)
-        {
-            return $query->where('status', $value);
-        }
+/**
+     * Scope a query to only include users of a given status.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeOfStatus($query, $status)
+    {
+        return $query->where('status',$status);
+    }
+
 
     public function path(){
         return "/product/{$this->id}" ;

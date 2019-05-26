@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price')->unsigned();
             $table->integer('discount')->unsigned();
-            $table->timestamp('published');
             $table->text('status');
+            $table->timestamp('publish_at')->nullable();
             $table->integer('owner_id')->unsigned();
             $table->timestamps();
         });

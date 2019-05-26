@@ -16,6 +16,8 @@ Route::get('/theartist', function () {return view('homepages.theartist');});
 Route::get('/whyborneo', function () {return view('homepages.whyborneo');});
 Route::get('/materials', function () {return view('homepages.materials');});
 
+Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
+
 Route::resource('product','ProductController');
 
 
@@ -24,5 +26,4 @@ Auth::routes();
 Route::group(['middleware' => 'auth'],function(){
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
 

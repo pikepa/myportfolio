@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\User;
-use App\Testimonial;
+use App\Product;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TestimonialPolicy
+class ProductPolicy
 {
     use HandlesAuthorization;
 
@@ -20,8 +20,8 @@ class TestimonialPolicy
         //
     }
 
-    public function manage(User $user, Testimonial $testimonial)
-    {
-        return $user->is($testimonial->owner);
+    public function manage(User $user, Product $product)
+    {   
+       $user->is($product->owner);
     }
 }

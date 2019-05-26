@@ -3,101 +3,91 @@
 @include ('errors')
 
 <div class="field mb-6">
-    <label class="label text-base mb-2 block" for="title">Display Name</label>
-
-    <div class="control">
-        <input
-                type="text"
-                class="input bg-transparent border border-muted-light rounded p-2 text-base w-full"
-                name="title"
+    <label class="block">
+      <span class="text-gray-700">Display Name</span>
+        <input  type="text" class="form-input mt-1 block w-full" 
+                name='title'
                 placeholder="Enter the name of the piece."
-                required
-                value="{{ $product->title }}"
-                >
-                
-    </div>
+                value="{{old('title', $product->title)}}">
+    </label>
 </div>
 
 <div class="field mb-6">
-    <label class="label text-base mb-2 block" for="description">Artwork Description</label>
-
-    <div class="control">
-            <textarea
-                name="description"
-                rows="10"
-                class="textarea bg-transparent border border-muted-light rounded p-2 text-base w-full"
-                placeholder="Use as much space as required for the description. The first 200 characters will appear on the front screen."
-                required>{{ $product->description }}
-            </textarea>
-    </div>
+    <label class="block">
+      <span class="text-gray-700">Featured Image</span>
+        <input  type="text" class="form-input mt-1 block w-full" 
+                name='featured_img'
+                placeholder="Enter the name of the piece."
+                value="{{old('featured_img', $product->featured_img)}}">
+    </label>
 </div>
 
 <div class="field mb-6">
-    <label class="label text-base mb-2 block" for="price">Price</label>
-
-    <div class="control">
-        <input
-                type="text"
-                class="input bg-transparent border border-muted-light rounded p-2 text-base w-full"
-                name="price"
-                placeholder="Enter the price of the piece, if for sale."
-                required
-                value="{{ $product->price }}"
-                >
-    </div>
+     <label class="block">
+      <span class="text-gray-700">Description</span>
+      <textarea class="form-textarea mt-1 block w-full" 
+      name='description'
+      rows="5" 
+      placeholder="Please enter the description of the piece.">{{old('description', $product->description) }}
+      </textarea>
+    </label>
 </div>
 
 <div class="field mb-6">
-    <label class="label text-base mb-2 block" for="status">Status</label>
-
-    <div class="control">
-        <input
-                type="text"
-                class="input bg-transparent border border-muted-light rounded p-2 text-base w-full"
-                name="status"
-                placeholder="Enter the status of this piece"
-                required
-                value="{{ $product->status }}"
-                >
-    </div>
-</div>
-
-<div class="field mb-6">
-    <label class="label text-base mb-2 block" for="status">Status</label>
-    <div class="flex">
-        <div class="inline-block relative">
-          <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-            <option>For Sale</option>
-            <option>Sold</option>
-            <option>Not for Sale</option>
-          </select>
-          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-          </div>
+    <div class="block">
+      <span class="text-gray-700">Status</span>
+          <div class="mt-2 flex">
+            <div>
+              <label class="inline-flex items-center mr-4">
+                <input type="radio" class="form-radio text-indigo-600" 
+                name="status"  @if(old('status',$product->status)=="For Sale") checked @endif
+                checked 
+                value = 'For Sale'/>
+                <span class="ml-2">For Sale</span>
+              </label>
+            </div>
+            <div>
+              <label class="inline-flex items-center mr-4">
+                <input type="radio" class="form-radio text-pink-600" 
+                name="status" @if(old('status',$product->status)=="Not For Sale") checked @endif
+                value = 'Not For Sale'/>
+                <span class="ml-2">Not for Sale</span>
+              </label>
+            </div>
+            <div>
+              <label class="inline-flex items-center mr-4">
+                <input type="radio" class="form-radio text-red-600" 
+                name="status" @if(old('status',$product->status)=="Sold") checked @endif
+                value='Sold'/>
+                <span class="ml-2">Sold</span>
+              </label>
+            </div>
         </div>
     </div>
 </div>
 
-    
-<div class="flex w-full items-center ">
-    <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-        </svg>
-        <span class="mt-2 text-base leading-normal">Select a file</span>
-        <input type='file' class="hidden" />
+<div class="field mb-6">
+    <label class="block">
+      <span class="text-gray-700">Price (in Cents)</span>
+        <input  type="text" class="form-input mt-1 block w-1/2" 
+                name='price'
+                placeholder="Enter the price of the piece, in cents."
+                value={{old('price', $product->price) }}>
     </label>
 </div>
-<div class="control">
-    <input
-            type="hidden"
-            name="approved"
-            value='no'
-            >
+<div class="field mb-6">
+    <label class="block">
+      <span class="text-gray-700">Published</span>
+        <input  type="date" class="form-input mt-1 block w-full" 
+                name='publish_at'
+                value={{old('publish_at', $product->publish_at)}}/>
+    </label>
 </div>
+
+<input type=hidden name='discount' value=0 />
 <div class="field">
     <div class="control">
-        <button type="submit" class="button is-link mr-2">{{ $buttonText }}</button>
+        <button type="submit" class="btn btn-blue is-link mr-2">{{ $buttonText }}</button>
 
         <a href="{{ $product->path() }}" class="text-default">Cancel</a>
     </div>

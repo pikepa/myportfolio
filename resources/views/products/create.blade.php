@@ -14,7 +14,7 @@
 
         <form
             method="POST"
-            action="/products"
+            action="/product"
         >
             @include ('products.form', [
                 'product' => new App\Product,

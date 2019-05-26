@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,10 +15,7 @@ class ProductController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => [
-            'index',
-            'show',
-        ]]);
+      //      $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -26,8 +24,21 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
-                                                       
+        $products = Product::orderBy('publish_at','asc')->get();
+                                                                                                                           
+        return view('dashboard.home',compact('products'));
+
+    }
+    /**
+     * Display a listing of the products by status.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function status($status)
+    {
+                     
+        $products = Product::OfStatus($status)->orderBy('publish_at','asc')->get();
+                                                                                                                           
         return view('dashboard.home',compact('products'));
 
     }
@@ -49,17 +60,22 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {           
+$request->publish_at=new Carbon($request->get('publish_at'));
+
+
         $attributes = request()->validate([
-            'client_name' => 'required', 
-            'country' => 'required', 
-            'story'=>'required',
-            'img_name'=>'required',
-            'approved'=>'required'
-        ]);
+            'featured_img' => 'required', 
+            'title' => 'required', 
+            'description'=>'required',
+            'status'=>'required|in:For Sale,Not For Sale,Sold,',
+            'price' => 'required',
+            'discount' => 'required',
+            'publish_at'=>'required|date'
+        ]);                             
         auth()->user()->products()->create($attributes);
 
-        return redirect('/products');    }
+        return redirect('/product');    }
 
     /**
      * Display the specified resource.
@@ -80,13 +96,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $testimonial)
-    {
-        $this->authorize('manage', $testimonial);
+    public function edit(Product $product)
+    {             
+    // $this->authorize('manage', $product);
 
-        $testimonial = Product::findorFail($testimonial->id);
-                     
-        return view('testimonials.edit',compact('testimonial'));
+        $product = Product::findorFail($product->id);
+                                                       
+        return view('products.edit',compact('product'));
     }
 
     /**
@@ -96,17 +112,23 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $testimonial)
+    public function update(Request $request, Product $product)
     {
+        $request->publish_at=new Carbon($request->get('publish_at'));
+
             $attributes = request()->validate([
-            'client_name' => 'required', 
-            'country'=>'required',
-            'story'=>'required'
+            'featured_img' => 'required', 
+            'title' => 'required', 
+            'description'=>'required',
+            'status'=>'required|in:For Sale,Not For Sale,Sold,',
+            'price' => 'required',
+            'discount' => 'required',
+            'publish_at'=>'required|date'
         ]);
 
-        $this->authorize('manage', $testimonial);
-        $testimonial->update($attributes);
-        return redirect($testimonial->path());         }
+   //     $this->authorize('manage', $product);
+        $product->update($attributes);
+        return redirect($product->path());         }
 
     /**
      * Remove the specified resource from storage.
@@ -117,8 +139,8 @@ class ProductController extends Controller
     public function destroy(Product $testimonial)
     {
                              
-        $this->authorize('manage', $testimonial);
+     //   $this->authorize('manage', $product);
 
-        $testimonial->delete();
-        return redirect('/testimonials');    }
+        $product->delete();
+        return redirect('/array_product(array)');    }
 }

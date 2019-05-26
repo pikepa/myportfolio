@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
-@section('title', 'Edit My Testimonial')
+@section('title', 'Edit My Product')
 
 @section('content')
 
 @include('layouts.partials.pageheader')
 
-<div  class="container mx-auto">
-    <div class="card w-2/3 mt-12 mx-auto  p-3 px-16 rounded shadow">
+<div  class="container mx-auto ">
+    <div class="w-1/2 mx-auto card p-6  px-16 rounded shadow">
         <h1 class="text-2xl font-normal mb-10 text-center">
-            My Testimonial
+            My Product
         </h1>
 
         <form
                 method="POST"
-                action="{{ $testimonial->path() }}"
+                action="{{ $product->path() }}"
         >
             @method('PATCH')
 
-            @include ('testimonials.form', [
+            @include ('products.form', [
                 'buttonText' => 'Update'
             ])
         </form>

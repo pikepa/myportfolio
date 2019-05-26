@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="flex flex-wrap items-center">
-                            <button type="submit" class="bg-pink hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-dark buttontext-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 {{ __('Login') }}
                             </button>
 
@@ -63,13 +63,14 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
-
-                            <p class="w-full text-xs text-center text-grey-dark mt-8 -mb-4">
-                                Don't have an account?
-                                <a class="text-blue hover:text-blue-dark no-underline" href="{{ route('register') }}">
-                                    Register
-                                </a>
-                            </p>
+                            @auth   
+                                <p class="w-full text-xs text-center text-grey-dark mt-8 -mb-4">
+                                    Don't have an account?
+                                    <a class="text-blue hover:text-blue-dark no-underline" href="{{ route('register') }}">
+                                        Register
+                                    </a>
+                                </p>
+                            @endauth
                         </div>
                     </form>
 
