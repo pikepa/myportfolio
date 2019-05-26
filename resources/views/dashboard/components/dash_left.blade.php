@@ -2,11 +2,11 @@
     
     <div class="mb-2 mt-12">
         <ul class="">
-            <li><a href="{{ url('/') }}" class="font-semibold hover:font-bold no-underline">Home.</a></li>
+            <li><a href="{{ url('/') }}" class="my-2 font-semibold hover:font-bold no-underline">Home.</a></li>
             <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist.</a></li>
             <li><a href="{{ url('/whyborneo') }}" class="hover:font-semibold no-underline">Why Borneo.</a></li>
             <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials.</a></li>
-            <li><a href="{{ url('/contact') }}" class="hover:font-semibold no-underline">Contact Me.</a></li>
+            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold no-underline">Contact Me.</a></li>
         </ul>
     </div>
     <div class="mb-2">
@@ -16,10 +16,10 @@
             </h4>
         </div>
         <ul class="">
-            <li class="hover:font-semibold">Sculptures</li>
-            <li class="hover:font-semibold">Paintings</li>
-            <li class="hover:font-semibold">Cats</li>
-            <li class="hover:font-semibold">Underwater</li>
+            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Sculptures</li></a>
+            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Paintings</li></a>
+            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Cats</li></a>
+            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Underwater</li></a>
         </ul>    
     </div>
     <div class="mb-2">
@@ -40,6 +40,14 @@
             @endguest
         </ul> 
             @auth 
+            <div>
+            <h4 class="my-2 font-bold">Admin</h4>
+        </div>
+            <ul>
+                <li class="hover:font-semibold">
+                <a href="{{ url('/product/create') }}" class="hover:font-semibold no-underline">Add New Item.</a>
+                </li>
+            </ul>
                 <a href="{{ route('logout') }}"
                     class="hover:font-semibold no-underline"
                     onclick="event.preventDefault();

@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('addstyles')
+    <script src="{{url('js/dropzone.js')}}"></script>
+    <link rel="stylesheet" href="{{url('css/dropzone.css')}}">
+@endsection
+
 @section('title', 'Piece Details')
 
 @section('content')
@@ -35,9 +40,54 @@
                     @endauth
                 </div>
                  
-            </div>
-        </div> 
 
-    </div>
+            <main class="flex flex-wrap -mx-2 py-4">
+               @forelse($images as $image) 
+                    <div class="w-1/3 px-2 py-2">
+                        <div class="card flex-1  overflow-hidden" >
+                            <img class="w-full rounded" src="{{$image->getUrl()}}" alt="Sunset in the mountains">
+                            <div class='flex justify-between' >
+                                @auth
+                                <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
+                                @endauth
+                                <a href="/images/{{$image->id}}"><i class="fas fa-external-link-alt"></i></a>
+                            </div>  
+                        </div>
+                    </div>
+                @empty
+                   <div class="card mx-2"> No Pictures Yet</div>
+                @endforelse
+            </main>
+        </div>
+                @auth
+                <div class="my-4 w-2/3" id="dropzone">
+                     <form method="post" action="/images/upload" enctype="multipart/form-data" class="dropzone card" id="addPhotosForm" >
+                        {{csrf_field()}}
+                        <input type="hidden" name="product_id" value={{$product->id}}>
 
+                    </form>
+                </div>
+                @endauth
+        </div>
+</div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        Dropzone.options.addPhotosForm = {
+            paramName : 'image',
+            maxFilesize : 4,
+            timeout : 0,
+            acceptedFiles : '.jpg, .JPG, .JPEG, .jpeg, .png, .bmp',
+            init: function() {
+                this.on('success', function(){
+                    if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
+                            location.reload();
+                    }
+                });
+            }
+        };
+    </script>
+
+            
 @endsection

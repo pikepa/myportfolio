@@ -64,7 +64,7 @@ class ProductController extends Controller
 $request->publish_at=new Carbon($request->get('publish_at'));
 
 
-        $attributes = request()->validate([
+            $attributes = request()->validate([
             'featured_img' => 'required', 
             'title' => 'required', 
             'description'=>'required',
@@ -86,8 +86,10 @@ $request->publish_at=new Carbon($request->get('publish_at'));
     public function show($id)
     {
         $product = Product::findorFail($id);
-             
-        return view('homepages.product_detail',compact('product'));
+
+        $images= $product->getMedia('photos');
+                                                              
+        return view('homepages.product_detail',compact('product','images'));
     }
 
     /**
@@ -136,7 +138,7 @@ $request->publish_at=new Carbon($request->get('publish_at'));
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $testimonial)
+    public function destroy(Product $product)
     {
                              
      //   $this->authorize('manage', $product);

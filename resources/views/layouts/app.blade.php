@@ -4,7 +4,7 @@
 
     @include('layouts.partials.meta')
 
-    @yield('css')
+    @yield('addstyles')
 
     @include('layouts.partials.css')
 
