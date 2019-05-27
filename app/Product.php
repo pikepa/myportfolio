@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Category;
 use Spatie\MediaLibrary\Models\Media;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
@@ -46,13 +47,27 @@ class Product extends Model implements HasMedia
     public function owner(){
         return $this->belongsTo(User::class) ;
     }
+    
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 
+    
     // Media Definitions
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-              ->width(368)
-              ->height(232)
+              ->width(300)
+              ->height(300)
               ->sharpen(10);
+
+        $this->addMediaConversion('full')
+              ->width(800)
+              ->height(800)
+              ->sharpen(10);
+
+     
+
     }
 }

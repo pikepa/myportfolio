@@ -19,8 +19,20 @@
                 <div class="mb-4">
                     <h1 class=" font-semibold text-2xl text-center text-base-700 pb-2"> {{ $product->title }}</h1>
                     <p class="pb-4"> {!! nl2br($product->description) !!}</p>
-                    <h3 class="text-gray pb-2"> Rm {{ number_format($product->price/100,2,'.', ',')}}</h3>
-
+            
+                    @include('dashboard.components._pricing')
+                <div class="block mb-4">
+                  <span class="text-gray-700">Categories</span>
+                  <div class="mt-2">
+                    <div class="flex flex-wrap ">
+                      @foreach($product->categories as $existing)
+                        <div class="mx-4 font-semibold">
+                          <a href="/category/ {{ $existing->id }} " >{{ $existing->category }}</a>
+                        </div>
+                      @endforeach
+                    </div>
+                  </div>
+                </div>
                 </div>
                 <div class="flex ">         
                     <div class="flex-1 text-sm">
@@ -45,7 +57,7 @@
                @forelse($images as $image) 
                     <div class="w-1/3 px-2 py-2">
                         <div class="card flex-1  overflow-hidden" >
-                            <img class="w-full rounded" src="{{$image->getUrl()}}" alt="Sunset in the mountains">
+                            <img class="w-full rounded" src="{{$image->getUrl('thumb')}}" alt="Picture is Missing here">
                             <div class='flex justify-between' >
                                 @auth
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>

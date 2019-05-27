@@ -4,7 +4,7 @@
     <div class="flex flex-col card  mb-2 " style=" width:325px">
         <div class="flex-1 ">
             <div class="mx-auto text-center">
-                 <img class="w-auto rounded-lg" src={{ $product->featured_img }} style='height:325px' alt="Sunset in the mountains">
+                 <img class="w-auto rounded-lg w-full" src={{ $product->featured_img }} style="height:325px" alt="Sunset in the mountains">
             </div>
         </div>
         <div class=" card mt-2 text-center">
@@ -12,31 +12,12 @@
         </div>
         <div>
             <p class="mt-4">{{ substr($product->description ,0,150) }}  
-            <a class="text-base no-underline" href="{{ $url = action('ProductController@show', ['id' => $product->id]) }}" >... more <i class="fas fa-angle-double-right"></i></a></p>
+            <a class="text-blue-900 font-extrabold no-underline" href="{{ $url = action('ProductController@show', ['id' => $product->id]) }}" >... more <i class="fas fa-angle-double-right"></i></a></p>
         </div>
         <div class="flex flex-row justify-between">
-            @if ( $product->status === 'For Sale')
-                <div>
-                    <h4 class="my-4">{{ $product->status }}</h4>
-                </div> 
-                    <div>
-                        <h4 class="my-4">Rm {{ number_format($product->price/100,2,'.', ',')}}</h4>
-                    </div> 
 
-            @elseif ($product->status === 'Sold')
-                <div>
-                    <h4 class="my-4">{{ $product->status }}</h4>
-                </div> 
-                <div>
-                    <h4 class=" line-through my-4">Rm {{ number_format($product->price/100,2,'.', ',')}}</h4>
-                </div>             
-            @else
-                <div>
-                    <h4 class="my-4">{{ $product->status }}</h4>
-                </div> 
-            @endif
-            
-            
+            @include('dashboard.components._pricing')
+                        
         </div>
      
     </div>

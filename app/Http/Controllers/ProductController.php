@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -25,7 +27,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('publish_at','asc')->get();
-                                                                                                                           
+
         return view('dashboard.home',compact('products'));
 
     }
@@ -61,8 +63,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {           
-$request->publish_at=new Carbon($request->get('publish_at'));
-
+            $request->publish_at=new Carbon($request->get('publish_at'));
 
             $attributes = request()->validate([
             'featured_img' => 'required', 
@@ -73,7 +74,8 @@ $request->publish_at=new Carbon($request->get('publish_at'));
             'discount' => 'required',
             'publish_at'=>'required|date'
         ]);                             
-        auth()->user()->products()->create($attributes);
+        $product=auth()->user()->products()->create($attributes);
+        $product->categories()->sync($request->categories);
 
         return redirect('/product');    }
 
@@ -86,10 +88,10 @@ $request->publish_at=new Carbon($request->get('publish_at'));
     public function show($id)
     {
         $product = Product::findorFail($id);
-
         $images= $product->getMedia('photos');
-                                                              
-        return view('homepages.product_detail',compact('product','images'));
+        $foundcats=$product->categories;
+  //      dd($foundcats);                             
+        return view('homepages.product_detail',compact('product','images','foundcats'));
     }
 
     /**
@@ -117,7 +119,7 @@ $request->publish_at=new Carbon($request->get('publish_at'));
     public function update(Request $request, Product $product)
     {
         $request->publish_at=new Carbon($request->get('publish_at'));
-
+     //   dd($request->categories);
             $attributes = request()->validate([
             'featured_img' => 'required', 
             'title' => 'required', 
@@ -130,6 +132,8 @@ $request->publish_at=new Carbon($request->get('publish_at'));
 
    //     $this->authorize('manage', $product);
         $product->update($attributes);
+        $product->categories()->sync($request->categories);
+
         return redirect($product->path());         }
 
     /**

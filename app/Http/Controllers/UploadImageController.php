@@ -24,7 +24,7 @@ class UploadImageController extends Controller
         $product = Product::find($request->product_id);
 
         $product->addMedia($request->file('image'))
-              ->toMediaCollection('photos');
+                ->toMediaCollection('photos','s3');
         
         return redirect('/product/'. $request->product_id);
 

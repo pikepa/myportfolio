@@ -2,11 +2,11 @@
     
     <div class="mb-2 mt-12">
         <ul class="">
-            <li><a href="{{ url('/') }}" class="my-2 font-semibold hover:font-bold no-underline">Home.</a></li>
-            <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist.</a></li>
-            <li><a href="{{ url('/whyborneo') }}" class="hover:font-semibold no-underline">Why Borneo.</a></li>
-            <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials.</a></li>
-            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold no-underline">Contact Me.</a></li>
+            <li><a href="{{ url('/') }}" class="my-2 font-semibold hover:font-bold no-underline">Home</a></li>
+            <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist</a></li>
+            <li><a href="{{ url('/whyborneo') }}" class="hover:font-semibold no-underline">Why Borneo</a></li>
+            <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials</a></li>
+            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold no-underline">Contact Me</a></li>
         </ul>
     </div>
     <div class="mb-2">
@@ -16,10 +16,11 @@
             </h4>
         </div>
         <ul class="">
-            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Sculptures</li></a>
-            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Paintings</li></a>
-            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Cats</li></a>
-            <li><a href="{{ url('/coming_soon') }}" class="hover:font-semibold">Underwater</li></a>
+          @forelse($categories as $category) 
+            <li><a href="{{ url('/category/'. $category->id ) }}" class="hover:font-semibold">{{ $category->category }}</li></a>
+          @empty
+            <div class=" mx-2"> No Pictures Yet</div>
+          @endforelse 
         </ul>    
     </div>
     <div class="mb-2">
@@ -29,10 +30,10 @@
             </h4>
         </div>
         <ul class="">
-            <li><a href="{{ url('/') }}" class="hover:font-semibold no-underline">All works of Art.</a></li>
+            <li><a href="{{ url('/') }}" class="hover:font-semibold no-underline">All works of Art</a></li>
             <li><a href="{{ url('/status/For Sale') }}" class="hover:font-semibold">Available for Sale</a></li>
             <li><a href="{{ url('/status/Sold') }}" class="hover:font-semibold">Sorry Sold Already</a></li>
-            <li><a href="{{ url('/status/Not for Sale') }}" class="hover:font-semibold no-underline">Not for Sale.</a></li>
+            <li><a href="{{ url('/status/Not for Sale') }}" class="hover:font-semibold no-underline">Not for Sale</a></li>
 
             <br>
             @guest

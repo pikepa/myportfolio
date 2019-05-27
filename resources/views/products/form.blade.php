@@ -18,7 +18,7 @@
         <input  type="text" class="form-input mt-1 block w-full" 
                 name='featured_img'
                 placeholder="Enter the name of the piece."
-                value="{{old('featured_img', $product->featured_img)}}">
+                value="{{old('featured_img', $product->featured_img,'/images/smiley.jpg')}}">
     </label>
 </div>
 
@@ -70,11 +70,41 @@
     <label class="block">
       <span class="text-gray-700">Price (in Cents)</span>
         <input  type="text" class="form-input mt-1 block w-1/2" 
-                name='price'
+                name='price' 
                 placeholder="Enter the price of the piece, in cents."
                 value={{old('price', $product->price) }}>
     </label>
 </div>
+
+<div class="block mb-4">
+  <span class="text-gray-700">Existing Categories</span>
+  <div class="mt-2">
+    <div class="flex flex-wrap ">
+      @foreach($product->categories as $existing)
+        <div class="mx-4 font-semibold">
+          {{ $existing->category }}
+        </div>
+      @endforeach
+    </div>
+  </div>
+</div>
+<div class="block mb-4">
+  <span class="text-gray-700">Categories</span>
+  <div class="mt-2">
+    <div class="flex flex-wrap ">
+      @foreach($categories as $category)
+        <label class="mx-2 inline-flex items-center">
+          <input class="form-checkbox text-indigo-600"
+                  type="checkbox" 
+                  name='categories[]' @if(old('categories[]',$category->status)=="For Sale") checked @endif
+                  value={{ $category->id }}>
+          <span class="ml-2">{{ $category->category }}</span>
+        </label>
+      @endforeach
+    </div>
+  </div>
+</div>
+
 <div class="field mb-6">
     <label class="block">
       <span class="text-gray-700">Published</span>
