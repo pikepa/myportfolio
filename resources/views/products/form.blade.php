@@ -109,12 +109,13 @@
 
 <div class="field mb-6">
     <label class="block">
-      <span class="text-gray-700">Published :- {{ $product->publish_at->format('d-M-Y')}}</span>
+      <span class="text-gray-700">Published :- </span>
         <input  type="date" class="form-input mt-1 block w-full" 
                 name='publish_at'
-                value="{{ $product->publish_at}}" />
+                value="{{ old('username'),$product->published_at }}">
     </label>
 </div>
+
 
 <input type=hidden name='discount' value=0 />
 <div class="field">
