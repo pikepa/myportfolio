@@ -27,7 +27,8 @@
                     <div class="flex flex-wrap ">
                       @foreach($product->categories as $existing)
                         <div class="mx-4 font-semibold">
-                          <a href="/category/ {{ $existing->id }} " >{{ $existing->category }}</a>
+                          <a href="/category/ {{ $existing->id }} " >
+                            {{ $existing->category }},</a>
                         </div>
                       @endforeach
                     </div>

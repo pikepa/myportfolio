@@ -17,7 +17,7 @@
       <span class="text-gray-700">Featured Image</span>
         <input  type="text" class="form-input mt-1 block w-full" 
                 name='featured_img'
-                placeholder="Enter the name of the piece."
+                placeholder="Enter the url for the image."
                 value="{{old('featured_img', $product->featured_img,'/images/smiley.jpg')}}">
     </label>
 </div>
@@ -72,10 +72,10 @@
         <input  type="text" class="form-input mt-1 block w-1/2" 
                 name='price' 
                 placeholder="Enter the price of the piece, in cents."
-                value={{old('price', $product->price) }}>
+                value='{{old('price', $product->price) }}'>
     </label>
 </div>
-
+{{-- 
 <div class="block mb-4">
   <span class="text-gray-700">Existing Categories</span>
   <div class="mt-2">
@@ -88,6 +88,7 @@
     </div>
   </div>
 </div>
+--}}
 <div class="block mb-4">
   <span class="text-gray-700">Categories</span>
   <div class="mt-2">
@@ -96,9 +97,10 @@
         <label class="mx-2 inline-flex items-center">
           <input class="form-checkbox text-indigo-600"
                   type="checkbox" 
-                  name='categories[]' @if(old('categories[]',$category->status)=="For Sale") checked @endif
-                  value={{ $category->id }}>
-          <span class="ml-2">{{ $category->category }}</span>
+                  name='categories[]'
+                  value='{{$category->id}}' 
+                  {{in_array($category->id,$assignedCats)?'checked':''}}/>
+          <span class="ml-2">{{ $category->category }},</span>
         </label>
       @endforeach
     </div>
@@ -110,7 +112,7 @@
       <span class="text-gray-700">Published</span>
         <input  type="date" class="form-input mt-1 block w-full" 
                 name='publish_at'
-                value={{old('publish_at', $product->publish_at)}}/>
+                value='{{old('publish_at', $product->publish_at)}}'/>
     </label>
 </div>
 

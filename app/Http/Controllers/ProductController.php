@@ -90,7 +90,8 @@ class ProductController extends Controller
         $product = Product::findorFail($id);
         $images= $product->getMedia('photos');
         $foundcats=$product->categories;
-  //      dd($foundcats);                             
+        $assignedCats  = $product->categories->pluck('id')->toArray();
+   //     dd($assignedCats);                             
         return view('homepages.product_detail',compact('product','images','foundcats'));
     }
 
@@ -105,8 +106,9 @@ class ProductController extends Controller
     // $this->authorize('manage', $product);
 
         $product = Product::findorFail($product->id);
-                                                       
-        return view('products.edit',compact('product'));
+        $assignedCats  = $product->categories->pluck('id')->toArray();
+                                  
+        return view('products.edit',compact('product','assignedCats'));
     }
 
     /**
