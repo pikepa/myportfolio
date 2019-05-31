@@ -52,7 +52,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $assignedCats=[];
+        return view('products.create',compact('assignedCats'));
+
     }
 
     /**
@@ -150,5 +152,5 @@ class ProductController extends Controller
      //   $this->authorize('manage', $product);
 
         $product->delete();
-        return redirect('/array_product(array)');    }
+        return redirect('/');    }
 }

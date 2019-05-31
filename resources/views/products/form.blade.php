@@ -72,7 +72,7 @@
         <input  type="text" class="form-input mt-1 block w-1/2" 
                 name='price' 
                 placeholder="Enter the price of the piece, in cents."
-                value='{{old('price', $product->price) }}'>
+                value='{{old('price', $product->price),0 }}'/>
     </label>
 </div>
 {{-- 
