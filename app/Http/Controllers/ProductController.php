@@ -79,8 +79,8 @@ class ProductController extends Controller
         $product=auth()->user()->products()->create($attributes);
         $product->categories()->sync($request->categories);
 
-        return redirect('/product');    }
-
+        return redirect($product->path());  
+    }
     /**
      * Display the specified resource.
      *

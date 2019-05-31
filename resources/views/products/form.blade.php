@@ -18,7 +18,7 @@
         <input  type="text" class="form-input mt-1 block w-full" 
                 name='featured_img'
                 placeholder="Enter the url for the image."
-                value="{{old('featured_img', $product->featured_img,'/images/smiley.jpg')}}">
+                value={{ old('featured_img', $product->featured_img)}}>
     </label>
 </div>
 
@@ -70,9 +70,9 @@
     <label class="block">
       <span class="text-gray-700">Price (in Cents)</span>
         <input  type="text" class="form-input mt-1 block w-1/2" 
-                name='price' 
-                placeholder="Enter the price of the piece, in cents."
-                value='{{old('price', $product->price),0 }}'/>
+                name='price'
+                placeholder="Price of the piece, in cents."
+                value= {{old('price', $product->price,'0')}}>
     </label>
 </div>
 {{-- 
@@ -109,10 +109,10 @@
 
 <div class="field mb-6">
     <label class="block">
-      <span class="text-gray-700">Published</span>
+      <span class="text-gray-700">Published :- {{ $product->publish_at->format('d-M-Y')}}</span>
         <input  type="date" class="form-input mt-1 block w-full" 
                 name='publish_at'
-                value='{{old('publish_at', $product->publish_at)}}'/>
+                value="{{ $product->publish_at}}" />
     </label>
 </div>
 
