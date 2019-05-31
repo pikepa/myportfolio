@@ -19,6 +19,9 @@
             @include('dashboard.components._pricing')
                         
         </div>
+        <div>
+            <p>Published {{ date('d-M-y', strtotime( $product->publish_at)) }}</p>
+        </div>
      
     </div>
 @endforeach

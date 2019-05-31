@@ -14,13 +14,11 @@ class CategoryController extends Controller
      */
     public function bycategory($id)
     {
-        $category=Category::findOrFail($id);
-
-                //    dd($category);
+        $cat=Category::findOrFail($id);
                      
-        $products=$category->products;
+        $products=$cat->products;
 
-        return view('dashboard.home',compact('products'));
+        return view('dashboard.home',compact('products','cat'));
 
     }
 }
