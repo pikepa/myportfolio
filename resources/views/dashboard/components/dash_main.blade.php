@@ -20,7 +20,7 @@
                         
         </div>
         <div>
-            <p>Published {{ date('d-M-y', strtotime( $product->publish_at)) }}</p>
+            <p>Published {{ $product->published_date }}</p>
         </div>
      
     </div>

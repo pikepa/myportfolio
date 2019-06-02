@@ -72,7 +72,7 @@
         <input  type="text" class="form-input mt-1 block w-1/2" 
                 name='price'
                 placeholder="Price of the piece, in cents."
-                value= {{old('price', $product->price,'0')}}>
+                value= {{old('price', $product->price)}}>
     </label>
 </div>
 {{-- 
@@ -109,13 +109,13 @@
 
 <div class="field mb-6">
     <label class="block">
-      <span class="text-gray-700">Published :- </span>
-        <input  type="date" class="form-input mt-1 block w-full" 
-                name='publish_at'
-                value="{{ old('username'),$product->published_at }}">
+      <span class="text-gray-700">Published </span>
+      <input  type="date" 
+              name="publish_at" 
+              value="{{ old('publish_at', ($product->publish_at? $product->publish_at->format('Y-m-j') : date('Y-m-j'))) }}"
+              class="form-input mt-1 block w-full">
     </label>
 </div>
-
 
 <input type=hidden name='discount' value=0 />
 <div class="field">

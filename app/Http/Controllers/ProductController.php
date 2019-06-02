@@ -74,7 +74,7 @@ class ProductController extends Controller
             'status'=>'required|in:For Sale,Not For Sale,Sold,',
             'price' => 'required',
             'discount' => 'required',
-            'publish_at'=>'required|date'
+            'publish_at'=>'date'
         ]);                             
         $product=auth()->user()->products()->create($attributes);
         $product->categories()->sync($request->categories);

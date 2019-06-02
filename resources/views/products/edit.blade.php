@@ -12,7 +12,7 @@
             My Product
         </h1>
 
-        <form
+        <form 
                 method="POST"
                 action="{{ $product->path() }}"
         >

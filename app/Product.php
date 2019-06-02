@@ -13,9 +13,20 @@ class Product extends Model implements HasMedia
 {
     use HasMediaTrait;
 
+    protected $dates = ['publish_at'];
+
     protected $guarded=[];
 
-    protected $dates = ['publish_at'];
+    /**
+     * Format the product published date.
+     */
+    public function getPublishedDateAttribute()
+    {
+
+        return $this->publish_at->format('M j, Y');
+
+    }
+
 
      /**
      * Get the user's discounted Price.
