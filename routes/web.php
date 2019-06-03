@@ -27,6 +27,7 @@ Auth::routes();
     Route::get('/images','UploadImageController@index');
     Route::get('/images/{product}/load','UploadImageController@load');
     Route::get('/images/{product}/{image}/delete','UploadImageController@delete');
+    Route::get('/images/{product}/{image}/featured','UploadImageController@featured');
     Route::get('/images/{image}','UploadImageController@show');
     Route::post('/images/upload' , 'UploadImageController@upload');
     

@@ -34,6 +34,15 @@ class UploadImageController extends Controller
         $mediaitem = Media::find($id)->delete();
         return redirect('/product/'.$aid );
 
+    }  
+
+    public function featured($aid,$id)
+    {   
+        $product=Product::find($aid);
+        $product->featured_img = Media::find($id)->getUrl() ; 
+        $product->save();
+        return redirect('/product/'.$aid );
+
     }    
 
     // Show a media Item
