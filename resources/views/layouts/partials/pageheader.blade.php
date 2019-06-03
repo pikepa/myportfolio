@@ -10,7 +10,7 @@
                     <p class="text-grey-dark">  @yield('title') </p>
             </div>
             @endif
-            @if (\Route::current()->getName() !== 'root')
+            @if ( \Route::current()->getName() !== 'root')
                 <div class="mr-2 pb-2 font-bold  min-w-0  ">
                     <a href="{{ url('/') }}" class="my-2 font-semibold hover:font-bold no-underline"><i class="fas fa-arrow-circle-left"></i> Home</a>
                 </div>

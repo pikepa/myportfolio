@@ -37,7 +37,7 @@
                 </div>
                 <div class="flex ">         
                     <div class="flex-1 text-sm">
-                        <p><a class="no-underline"  href="{{ $url = action('ProductController@index') }}" ><i class="fas fa-backward"></i> Back</a></p>
+                        <p><a class="no-underline"  href="{{ $url = '/' }}" ><i class="fas fa-backward"></i> Back</a></p>
                     </div>
                     @auth
                         <div class="text-sm mr-4">
