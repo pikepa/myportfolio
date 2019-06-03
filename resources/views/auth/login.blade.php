@@ -63,12 +63,14 @@
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
+                            @auth
                                 <p class="w-full text-xs text-center text-grey-dark mt-8 -mb-4">
                                     Don't have an account?
                                     <a class="text-blue hover:text-blue-dark no-underline" href="{{ route('register') }}">
                                         Register
                                     </a>
                                 </p>
+                                @endauth
                         </div>
                     </form>
 
