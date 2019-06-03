@@ -3,7 +3,7 @@
 @foreach ($products as $product)
     <div class="flex flex-col card  mb-2 " style=" width:325px">
             <div class="mx-auto text-center">
-                 <img class="w-auto rounded-lg w-full" src={{ $product->featured_img }} style="height:325px" alt="{{ $product->title }}">
+                 <img class="w-auto rounded-lg w-full" src={{ $product->featured_img }} style="height:325px" alt="<{{ $product->title }}>">
             </div>
         <div class=" card mt-2 text-center">
             <h1 class="text-xl font-semibold p-2">{{ $product->title }}</h1>
