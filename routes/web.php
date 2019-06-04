@@ -1,5 +1,7 @@
 <?php
 
+use Spatie\Honeypot\ProtectAgainstSpam;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +17,16 @@ Route::get('/', 'ProductController@index')->name('root');
 Route::get('/theartist', function () {return view('homepages.theartist');});
 Route::get('/whyborneo', function () {return view('homepages.whyborneo');});
 Route::get('/materials', function () {return view('homepages.materials');});
+Route::get('/contactme', function () {return view('messages.create');});
+
 Route::get('/coming_soon', function () {return view('homepages.comingsoon');});
+
 
 Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
 Route::get('/category/{id}', 'CategoryController@bycategory')->name('bycategory');
 
 Route::resource('product','ProductController');
+Route::resource('message','MessageController');
 
 
 Auth::routes();
