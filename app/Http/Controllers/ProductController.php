@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function status($status)
     {
                      
-        $products = Product::OfStatus($status)->orderBy('publish_at','asc')->get();
+        $products = Product::OfStatus($status)->orderBy('publish_at','desc')->get();
                                                                                                                            
         return view('dashboard.home',compact('products'));
 
