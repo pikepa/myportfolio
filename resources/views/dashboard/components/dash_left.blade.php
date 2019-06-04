@@ -46,7 +46,10 @@
         </div>
             <ul>
                 <li class="hover:font-semibold">
-                <a href="{{ url('/product/create') }}" class="hover:font-semibold no-underline">Add New Item.</a>
+                    <a href="{{ url('/product/create') }}" class="hover:font-semibold no-underline">Add New Item.</a>
+                </li>
+                <li class="hover:font-semibold">
+                    <a href="{{ url('/message') }}" class="hover:font-semibold no-underline">Show Messages.</a>
                 </li>
             </ul>
                 <a href="{{ route('logout') }}"

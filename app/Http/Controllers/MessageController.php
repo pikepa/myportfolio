@@ -15,8 +15,9 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {    
+            $messages=Message::get();
+            return view('messages.index', compact('messages'));
     }
 
 /**
@@ -99,6 +100,10 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+                     
+            $message = Message::find($message->id); 
+            $message->delete();
+            return redirect ('message')->with('Success', 'Message has been deleted');  
+
     }
 }
