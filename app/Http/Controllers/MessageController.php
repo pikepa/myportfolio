@@ -5,11 +5,21 @@ namespace App\Http\Controllers;
 use App\Message;
 use Illuminate\Http\Request;
 use Mews\Purifier\Facades\Purifier;
+use Illuminate\Auth\Middleware\Auth;
 use Illuminate\Support\Facades\Input;
 
 
 class MessageController extends Controller
 {
+    /**
+     * Restricting certain functions to Auth Users only.
+     *
+     */
+    public function __construct()
+    {
+    $this->middleware('auth', ['only' => ['index','destroy','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +31,7 @@ class MessageController extends Controller
             return view('messages.index', compact('messages'));
     }
 
-/**
+    /**
      * Show the form for creating a new message.
      *
      * @return \Illuminate\Http\Response
@@ -77,28 +87,6 @@ class MessageController extends Controller
             $message=Message::find($message->id);                         
             return view('messages.show', compact('message'));    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Message $message)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Message $message)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
