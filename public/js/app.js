@@ -34370,8 +34370,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/peterpike/Sites/Development/hellendutch/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/peterpike/Sites/Development/hellendutch/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /Users/peterpike/Sites/Live/hellendutch/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/peterpike/Sites/Live/hellendutch/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

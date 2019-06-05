@@ -66,8 +66,8 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        //
-    }
+            $message=Message::find($message->id);                         
+            return view('messages.show', compact('message'));    }
 
     /**
      * Show the form for editing the specified resource.

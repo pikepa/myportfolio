@@ -35,7 +35,7 @@
                           <td class="py-4 px-6 border-b border-r  border-grey-light">{{ $message->name }}</td>
                           <td class="py-4 px-6 border-b border-r  border-grey-light">{{ $message->email }}</td>
                           <td class="flex justify-center py-4  border-b border-r  border-grey-light">
-                            <div class="text-grey-lighter text-sm mr-2 hover:font-semibold"><a href="#" ><i class="fab fa-readme"> Read</i></a></div>
+                            <div class="text-grey-lighter text-sm mr-2 hover:font-semibold"><a href="{{ $message->path() }}" ><i class="fab fa-readme"> Read</i></a></div>
                             <div class="text-grey-lighter text-sm mr-2 ">
                                 <form method="POST" action="{{ $message->path() }}" >
                                     @method('DELETE')
