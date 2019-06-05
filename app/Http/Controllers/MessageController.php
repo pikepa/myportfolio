@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use Mews\Purifier\Facades\Purifier;
 use Illuminate\Support\Facades\Input;
 
 
@@ -41,15 +42,22 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {                                        
-        $message = $this->validate(request(), [
+       $this->validate(request(), [
             'email' => 'email|required', 
             'name' => 'required|min:5', 
             'subject' => 'required|min:5', 
             'content'=>'required|min:10'
         ]);
 
+       $message= new Message;
+
+       $message->name = $request->name;
+       $message->email = $request->email;
+       $message->subject = $request->subject;
+       $message->content = Purifier::clean($request->content);
+
         if(strtoupper($request->my_question) === "DUTCH"){
-            Message::create($message);
+            $message->save();
             return redirect('/')->with('success', 'Message has been sent');  
         }else
         {
