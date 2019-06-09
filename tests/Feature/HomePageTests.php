@@ -9,40 +9,41 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class HomePageTests extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *
      * @return void
      */
-    public function testExample()
+    public function testBasicTest()
     {
         $response = $this->get('/');
-
         $response->assertStatus(200);
+        $response->assertSee('Hellen Dutch Art');
+
     }
     
     /** @test */
     function the_static_pages_are_loaded_when_guest_clicks_menu_link()
     {
-        $response=$this->get('/artist');
+        $this->withoutExceptionHandling();
+
+        $response=$this->get('/theartist');
         $response->assertStatus(200);
         $response->assertSee('Hellen Dutch');
 
-        $response=$this->get('/program/how_it_works');
+        $response=$this->get('/whyborneo');
         $response->assertStatus(200);
-        $response->assertSee('How it Works');
+        $response->assertSee('Why Borneo ?');
 
-        $response=$this->get('/program/nutrition');
+        $response=$this->get('/materials');
         $response->assertStatus(200);
-        $response->assertSee('Nutrition');
+        $response->assertSee('Use of Materials');
 
-        $response=$this->get('/program/motivation');
+        $response=$this->get('/contactme');
         $response->assertStatus(200);
-        $response->assertSee('Motivation');
-
-        $response=$this->get('/program/community');
-        $response->assertStatus(200);
-        $response->assertSee('Community');
+        $response->assertSee('New Message');
 
     }
 }
