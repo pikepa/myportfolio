@@ -22,11 +22,11 @@ Route::get('/coming_soon', function () {return view('homepages.comingsoon');});
 
 Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
 
+Route::get('/category/{id}', 'CategoryController@bycategory')->name('bycategory');
 
 Route::resource('product','ProductController');
 Route::resource('message','MessageController');
 Route::resource('category','CategoryController');
-Route::get('/category/{id}', 'CategoryController@bycategory')->name('bycategory');
 
 
 Auth::routes();
