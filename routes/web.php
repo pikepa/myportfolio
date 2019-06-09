@@ -1,6 +1,5 @@
 <?php
 
-use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +20,13 @@ Route::get('/contactme', function () {return view('messages.create');});
 
 Route::get('/coming_soon', function () {return view('homepages.comingsoon');});
 
-
 Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
-Route::get('/category/{id}', 'CategoryController@bycategory')->name('bycategory');
+
 
 Route::resource('product','ProductController');
 Route::resource('message','MessageController');
+Route::resource('category','CategoryController');
+Route::get('/category/{id}', 'CategoryController@bycategory')->name('bycategory');
 
 
 Auth::routes();
@@ -36,8 +36,12 @@ Auth::routes();
     Route::get('/images/{product}/{image}/featured','UploadImageController@featured');
     Route::get('/images/{image}','UploadImageController@show');
     Route::post('/images/upload' , 'UploadImageController@upload');
-    
+   
 Route::group(['middleware' => 'auth'],function(){
+  //  Route::get('/category', 'CategoryController@index');
+  //  Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
+  //  Route::get('/category/create', 'CategoryController@create')->name('category.create');
+
 });
 
 

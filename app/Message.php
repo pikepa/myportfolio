@@ -26,5 +26,5 @@ class Message extends Model
     public function path(){
         return "/message/{$this->id}" ;
     }
-    
+
 }

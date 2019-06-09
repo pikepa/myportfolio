@@ -13,6 +13,7 @@
              @include('dashboard.components.dash_main')
 
          </div>
+
     </div>
 
 @endsection

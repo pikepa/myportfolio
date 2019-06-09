@@ -31,6 +31,7 @@ class ProductController extends Controller
         return view('dashboard.home',compact('products'));
 
     }
+
     /**
      * Display a listing of the products by status.
      *

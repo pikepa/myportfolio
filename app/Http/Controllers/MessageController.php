@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Message;
 use Illuminate\Http\Request;
 use Mews\Purifier\Facades\Purifier;
 use Illuminate\Auth\Middleware\Auth;
 use Illuminate\Support\Facades\Input;
+use App\Message;
 
 
 class MessageController extends Controller

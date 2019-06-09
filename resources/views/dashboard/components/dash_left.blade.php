@@ -51,6 +51,9 @@
                 <li class="hover:font-semibold">
                     <a href="{{ url('/message') }}" class="hover:font-semibold no-underline">Show Messages.</a>
                 </li>
+                <li class="hover:font-semibold">
+                    <a href="{{ url('/category') }}" class="hover:font-semibold no-underline">Categories.</a>
+                </li>
             </ul>
                 <a href="{{ route('logout') }}"
                     class="hover:font-semibold no-underline"
