@@ -29,18 +29,7 @@ class CategoryController extends Controller
 
     }
 
-       /**
-     * Display a listing of categories.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-  //     $categories=Category::orderBy('type','desc')->get();
-                     
-  //      return view('categories.index', compact('categories'));
 
-    } 
 /**
      * Display a listing of the resource.
      *
