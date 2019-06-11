@@ -48,7 +48,7 @@ class Product extends Model implements HasMedia
      */
     public function scopeOfStatus($query, $status)
     {
-        return $query->where('status',$status);
+        return $query->where('status',$status)->orderBy('publish_at','desc');
     }
 
     public function path(){
