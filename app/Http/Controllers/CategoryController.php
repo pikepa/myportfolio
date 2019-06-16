@@ -7,42 +7,38 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-   /**
+    /**
      * Restricting certain functions to Auth Users only.
-     *
      */
     public function __construct()
     {
-    $this->middleware('auth', ['except' => ['bycategory']]);
+        $this->middleware('auth', ['except' => ['bycategory']]);
     }
-   
-       /**
+
+    /**
      * Display a listing of categories.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $categories=Category::orderBy('type','desc')->get();
-                     
-        return view('categories.index', compact('categories'));
+        $categories = Category::orderBy('type', 'desc')->get();
 
+        return view('categories.index', compact('categories'));
     }
 
-
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function bycategory($id)
     {
-        $cat=Category::findOrFail($id);
-                     
-        $products=$cat->products;
+        $cat = Category::findOrFail($id);
 
-        return view('dashboard.home',compact('products','cat'));
+        $products = $cat->products;
 
+        return view('dashboard.home', compact('products', 'cat'));
     }
 
     /**
@@ -53,32 +49,30 @@ class CategoryController extends Controller
     public function create()
     {
         return view('categories.create');
+    }
 
-    }  
-
-      /**
+    /**
      * Create a new Category.
      *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-       $this->validate(request(), [
-                'category' => 'required', 
-                'type' => 'required|in:OBJ,SBJ,LOC', 
-                'active' => 'required', 
+        $this->validate(request(), [
+                'category' => 'required',
+                'type' => 'required|in:OBJ,SBJ,LOC',
+                'active' => 'required',
             ]);
 
-       $category= new Category;
+        $category = new Category;
 
-       $category->category = $request->category;
-       $category->type = $request->type;
-       $category->active = $request->active;
+        $category->category = $request->category;
+        $category->type = $request->type;
+        $category->active = $request->active;
 
-       $category->save();
-                     
+        $category->save();
+
         return view('categories.index');
-
     }
 
     /**
@@ -88,10 +82,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category=Category::findOrFail($id);
-                     
-        return view('categories.edit',compact('category'));
+        $category = Category::findOrFail($id);
 
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -102,17 +95,18 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $attributes = request()->validate([
-                'category' => 'required', 
-                'type' => 'required|in:OBJ,SBJ,LOC', 
-                'active' => 'required|in:1,0', 
+                'category' => 'required',
+                'type' => 'required|in:OBJ,SBJ,LOC',
+                'active' => 'required|in:1,0',
         ]);
 
-         //   dd($attributes);
-             
-        $category->update($attributes);
-        return view('categories.index');
+        //   dd($attributes);
 
+        $category->update($attributes);
+
+        return view('categories.index');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -121,9 +115,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-            $category = Category::find($category->id); 
-            $category->delete();
-            return redirect ('category')->with('Success', 'Category has been deleted');  
+        $category = Category::find($category->id);
+        $category->delete();
 
+        return redirect('category')->with('Success', 'Category has been deleted');
     }
 }

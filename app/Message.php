@@ -4,13 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Message extends Model
 {
     protected $dates = ['created_at'];
 
-    protected $guarded=[];
-
+    protected $guarded = [];
 
     /**
      * Format the message created date.
@@ -23,8 +21,8 @@ class Message extends Model
     /**
      * Format the message has a path.
      */
-    public function path(){
-        return "/message/{$this->id}" ;
+    public function path()
+    {
+        return "/message/{$this->id}";
     }
-
 }

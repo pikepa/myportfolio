@@ -163,7 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */

@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Facades\Tests\Setup\TestimonialFactory;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class HomePageTests extends TestCase
@@ -21,29 +19,27 @@ class HomePageTests extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
         $response->assertSee('Hellen Dutch Art');
-
     }
-    
+
     /** @test */
-    function the_static_pages_are_loaded_when_guest_clicks_menu_link()
+    public function the_static_pages_are_loaded_when_guest_clicks_menu_link()
     {
         $this->withoutExceptionHandling();
 
-        $response=$this->get('/theartist');
+        $response = $this->get('/theartist');
         $response->assertStatus(200);
         $response->assertSee('Hellen Dutch');
 
-        $response=$this->get('/whyborneo');
+        $response = $this->get('/whyborneo');
         $response->assertStatus(200);
         $response->assertSee('Why Borneo ?');
 
-        $response=$this->get('/materials');
+        $response = $this->get('/materials');
         $response->assertStatus(200);
         $response->assertSee('Use of Materials');
 
-        $response=$this->get('/contactme');
+        $response = $this->get('/contactme');
         $response->assertStatus(200);
         $response->assertSee('New Message');
-
     }
 }
