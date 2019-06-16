@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Testimonial;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -38,8 +36,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-    public function products(){
-        return $this->hasMany(Product::class,'owner_id') ;
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'owner_id');
     }
 }

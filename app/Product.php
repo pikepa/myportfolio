@@ -2,12 +2,10 @@
 
 namespace App;
 
-use App\Category;
 use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-
 
 class Product extends Model implements HasMedia
 {
@@ -15,31 +13,30 @@ class Product extends Model implements HasMedia
 
     protected $dates = ['publish_at'];
 
-    protected $guarded=[];
+    protected $guarded = [];
 
     /**
      * Format the product published date.
      */
     public function getPublishedDateAttribute()
     {
-
         return $this->publish_at->format('M j, Y');
-
     }
 
-
-     /**
+    /**
      * Get the user's discounted Price.
      *
      * @return string
      */
     public function getDiscountedPriceAttribute()
     {
-        $discount = $this->price * ($this->discount/100);
-        return $this->price - $discount ;
-      // return number_format( ($this->price - $discount ),2,'.', ',');
+        $discount = $this->price * ($this->discount / 100);
+
+        return $this->price - $discount;
+        // return number_format( ($this->price - $discount ),2,'.', ',');
     }
-/**
+
+    /**
      * Scope a query to only include users of a given status.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
@@ -48,23 +45,24 @@ class Product extends Model implements HasMedia
      */
     public function scopeOfStatus($query, $status)
     {
-        return $query->where('status',$status)->orderBy('publish_at','desc');
+        return $query->where('status', $status)->orderBy('publish_at', 'desc');
     }
 
-    public function path(){
-        return "/product/{$this->id}" ;
+    public function path()
+    {
+        return "/product/{$this->id}";
     }
-    
-    public function owner(){
-        return $this->belongsTo(User::class) ;
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
     }
-    
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);
     }
 
-    
     // Media Definitions
     public function registerMediaConversions(Media $media = null)
     {
@@ -77,8 +75,5 @@ class Product extends Model implements HasMedia
               ->width(800)
               ->height(800)
               ->sharpen(10);
-
-     
-
     }
 }

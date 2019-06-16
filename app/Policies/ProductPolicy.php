@@ -21,7 +21,7 @@ class ProductPolicy
     }
 
     public function manage(User $user, Product $product)
-    {   
-       $user->is($product->owner);
+    {
+        $user->is($product->owner);
     }
 }
