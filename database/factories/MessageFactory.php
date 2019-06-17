@@ -10,5 +10,5 @@ $factory->define(Message::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'subject' => $faker->sentence,
-        'content' => $faker->paragraph];
+        'content' => $faker->paragraph, ];
 });
