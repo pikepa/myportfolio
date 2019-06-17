@@ -24,8 +24,7 @@ class ManageMessageTest extends TestCase
     {
         $message = factory(Message::class)->create();
 
-        $this->assertDatabaseHas('messages', ['subject' => $message->subject]); 
-        
+        $this->assertDatabaseHas('messages', ['subject' => $message->subject]);
     }
 
     /** @test */
@@ -33,9 +32,6 @@ class ManageMessageTest extends TestCase
     {
         $message = factory(Message::class)->create();
 
-        $this->assertDatabaseHas('messages', ['subject' => $message->subject]); 
-        
+        $this->assertDatabaseHas('messages', ['subject' => $message->subject]);
     }
-
-    
 }
