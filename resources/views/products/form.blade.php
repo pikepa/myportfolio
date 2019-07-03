@@ -18,7 +18,7 @@
         <input  type="text" class="form-input mt-1 block w-full" 
                 name='featured_img'
                 placeholder="Enter the url for the image."
-                value={{ old('featured_img', $product->featured_img)}}>
+                value={{ old('featured_img', $product->featured_img,'I was left Blank')}}>
     </label>
 </div>
 
