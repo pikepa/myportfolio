@@ -12,9 +12,11 @@
      @include('layouts.partials.pageheader') 
     <div class="container mx-auto pb-4">
         <div class="mt-12 flex justify-around items-center flex-col">
-            <div class="max-w-md card mb-4 w-2/3 flex items-center justify-center">
-                <img class="p-4  " src="{{URL::asset( $product->featured_img)}}">
-            </div>
+            @if(isset($product->featured_img))
+               <div class="max-w-md card mb-4 w-2/3 flex items-center justify-center">
+                         <img class="p-4  " src="{{URL::asset( $product->featured_img)}}">  
+                </div> 
+            @endif  
             <div class="card w-2/3">
                 <div class="mb-4">
                     <h1 class=" font-semibold text-2xl text-center text-base-700 pb-2"> {{ $product->title }}</h1>
