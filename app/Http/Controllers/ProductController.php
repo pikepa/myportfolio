@@ -63,17 +63,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->publish_at = new Carbon($request->get('publish_at'));
-
-        $attributes = request()->validate([
-            'featured_img' => 'required',
-            'title' => 'required',
-            'description'=>'required',
-            'status'=>'required|in:For Sale,Not For Sale,Sold,',
-            'price' => 'required',
-            'discount' => 'required',
-            'publish_at'=>'date',
-        ]);
-        $product = auth()->user()->products()->create($attributes);
+        $product = auth()->user()->products()->create($this->validateRequest());
         $product->categories()->sync($request->categories);
 
         return redirect($product->path());
@@ -122,18 +112,18 @@ class ProductController extends Controller
     {
         $request->publish_at = new Carbon($request->get('publish_at'));
         //   dd($request->categories);
-        $attributes = request()->validate([
-            'featured_img' => 'required',
-            'title' => 'required',
-            'description'=>'required',
-            'status'=>'required|in:For Sale,Not For Sale,Sold,',
-            'price' => 'required',
-            'discount' => 'required',
-            'publish_at'=>'required|date',
-        ]);
+        //      $attributes = request()->validate([
+        //         'featured_img' => 'required',
+        //         'title' => 'required',
+        //         'description'=>'required',
+        //         'status'=>'required|in:For Sale,Not For Sale,Sold,',
+        //         'price' => 'required',
+        //         'discount' => 'required',
+        //         'publish_at'=>'required|date',
+        //     ]);
 
         //     $this->authorize('manage', $product);
-        $product->update($attributes);
+        $product->update($this->validateRequest());
         $product->categories()->sync($request->categories);
 
         return redirect($product->path());
@@ -153,5 +143,18 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect('/');
+    }
+
+    protected function validateRequest()
+    {
+        return request()->validate([
+            'featured_img' => '',
+            'title' => 'required',
+            'description'=>'required',
+            'status'=>'required|in:For Sale,Not For Sale,Sold,',
+            'price' => 'required',
+            'discount' => 'required',
+            'publish_at'=>'required|date',
+        ]);
     }
 }
