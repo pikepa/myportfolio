@@ -27,5 +27,6 @@ class AlterProductTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->text('featured_img')->before('title')->change();
-        });    }
+        });
+    }
 }

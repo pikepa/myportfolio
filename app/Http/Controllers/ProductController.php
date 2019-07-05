@@ -112,15 +112,15 @@ class ProductController extends Controller
     {
         $request->publish_at = new Carbon($request->get('publish_at'));
         //   dd($request->categories);
-  //      $attributes = request()->validate([
-   //         'featured_img' => 'required',
-   //         'title' => 'required',
-   //         'description'=>'required',
-   //         'status'=>'required|in:For Sale,Not For Sale,Sold,',
-   //         'price' => 'required',
-   //         'discount' => 'required',
-   //         'publish_at'=>'required|date',
-   //     ]);
+        //      $attributes = request()->validate([
+        //         'featured_img' => 'required',
+        //         'title' => 'required',
+        //         'description'=>'required',
+        //         'status'=>'required|in:For Sale,Not For Sale,Sold,',
+        //         'price' => 'required',
+        //         'discount' => 'required',
+        //         'publish_at'=>'required|date',
+        //     ]);
 
         //     $this->authorize('manage', $product);
         $product->update($this->validateRequest());
@@ -145,7 +145,7 @@ class ProductController extends Controller
         return redirect('/');
     }
 
-        protected function validateRequest()
+    protected function validateRequest()
     {
         return request()->validate([
             'featured_img' => '',
