@@ -12,15 +12,6 @@
     </label>
 </div>
 
-<div class="field mb-6">
-    <label class="block">
-      <span class="text-gray-700">Featured Image</span>
-        <input  type="text" class="form-input mt-1 block w-full" 
-                name='featured_img'
-                placeholder="Enter the url for the image."
-                value={{ old('featured_img', $product->featured_img)}}>
-    </label>
-</div>
 
 <div class="field mb-6">
      <label class="block">
