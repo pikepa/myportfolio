@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Message;
 use Illuminate\Http\Request;
 use Mews\Purifier\Facades\Purifier;
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Middleware\Auth;
 
 class MessageController extends Controller
@@ -26,6 +25,7 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::get();
+
         return view('messages.index', compact('messages'));
     }
 
