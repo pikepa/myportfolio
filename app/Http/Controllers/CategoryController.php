@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('type', 'desc')->get();
+        $categories = Category::orderBy('category', 'desc')->get();
 
         return view('categories.index', compact('categories'));
     }
@@ -47,12 +47,12 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {                     
         return view('categories.create');
     }
 
     /**
-     * Create a new Category.
+     * Store a new Category.
      *
      * @return \Illuminate\Http\Response
      */
@@ -60,14 +60,13 @@ class CategoryController extends Controller
     {
         $this->validate(request(), [
                 'category' => 'required',
-                'type' => 'required|in:OBJ,SBJ,LOC',
                 'active' => 'required',
             ]);
 
         $category = new Category;
 
         $category->category = $request->category;
-        $category->type = $request->type;
+        $category->type = 'SBJ';  //this is to avoid the db rejecting
         $category->active = $request->active;
 
         $category->save();
@@ -94,13 +93,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+                     
         $attributes = request()->validate([
                 'category' => 'required',
-                'type' => 'required|in:OBJ,SBJ,LOC',
+                'type' => '',
                 'active' => 'required|in:1,0',
         ]);
-
-        //   dd($attributes);
 
         $category->update($attributes);
 

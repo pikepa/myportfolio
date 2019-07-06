@@ -31,7 +31,7 @@ Route::get('/coming_soon', function () {
 
 Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
 
-Route::get('/category/{id}', 'CategoryController@bycategory')->name('bycategory');
+Route::get('/bycategory/{id}', 'CategoryController@bycategory')->name('bycategory');
 
 Route::resource('product', 'ProductController');
 Route::resource('message', 'MessageController');
