@@ -28,10 +28,17 @@ class ManageMessageTest extends TestCase
     }
 
     /** @test */
-    public function a_signed_in_user_can_view_messages()
+    public function a_guest_can_not_view_the_message_index()
     {
         $message = factory(Message::class)->create();
-
-        $this->assertDatabaseHas('messages', ['subject' => $message->subject]);
+        $response = $this->get('/message');        
+        $response->assertRedirect('/login');
     }
+    /** @test */
+    public function a_signed_in_user_can_view_messages()
+    {
+        $this->signIn();
+        $message = factory(Message::class)->create();
+        $response = $this->get('/message');        
+        $response->assertStatus(200);    }
 }
