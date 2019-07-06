@@ -17,7 +17,7 @@
         </div>
         <ul class="">
           @forelse($categories as $category) 
-            <li><a href="{{ url('/category/'. $category->id ) }}" class="hover:font-semibold">{{ $category->category }}</li></a>
+            <li><a href="{{ url('/bycategory/'. $category->id ) }}" class="hover:font-semibold">{{ $category->category }}</li></a>
           @empty
             <div class=" mx-2"> No Pictures Yet</div>
           @endforelse 

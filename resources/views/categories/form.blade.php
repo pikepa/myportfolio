@@ -11,15 +11,6 @@
     </label>
 </div>
 
-<div class="field mb-6">
-    <label class="block">
-      <span class="text-gray-700">Type</span>
-        <input  type="text" class="form-input mt-1 block w-full" 
-                name='type'
-                placeholder="Enter the type (OBJ,SBJ,LOC) ."
-                value={{ old('type', $category->type)}}>
-    </label>
-</div>
 <input type="hidden" name="active" value="0">
 <div class="block mb-4">
   <span class="text-gray-700">Active</span>
