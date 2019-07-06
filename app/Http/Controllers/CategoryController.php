@@ -47,7 +47,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {                     
+    {
         return view('categories.create');
     }
 
@@ -93,7 +93,6 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-                     
         $attributes = request()->validate([
                 'category' => 'required',
                 'type' => '',
