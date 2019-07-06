@@ -22,7 +22,7 @@ class ManageCategoriesTest extends TestCase
     public function a_category_can_be_added_to_the_database()
     {
         $category = factory(Category::class)->make();
-        $category->save();           
+        $category->save();
         $this->assertDatabaseHas('categories', ['category' => $category['category']]);
     }
 
@@ -30,15 +30,16 @@ class ManageCategoriesTest extends TestCase
     public function a_guest_can_not_view_the_category_index()
     {
         $category = factory(Category::class)->create();
-        $response = $this->get('/category');        
+        $response = $this->get('/category');
         $response->assertRedirect('/login');
     }
+
     /** @test */
     public function a_SignedIn_user_can_view_the_category_index()
     {
         $this->signIn();
         $category = factory(Category::class)->create();
-        $response = $this->get('/category');        
+        $response = $this->get('/category');
         $response->assertStatus(200);
     }
 }

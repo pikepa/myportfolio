@@ -57,7 +57,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {                     
+    {
         $this->validate(request(), [
                 'category' => 'required',
                 'active' => 'required',

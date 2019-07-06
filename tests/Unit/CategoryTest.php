@@ -18,6 +18,4 @@ class CategoryTest extends TestCase
         $category = factory(Category::class)->create();
         $this->assertEquals('/category/'.$category->id, $category->path());
     }
-
-
 }
