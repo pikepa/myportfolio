@@ -14,7 +14,7 @@
         <div class="mt-12 flex justify-around items-center flex-col">
             @if(isset($product->featured_img))
                <div class="max-w-md card mb-4 w-2/3 flex items-center justify-center">
-                         <img class="p-4  " src="{{URL::asset( $product->featured_img)}}">  
+                         <img class="object-cover object-centre p-4  " src="{{URL::asset( $product->featured_img)}}">  
                 </div> 
             @endif  
             <div class="card w-2/3">
@@ -60,7 +60,7 @@
                @forelse($images as $image) 
                     <div class="w-1/3 px-2 py-2">
                         <div class="card flex-1  overflow-hidden" >
-                            <img class="w-full rounded" src="{{$image->getUrl('thumb')}}" alt="Picture is Missing here">
+                            <img class="w-full object-cover object-centre rounded" src="{{$image->getUrl('thumb')}}" alt="Picture is Missing here">
                             <div class='flex justify-between' >
                                 @auth
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
