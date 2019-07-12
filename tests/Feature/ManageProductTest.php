@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ManageProductTest extends TestCase
 {
-        use withFaker, RefreshDatabase;
+    use withFaker, RefreshDatabase;
 
     /** @test */
     public function a_product_can_be_added()
@@ -19,20 +19,20 @@ class ManageProductTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->post('/product',$this->data());
-        $product=Product::first();
+        $response = $this->post('/product', $this->data());
+        $product = Product::first();
         $response->assertRedirect($product->path());
-        $this->assertCount(1,Product::all());
-
+        $this->assertCount(1, Product::all());
     }
+
     /** @test */
     public function a_product_can_be_updated()
-    {   
+    {
         $this->signIn();
         $this->post('/product', $this->data());
 
         $product = Product::first();
-             
+
         $response = $this->patch($product->path(), [
             'title' => 'Changed Title',
             'description' => 'New Description',
@@ -50,20 +50,18 @@ class ManageProductTest extends TestCase
     /** @test */
     public function a_product_can_be_deleted()
     {
-                $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
 
         $this->signIn();
 
         $this->post('/product', $this->data());
         $product = Product::first();
-                                                       
+
         $this->assertCount(1, Product::all());
         $response = $this->delete($product->path());
         $this->assertCount(0, Product::all());
         $response->assertRedirect('/');
     }
-
-
 
     private function data()
     {
