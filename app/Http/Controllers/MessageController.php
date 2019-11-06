@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use Illuminate\Auth\Middleware\Auth;
 use Illuminate\Http\Request;
 use Mews\Purifier\Facades\Purifier;
-use Illuminate\Auth\Middleware\Auth;
 
 class MessageController extends Controller
 {
