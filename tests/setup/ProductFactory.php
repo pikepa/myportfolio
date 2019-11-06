@@ -2,8 +2,8 @@
 
 namespace Tests\Setup;
 
-use App\Product;
 use App\User;
+use App\Product;
 
 class ProductFactory
 {
