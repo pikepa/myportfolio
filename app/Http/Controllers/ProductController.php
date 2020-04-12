@@ -111,18 +111,6 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->publish_at = new Carbon($request->get('publish_at'));
-        //   dd($request->categories);
-        //      $attributes = request()->validate([
-        //         'featured_img' => 'required',
-        //         'title' => 'required',
-        //         'description'=>'required',
-        //         'status'=>'required|in:For Sale,Not For Sale,Sold,',
-        //         'price' => 'required',
-        //         'discount' => 'required',
-        //         'publish_at'=>'required|date',
-        //     ]);
-
-        //     $this->authorize('manage', $product);
         $product->update($this->validateRequest());
         $product->categories()->sync($request->categories);
 

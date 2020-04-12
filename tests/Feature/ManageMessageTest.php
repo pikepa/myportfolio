@@ -14,9 +14,10 @@ class ManageMessageTest extends TestCase
     /** @test */
     public function a_guest_can_create_a_message()
     {
-        $response = $this->get('/message/create');
-        $response->assertStatus(200);
-        $response->assertSee('New Message');
+
+        $response = $this->get('/message/create')
+            ->assertStatus(200)
+            ->assertSee('Message');
     }
 
     /** @test */
