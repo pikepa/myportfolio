@@ -59,9 +59,9 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-                'category' => 'required',
-                'active' => 'required',
-            ]);
+            'category' => 'required',
+            'active' => 'required',
+        ]);
 
         $category = new Category;
 
@@ -94,9 +94,9 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $attributes = request()->validate([
-                'category' => 'required',
-                'type' => '',
-                'active' => 'required|in:1,0',
+            'category' => 'required',
+            'type' => '',
+            'active' => 'required|in:1,0',
         ]);
 
         $category->update($attributes);

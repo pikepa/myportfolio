@@ -16,7 +16,7 @@ class UploadImageController extends Controller
     public function upload(Request $request)
     {
         $this->validate($request, [
-        'image' => 'required|mimes:jpeg,png,jpg,JPG|max:12000',
+            'image' => 'required|mimes:jpeg,png,jpg,JPG|max:12000',
         ]);
 
         $product = Product::find($request->product_id);
