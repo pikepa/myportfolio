@@ -13,9 +13,7 @@ class UserTest extends TestCase
     /** @test */
     public function a_default_user_is_not_an_admin()
     {
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+
         $user = factory(User::class)->create();
 
         $this->assertFalse($user->isAdmin());
@@ -24,12 +22,9 @@ class UserTest extends TestCase
     /** @test */
     public function an_admin_user_is_an_admin()
     {
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+
         $admin = factory(User::class)
-                ->states('admin')
-                ->create();
+                ->create(['type' => 'admin']);
 
         $this->assertTrue($admin->isAdmin());
     }
