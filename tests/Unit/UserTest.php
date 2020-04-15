@@ -13,7 +13,6 @@ class UserTest extends TestCase
     /** @test */
     public function a_default_user_is_not_an_admin()
     {
-
         $user = factory(User::class)->create();
 
         $this->assertFalse($user->isAdmin());
@@ -22,7 +21,6 @@ class UserTest extends TestCase
     /** @test */
     public function an_admin_user_is_an_admin()
     {
-
         $admin = factory(User::class)
                 ->create(['type' => 'admin']);
 
