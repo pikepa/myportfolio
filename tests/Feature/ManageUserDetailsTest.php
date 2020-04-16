@@ -42,12 +42,12 @@ class ManageUserDetailsTest extends TestCase
         $response = $this->get('/profile/'.$user2->id)->assertStatus(403);
     }
 
-
     /** @test */
     public function an_authenticated_user_can_update_their_profile_name()
     {
         $user = factory(User::class)->create();
         $this->actingAs($user);
+<<<<<<< HEAD
 
         $user['name'] = "Peter Pike";
         $user->save();
@@ -55,6 +55,12 @@ class ManageUserDetailsTest extends TestCase
         $response = $this->get('/profile/' . $user->id)
             ->assertStatus(200)
             ->assertSee('Peter Pike');
+=======
+        $user->name = 'Peter Pike';
+
+        $response = $this->patch('/profile/'.$user->id)
+            ->assertStatus(200);
+>>>>>>> ad52124d12ea6f2f8a8aa70bd7533035f6160631
     }
 
 }
