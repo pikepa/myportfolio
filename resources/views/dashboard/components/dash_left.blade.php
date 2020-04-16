@@ -53,10 +53,12 @@
             </li>
             <li class="hover:font-semibold">
                 <a href="{{ url('/category') }}" class="hover:font-semibold no-underline">Categories.</a>
-            </li>
+            </li> 
+{{--
             <li class="hover:font-semibold">
                 <a href="{{ url('/profile/'. Auth::user()->id )}}" class="hover:font-semibold no-underline">User Profile.</a>
             </li>
+--}}
         </ul>
         <a href="{{ route('logout') }}" class="hover:font-semibold no-underline" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
