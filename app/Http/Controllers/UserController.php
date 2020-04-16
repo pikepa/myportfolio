@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
     /**
      * Instantiate a new UserController instance.
      *
@@ -17,7 +15,11 @@ class UserController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
               $this->middleware('auth');
+=======
+        $this->middleware('auth');
+>>>>>>> bb9920dd54c10ff59634dbb505bdee6cfef7ff7c
     }
 
     /**
@@ -27,12 +29,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if (Auth::id() != $id) 
-        {
+        if (Auth::id() != $id) {
             abort(403, 'Unauthorized action.');
-        } 
+        }
 
         $user = User::find($id);
+
         return view('profile.edit', compact('user'));
     }
 

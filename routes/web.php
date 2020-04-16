@@ -47,8 +47,12 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UserController@show')->name('user.profile');
+<<<<<<< HEAD
     Route::patch('/users/{id}', 'UserController@update')->name('user.update');
   
+=======
+
+>>>>>>> bb9920dd54c10ff59634dbb505bdee6cfef7ff7c
     //  Route::get('/category', 'CategoryController@index');
   //  Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
   //  Route::get('/category/create', 'CategoryController@create')->name('category.create');
