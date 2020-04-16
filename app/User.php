@@ -47,4 +47,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class, 'owner_id');
     }
+
+    //Defines a path for a user
+    public function path()
+    {
+        return "/users/{$this->id}";
+    }
+    
 }

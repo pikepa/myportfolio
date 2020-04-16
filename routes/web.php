@@ -46,6 +46,8 @@ Auth::routes();
     Route::post('/images/upload', 'UploadImageController@upload');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/profile/{id}', 'UserController@show')->name('user.profile');
+  
     //  Route::get('/category', 'CategoryController@index');
   //  Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
   //  Route::get('/category/create', 'CategoryController@create')->name('category.create');
