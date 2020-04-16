@@ -20,5 +20,4 @@
 </div>
 </body>
     @include('layouts.partials.scripts')
-    yield
 </html>
