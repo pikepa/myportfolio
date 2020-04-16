@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-              $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -34,30 +34,28 @@ class UserController extends Controller
         return view('profile.edit', compact('user'));
     }
 
-
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id); //Get user specified by id
 
-        //Validate name, email and password fields    
+        //Validate name, email and password fields
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = Hash::make($request->password);
-        
-           // dd($user);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
-            $user->save();
-        
+        // dd($user);
+
+        $user->save();
+
         return redirect('/')
             ->with(
                 'message',
                 'User successfully Updated.'
             );
     }
-
 }
