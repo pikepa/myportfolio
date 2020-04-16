@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','type',
+        'name', 'email', 'password', 'type',
     ];
 
     /**
@@ -41,7 +41,8 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->type === self::ADMIN_TYPE;    }
+        return $this->type === self::ADMIN_TYPE;
+    }
 
     public function products()
     {
