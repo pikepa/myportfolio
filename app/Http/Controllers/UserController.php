@@ -15,11 +15,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-<<<<<<< HEAD
               $this->middleware('auth');
-=======
-        $this->middleware('auth');
->>>>>>> bb9920dd54c10ff59634dbb505bdee6cfef7ff7c
     }
 
     /**
