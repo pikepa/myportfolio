@@ -14,7 +14,7 @@ class AddIsAdminFieldToUsers extends Migration
     public function up()
     {
         Schema::table('Users', function (Blueprint $table) {
-            $table->text('type')->after('password')->default('default');
+            $table->string('type')->after('password')->default('default');
         });
     }
 

@@ -1,5 +1,5 @@
 <div class="font-sans card bg-grey-light mx-4 mt-4 md:ml-0 md:w-1/6">
-    
+
     <div class="mb-2 mt-12">
         <ul class="">
             <li><a href="{{ url('/') }}" class="my-2 font-semibold hover:font-bold no-underline">Home</a></li>
@@ -16,12 +16,12 @@
             </h4>
         </div>
         <ul class="">
-          @forelse($categories as $category) 
+            @forelse($categories as $category)
             <li><a href="{{ url('/bycategory/'. $category->id ) }}" class="hover:font-semibold">{{ $category->category }}</li></a>
-          @empty
+            @empty
             <div class=" mx-2"> No Pictures Yet</div>
-          @endforelse 
-        </ul>    
+            @endforelse
+        </ul>
     </div>
     <div class="mb-2">
         <div>
@@ -37,31 +37,32 @@
 
             <br>
             @guest
-                <li class="hover:font-semibold"><a href="{{ url('login') }}"></i>Sign In</a></li>
+            <li class="hover:font-semibold"><a href="{{ url('login') }}"></i>Sign In</a></li>
             @endguest
-        </ul> 
-            @auth 
-            <div>
+        </ul>
+        @auth
+        <div>
             <h4 class="my-2 font-bold">Admin</h4>
         </div>
-            <ul>
-                <li class="hover:font-semibold">
-                    <a href="{{ url('/product/create') }}" class="hover:font-semibold no-underline">Add New Item.</a>
-                </li>
-                <li class="hover:font-semibold">
-                    <a href="{{ url('/message') }}" class="hover:font-semibold no-underline">Show Messages.</a>
-                </li>
-                <li class="hover:font-semibold">
-                    <a href="{{ url('/category') }}" class="hover:font-semibold no-underline">Categories.</a>
-                </li>
-            </ul>
-                <a href="{{ route('logout') }}"
-                    class="hover:font-semibold no-underline"
-                    onclick="event.preventDefault();
+        <ul>
+            <li class="hover:font-semibold">
+                <a href="{{ url('/product/create') }}" class="hover:font-semibold no-underline">Add New Item.</a>
+            </li>
+            <li class="hover:font-semibold">
+                <a href="{{ url('/message') }}" class="hover:font-semibold no-underline">Show Messages.</a>
+            </li>
+            <li class="hover:font-semibold">
+                <a href="{{ url('/category') }}" class="hover:font-semibold no-underline">Categories.</a>
+            </li>
+            <li class="hover:font-semibold">
+                <a href="{{ url('/profile/'. Auth::user()->id )}}" class="hover:font-semibold no-underline">User Profile.</a>
+            </li>
+        </ul>
+        <a href="{{ route('logout') }}" class="hover:font-semibold no-underline" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                    {{ csrf_field() }}
-                </form>  
-            @endauth
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+            {{ csrf_field() }}
+        </form>
+        @endauth
     </div>
 </div>
