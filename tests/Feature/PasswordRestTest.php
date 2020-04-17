@@ -2,18 +2,15 @@
 
 namespace Tests\Feature;
 
-use Hash;
-use random;
-use AppUser;
 use App\User;
-use Password;
-use Notification;
-use Tests\TestCase;
-use Illuminate\Support\Str;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
+use Notification;
+use Password;
+use Tests\TestCase;
 
 class PasswordRestTest extends TestCase
 {
@@ -26,7 +23,7 @@ class PasswordRestTest extends TestCase
     const ROUTE_PASSWORD_RESET_SUBMIT = 'password.reset.submit';
 
     const USER_ORIGINAL_PASSWORD = 'secret';
-    
+
     /** @test */
     public function ShowPasswordResetRequestPage()
     {
@@ -38,7 +35,7 @@ class PasswordRestTest extends TestCase
             ->assertSee('Back to login')
             ->assertSee('Send Password Reset Link');
     }
-    
+
     /** @test */
     public function SubmitPasswordResetRequestInvalidEmail()
     {
@@ -53,6 +50,7 @@ class PasswordRestTest extends TestCase
                 'attribute' => 'email',
             ]));
     }
+
     /**
      * Testing submitting the password reset request with an email
      * address not in the database.
@@ -85,6 +83,6 @@ class PasswordRestTest extends TestCase
             ->assertSuccessful()
             ->assertSee(__('passwords.sent'));
 
-      //  Notification::assertSentTo($user, ResetPassword::class);
+        //  Notification::assertSentTo($user, ResetPassword::class);
     }
 }
