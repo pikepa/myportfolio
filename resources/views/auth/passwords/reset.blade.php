@@ -51,8 +51,8 @@
                             <input id="password-confirm" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" name="password_confirmation" required>
                         </div>
 
-                        <div class="flex flex-wrap">
-                            <button type="submit" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <div class="flex flex-wrap justify-center">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 {{ __('Reset Password') }}
                             </button>
                         </div>
