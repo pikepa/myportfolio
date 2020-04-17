@@ -47,20 +47,13 @@ class ManageUserDetailsTest extends TestCase
     {
         $user = factory(User::class)->create();
         $this->actingAs($user);
-<<<<<<< HEAD
 
-        $user['name'] = "Peter Pike";
+        $user->name = "Peter Pike";
         $user->save();
-
         $response = $this->get('/profile/' . $user->id)
             ->assertStatus(200)
-            ->assertSee('Peter Pike');
-=======
-        $user->name = 'Peter Pike';
+            ->assertSee($user->name);
 
-        $response = $this->patch('/profile/'.$user->id)
-            ->assertStatus(200);
->>>>>>> ad52124d12ea6f2f8a8aa70bd7533035f6160631
     }
 
 }
