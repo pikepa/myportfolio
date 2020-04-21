@@ -3,8 +3,9 @@
 namespace Tests\Feature;
 
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ManageUserDetailsTest extends TestCase
 {
@@ -54,4 +55,6 @@ class ManageUserDetailsTest extends TestCase
             ->assertStatus(200)
             ->assertSee($user->name);
     }
+
+
 }
