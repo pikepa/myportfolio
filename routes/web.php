@@ -41,6 +41,7 @@ Route::get('/bycategory/{id}', 'CategoryController@bycategory')->name('bycategor
 Route::resource('product', 'ProductController');
 Route::resource('message', 'MessageController');
 Route::resource('category', 'CategoryController');
+Route::resource('page', 'PageController');
 
 Auth::routes();
 
