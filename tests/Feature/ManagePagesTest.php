@@ -2,10 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Page;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class ManagePagesTest extends TestCase
 {
@@ -17,11 +16,12 @@ class ManagePagesTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->signIn();
-        
+
         $response = $this->get('/page/create')
             ->assertStatus(200)
             ->assertSee('Hellen Dutch');
     }
+
     /** @test */
     public function a_guest_can_not_create_a_page()
     {
@@ -35,5 +35,4 @@ class ManagePagesTest extends TestCase
         $response = $this->get('/page/create')
             ->assertRedirect('/login');
     }
-
 }

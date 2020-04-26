@@ -3,9 +3,9 @@
 namespace Tests\Unit;
 
 use App\Page;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class PageTest extends TestCase
 {
@@ -16,6 +16,6 @@ class PageTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $page = factory(Page::class)->create();
-        $this->assertEquals('/page/' . $page->id, $page->path());
+        $this->assertEquals('/page/'.$page->id, $page->path());
     }
 }

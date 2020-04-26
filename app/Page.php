@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    protected $dates = ['created_at','published_at'];
+    protected $dates = ['created_at', 'published_at'];
 
     protected $guarded = [];
+
     /**
      * Format the page has a path.
      */

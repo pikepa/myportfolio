@@ -13,7 +13,7 @@ class PageController extends Controller
      */
     public function __construct()
     {
-          $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -33,7 +33,6 @@ class PageController extends Controller
      */
     public function create()
     {
-
         return view('pages.about.create');
     }
 
