@@ -2,9 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Page;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ManagePagesTest extends TestCase
 {
@@ -17,22 +18,30 @@ class ManagePagesTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/page/create')
+        $response = $this->get(route('page.create'))
             ->assertStatus(200)
-            ->assertSee('Hellen Dutch');
+            ->assertViewIs('pages.create')
+            ->assertSee('New Page');
     }
 
     /** @test */
     public function a_guest_can_not_create_a_page()
     {
-        $response = $this->get('/page/create')
+        $response = $this->get(route('page.create'))
             ->assertRedirect('/login');
     }
 
     /** @test */
-    public function a_user_can_save_a_page()
+    public function a_guest_can_show_a_page()
     {
-        $response = $this->get('/page/create')
-            ->assertRedirect('/login');
+
+        $page = factory(Page::class)->create([
+            'title'=>'The Artist'
+        ]);
+
+        $response = $this->get(route('page.show', ['id' => $page]))
+            ->assertStatus(200)
+            ->assertViewIs('pages.show')
+            ->assertSee($page->title);
     }
 }

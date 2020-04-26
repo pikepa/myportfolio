@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -13,7 +14,7 @@ class PageController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['show']);
     }
 
     /**
@@ -33,7 +34,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('pages.about.create');
+        return view('pages.create');
     }
 
     /**
@@ -55,7 +56,8 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        //
+        $page = Page::findorFail($id);
+        return view('pages.show',compact('page'));
     }
 
     /**
