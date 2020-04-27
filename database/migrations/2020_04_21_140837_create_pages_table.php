@@ -15,11 +15,11 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('featured_img');
+            $table->string('featured_img')->nullable();
             $table->text('title');
             $table->text('main_content');
-            $table->text('bottom_content');
-            $table->timestamp('published_at');
+            $table->text('bottom_content')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

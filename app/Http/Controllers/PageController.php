@@ -24,7 +24,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::get();
+        return view('pages.index', compact('pages'));
     }
 
     /**
@@ -45,7 +46,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'title' => 'required',
+            'main_content' => 'required|min:10',
+        ]);
+
+        $page = new Page;
+
+        $page->title = $request->title;
+        $page->main_content = $request->main_content;
+
+        $page->save();
+
+        return redirect(route('root'));
     }
 
     /**
