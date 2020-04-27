@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\Page;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class ManagePagesTest extends TestCase
 {
@@ -36,8 +36,8 @@ class ManagePagesTest extends TestCase
     public function a_guest_can_view_a_page()
     {
         $page = factory(Page::class)->create([
-            'title'=>'The Artist'
-            ]);
+            'title'=>'The Artist',
+        ]);
 
         $response = $this->get(route('page.show', ['id' => $page]))
             ->assertStatus(200)
