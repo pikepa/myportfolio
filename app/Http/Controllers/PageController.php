@@ -25,6 +25,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::get();
+
         return view('pages.index', compact('pages'));
     }
 
