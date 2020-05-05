@@ -31,7 +31,6 @@ class ManagePagesTest extends TestCase
             ->assertRedirect('/login');
     }
 
-
     /** @test */
     public function a_guest_can_view_a_page()
     {
@@ -56,17 +55,16 @@ class ManagePagesTest extends TestCase
     public function a_user_can_view_the_page_index()
     {
         $this->withoutExceptionHandling();
-       
+
         $this->signIn();
 
-        $page = factory(Page::class,5)->create();
+        $page = factory(Page::class, 5)->create();
 
         $response = $this->get(route('page.index'))
             ->assertStatus(200)
             ->assertViewIs('pages.index')
             ->assertSee('Pages Admin');
     }
-
 
     /** @test */
     public function a_user_can_store_a_page()
@@ -76,20 +74,19 @@ class ManagePagesTest extends TestCase
         $this->signIn();
 
         $page = factory(Page::class)->make([
-            'title' => 'The Artist'
+            'title' => 'The Artist',
         ]);
 
         $response = $this->post(route('page.store', [
             'title' => $page->title,
             'main_content' => $page->main_content,
             'bottom_content' => $page->bottom_content,
-            ]))
+        ]))
             ->assertRedirect(route('root'));
-            
-            $this->assertDatabaseHas('pages', [
-                'title' => $page->title,
-                'main_content' => $page->main_content
-                ]);
-    }
 
+        $this->assertDatabaseHas('pages', [
+            'title' => $page->title,
+            'main_content' => $page->main_content,
+        ]);
+    }
 }
