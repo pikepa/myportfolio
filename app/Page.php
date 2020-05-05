@@ -10,6 +10,15 @@ class Page extends Model
 
     protected $guarded = [];
 
+
+    /**
+     * Format the message created date.
+     */
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->format('M j, Y');
+    }
+
     /**
      * Format the page has a path.
      */
