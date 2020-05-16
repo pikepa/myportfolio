@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Paragraph;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
@@ -19,6 +20,10 @@ class Page extends Model
         return $this->created_at->format('M j, Y');
     }
 
+    public function paras()
+    {
+        return $this->hasMany(Paragraph::class);
+    }
     /**
      * Format the page has a path.
      */
