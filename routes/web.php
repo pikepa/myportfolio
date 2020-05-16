@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::livewire('addpage','pages.addpage');
+Route::livewire('pages','pages.manage-pages');
 
 Route::get('/', 'ProductController@index')->name('root');
 Route::get('/theartist', function () {
