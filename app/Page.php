@@ -11,7 +11,6 @@ class Page extends Model
 
     protected $guarded = [];
 
-
     /**
      * Format the message created date.
      */
