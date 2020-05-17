@@ -8,8 +8,9 @@ use Faker\Generator as Faker;
 $factory->define(Page::class, function (Faker $faker) {
     return [
         'featured_img' => $faker->url,
-        'title' => $faker->name,
-        'main_content' => $faker->paragraph,
-        'bottom_content' => $faker->paragraph,
-        'published_at' => $faker->date,    ];
+        'title' => $faker->name(2),
+        'name' => $faker->name(3),
+        'slug' => 'asde-assde-asde',
+
+    ];
 });

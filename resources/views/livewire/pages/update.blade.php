@@ -3,22 +3,22 @@
     <label class="block mx-4 pt-2 ">
         <span class="text-gray-700">Page Name</span>
         <input wire:model='name' id='name' type="text" class="form-input mt-1 block w-full" placeholder="Enter the Page name">
-        @error('name') <span class="mt-2"> {{ $message }}</span> @enderror
+        @error('name') <span class="mt-1 text-red-500 text-sm"> {{ $message }}</span> @enderror
 
     </label>
 
     <label class="block mx-4 pt-2">
         <span class="text-gray-700">Page Title</span>
-        <input wire:model='title' id='title' type="text" class="form-input mt-1 block w-full" placeholder="Page Title goes here">
+        <input wire:model.lazy='title' id='title' type="text" class="form-input mt-1 block w-full" placeholder="Page Title goes here">
 
-        @error('title') <span class="mt-2"> {{ $message }}</span> @enderror
+        @error('title') <span class="mt-1 text-red-500 text-sm"> {{ $message }}</span> @enderror
     </label>
 
     <label class="block mx-4 pt-2">
         <span class="text-gray-700">Featured Image</span>
-        <input wire:model='featured_img' id='featured_img' type="text" class="form-input mt-1 block w-full" placeholder="Featured Image Url">
+        <input wire:model.lazy='featured_img' id='featured_img' type="text" class="form-input mt-1 block w-full" placeholder="Featured Image Url">
 
-        @error('featured_img') <span class="mt-2"> {{ $message }}</span> @enderror
+        @error('featured_img') <span class="mt-1 text-red-500 text-sm"> {{ $message }}</span> @enderror
     </label>
 
     <label class="block mx-4 pt-2">
@@ -26,7 +26,7 @@
         <span class="text-sm">
             Active
         </span>
-        @error('active') <span class="mt-2"> {{ $message }}</span> @enderror
+        @error('active') <span class="mt-1 text-red-500 text-sm"> {{ $message }}</span> @enderror
     </label>
 
 

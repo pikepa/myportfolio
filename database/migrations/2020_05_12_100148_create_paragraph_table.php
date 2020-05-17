@@ -17,6 +17,7 @@ class CreateParagraphTable extends Migration
             $table->bigIncrements('id');
             $table->unSignedBiginteger('page_id');
             $table->longText('para_content');
+            $table->text('owner');
             $table->timestamps();
         });
     }

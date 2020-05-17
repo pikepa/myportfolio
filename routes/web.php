@@ -11,6 +11,7 @@
 |
 */
 Route::livewire('pages','pages.manage-pages');
+Route::livewire('paras','paragraphs.manage-paras');
 
 Route::get('/', 'ProductController@index')->name('root');
 Route::get('/theartist', function () {

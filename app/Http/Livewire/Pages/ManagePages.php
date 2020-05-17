@@ -18,11 +18,14 @@ class ManagePages extends Component
 
     public function render()
     {
-
         $this->pages = Page::all();
         return view('livewire.pages.manage-pages');
     }
 
+    public function updatedName()
+    {
+        $this->validate(['name' => 'unique:pages']);   
+    }
 
     public function add()
     {
