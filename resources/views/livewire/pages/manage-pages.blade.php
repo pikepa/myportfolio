@@ -52,34 +52,24 @@
                                         Active
                                     </span>
                                     @else
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                        In Active
-                                        <div>
-                                            <div>
-
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Active
+                                    </span>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                                    Owner
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                                    <button wire:click="edit({{ $page->id}})" class="mr-4 text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    <button wire:click="destroy({{$page->id}})" class="text-red-600 hover:text-red-900">Delete</button>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div> </span>
-@endif
-</td>
-<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-    Owner
-</td>
-<td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-    <button wire:click="edit({{ $page->id}})" class="mr-4 text-indigo-600 hover:text-indigo-900">Edit</button>
-    <button wire:click="destroy({{$page->id}})" class="text-red-600 hover:text-red-900">Delete</button>
-</td>
-</tr>
-
-@endforeach
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
 </div>

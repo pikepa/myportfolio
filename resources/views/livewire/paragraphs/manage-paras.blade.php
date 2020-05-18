@@ -3,10 +3,10 @@
         <div class="container mx-auto mt-4">
             <div class="sm:w-1/2 pt-2  mx-auto rounded rounded-b-none text-center rounded text-semibold bg-gray-200 text-xl">Manage Paragraphs</div>
 
-            <div class="sm:w-1/2 pt-2 pb-6 mx-auto rounded  shadow-lg">
-                <div class="rounded-md shadow-sm">
-                    <label class="block mx-4 ">
-                        <select name="select" wire:model="select" class="border shadow p-2 bg-white">
+            <div class="sm:w-1/2 pt-4 pb-4 mx-auto rounded  shadow-lg">
+                <div class="w-full rounded-md shadow-sm">
+                    <label class="flex justify-around block mx-4 ">
+                        <select name="select" wire:model="select" class="w-1/2 mx-auto border shadow p-2 bg-white">
                             <option value=''>Choose a page</option>
                             @foreach($pagenames as $pagename)
                             <option value={{$pagename->id}}>{{ $pagename->name }}</option>
