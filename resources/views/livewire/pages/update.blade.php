@@ -30,8 +30,7 @@
     </label>
 
 
-    <div class=" ">
-        <button wire:click="update()" class="btn btn-primary">Update</button>
+    <div class="flex justify-around mx-4 block mt-2 ">
+        <button wire:click="update()" class="button bg-green-500">Update</button>
     </div>
-
 </div>

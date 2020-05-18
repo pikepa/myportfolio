@@ -28,8 +28,8 @@
             @error('active') <span class="mt-1 text-red-500 text-sm"> {{ $message }}</span> @enderror
         </label>
 
-        <div class=" ">
-            <button wire:click="add()" class="btn btn-primary">Submit</button>
+        <div class="flex justify-around mx-4 block mt-2">
+            <button wire:click="add()" class="button bg-green-500 ">Add New Page</button>
         </div>
 
     </div>
