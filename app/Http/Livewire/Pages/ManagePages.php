@@ -13,7 +13,6 @@ class ManagePages extends Component
     public $name, $slug, $featured_img, $title, $pages, $thisid, $currentuser;
     public $updateMode = false;
     public $active = 0;
-    public $activity = 'S';
 
 
     public function render()
@@ -49,13 +48,11 @@ class ManagePages extends Component
     public function edit($id)
     {
         $editpage = Page::find($id);
-
         $this->thisid = $editpage->id;
         $this->name = $editpage->name;
         $this->title = $editpage->title;
         $this->featured_img = $editpage->featured_img;
         $this->active = $editpage->active;
-
 
         $this->updateMode = 'true';
     }
@@ -69,7 +66,6 @@ class ManagePages extends Component
             'featured_img' => '',
             'active' => '',
         ]);
-
         $updated = Page::find($this->thisid);
 
         $updated->name = $data['name'];
@@ -77,10 +73,9 @@ class ManagePages extends Component
         $updated->title = $data['title'];
         $updated->featured_img = $data['featured_img'];
         $updated->active = $data['active'];
-
         $updated->save();
         $this->activity = "S";
-        $this->reset('name', 'title', 'active');
+        $this->reset('name', 'title', 'active', 'updateMode');
     }
 
     public function destroy($id)

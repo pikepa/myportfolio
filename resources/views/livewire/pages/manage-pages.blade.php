@@ -5,9 +5,9 @@
         <div class="sm:w-1/2 pt-6 pb-6 mx-auto rounded  shadow-lg">
 
             @if($updateMode)
-            @include('livewire.pages.update')
+                @include('livewire.pages.update')
             @else
-            @include('livewire.pages.create')
+                @include('livewire.pages.create')
             @endif
         </div>
 
@@ -53,7 +53,7 @@
                                     </span>
                                     @else
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Active
+                                        In Active
                                     </span>
                                     @endif
                                 </td>
@@ -61,8 +61,9 @@
                                     Owner
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                    <button wire:click="edit({{ $page->id}})" class="mr-4 text-indigo-600 hover:text-indigo-900">Edit</button>
-                                    <button wire:click="destroy({{$page->id}})" class="text-red-600 hover:text-red-900">Delete</button>
+                                    <button wire:click="edit({{ $page->id }})" class="mr-4 text-indigo-600 hover:text-indigo-900">Edit</button>
+                                    <button wire:click="destroy({{ $page->id }})" class="text-red-600 hover:text-red-900">Delete</button>
+                                    {{$page->id}}
                                 </td>
                             </tr>
                             @endforeach
