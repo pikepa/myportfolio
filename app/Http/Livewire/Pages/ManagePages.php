@@ -83,6 +83,8 @@ class ManagePages extends Component
         if ($id) {
             $record = Page::where('id', $id);
             $record->delete();
+            $this->reset('name', 'title', 'active', 'updateMode');
+
         }
     }
 

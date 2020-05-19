@@ -63,7 +63,6 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                     <button wire:click="edit({{ $page->id }})" class="mr-4 text-indigo-600 hover:text-indigo-900">Edit</button>
                                     <button wire:click="destroy({{ $page->id }})" class="text-red-600 hover:text-red-900">Delete</button>
-                                    {{$page->id}}
                                 </td>
                             </tr>
                             @endforeach
