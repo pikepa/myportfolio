@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Message;
+use App\Models\Message;
 use Illuminate\Auth\Middleware\Auth;
 use Illuminate\Http\Request;
 use Mews\Purifier\Facades\Purifier;
@@ -75,7 +75,7 @@ class MessageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Message  $message
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
     public function show(Message $message)
@@ -88,7 +88,7 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Message  $message
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
     public function destroy(Message $message)

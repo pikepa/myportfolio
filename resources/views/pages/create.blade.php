@@ -18,8 +18,13 @@
 
         <form method="POST" action="/product">
             @include ('pages.form', [
+<<<<<<< HEAD
             'page' => new App\Page,
             'buttonText' => 'Save'
+=======
+                'page' => new App\Models\Page,
+                'buttonText' => 'Save'
+>>>>>>> 178130564c2a037117bf87ba33025a3ed27edbb6
             ])
         </form>
     </div>

@@ -16,7 +16,7 @@
             action="/message"
         >
             @include ('messages.form', [
-                'message' => new App\Message,
+                'message' => new App\Models\Message,
                 'buttonText' => 'Save'
             ])
         </form>

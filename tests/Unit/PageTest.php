@@ -2,20 +2,20 @@
 
 namespace Tests\Unit;
 
-use App\Models\Category;
+use App\Models\Page;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class CategoryTest extends TestCase
+class PageTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
 
     /** @test */
-    public function it_has_a_path()
+    public function a_page_has_a_path()
     {
         $this->withoutExceptionHandling();
-        $category = factory(Category::class)->create();
-        $this->assertEquals('/category/'.$category->id, $category->path());
+        $page = factory(Page::class)->create();
+        $this->assertEquals('/page/'.$page->id, $page->path());
     }
 }

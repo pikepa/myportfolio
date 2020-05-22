@@ -17,7 +17,7 @@
             action="/product"
         >
             @include ('products.form', [
-                'product' => new App\Product,
+                'product' => new App\Models\Product,
                 'buttonText' => 'Save'
             ])
         </form>
