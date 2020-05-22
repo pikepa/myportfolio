@@ -25,6 +25,6 @@ class ProductTest extends TestCase
     {
         $product = ProductFactory::create();
 
-        $this->assertInstanceOf(\App\User::class, $product->owner);
+        $this->assertInstanceOf(\App\Models\User::class, $product->owner);
     }
 }

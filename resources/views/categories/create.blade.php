@@ -17,7 +17,7 @@
             action="/category"
         >
             @include ('categories.form', [
-                'category' => new App\Category,
+                'category' => new App\Models\Category,
                 'buttonText' => 'Save'
             ])
         </form>
