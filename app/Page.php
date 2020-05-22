@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use App\Paragraph;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,13 @@ class Page extends Model
     {
         return $this->hasMany(Paragraph::class);
     }
+    
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class,'owner_id');
+    }
+
     /**
      * Format the page has a path.
      */
