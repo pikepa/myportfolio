@@ -16,6 +16,21 @@ class PageTableSeeder extends Seeder
             'name' => "About Me",
             'slug' => "about-me",
             'title' => 'Hellen Dutch',
+            'owner_id' => 1,
+        ]);    
+    
+        DB::table('pages')->insert([
+            'name' => "Why Borneo",
+            'slug' => "why-borneo",
+            'title' => 'Why Borneo',
+            'owner_id' => 1,
+        ]);    
+    
+        DB::table('pages')->insert([
+            'name' => "Use of Materials",
+            'slug' => "use-of-materials",
+            'title' => 'Use of Materials',
+            'owner_id' => 1,
         ]);    
     }
 }

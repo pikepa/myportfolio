@@ -46,6 +46,9 @@
         </div>
         <ul>
             <li class="hover:font-semibold">
+                <a href="{{ url('/dashboard') }}" class="hover:font-semibold no-underline">Dashboard.</a>
+            </li>
+            <li class="hover:font-semibold">
                 <a href="{{ url('/product/create') }}" class="hover:font-semibold no-underline">Add New Item.</a>
             </li>
             <li class="hover:font-semibold">

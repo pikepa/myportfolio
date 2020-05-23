@@ -2,14 +2,20 @@
 
 namespace App\Http\Livewire\Paragraphs;
 
-use App\Page;
-use App\Paragraph;
+use App\Models\Page;
+use App\Models\Paragraph;
 use Livewire\Component;
+use Livewire\ComponentConcerns\ValidatesInput;
 
 class ManageParas extends Component
 {
     public $select;
+    public $thisid;
+    public $content;
     public $paras;
+    public $updateMode = false;
+    public $createMode = false;
+
 
     public function render()
     {
@@ -18,8 +24,59 @@ class ManageParas extends Component
             ->withPagenames(Page::orderBy('name')->get());
     }
 
-    public function fetchpara()
+    public function save()
     {
+        $data = $this->validate([
+            'content' => 'required | min:5| max:124',
+        ]);
 
+        Paragraph::create([
+            'para_content' => $data['content'],
+            'page_id' => $this->select,
+        ]);
+
+        $this->reset('createMode','content');
+    }
+
+
+    public function destroy($id)
+    {
+        if ($id) {
+            $record = Paragraph::where('id', $id);
+            $record->delete();
+
+            $this->reset('createMode', 'content');
+        }
+    }
+
+    public function addPara()
+    {
+        $this->createMode = 'true';
+    }
+
+
+    public function editPara($id)
+    {
+        $editpara = Paragraph::find($id);
+        $this->thisid = $editpara->id;
+        $this->content = $editpara->para_content;
+
+        $this->updateMode = 'true';
+    }
+
+    public function update()
+    {
+        $data = $this->validate([
+            'content' => 'required | min:5| max:124',
+
+        ]);
+
+        $updated = Paragraph::find($this->thisid);
+
+        $updated->para_content = $data['content'];
+
+        $updated->save();
+
+        $this->reset('updateMode', 'content');
     }
 }

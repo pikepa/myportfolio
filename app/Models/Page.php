@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\User;
-use App\Paragraph;
+use App\Models\User;
+use App\Models\Paragraph;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model

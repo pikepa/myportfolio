@@ -20,6 +20,7 @@ class CreatePagesTable extends Migration
             $table->string('featured_img')->nullable();
             $table->text('title');
             $table->unsignedInteger('active')->default(0);
+            $table->unsignedInteger('owner_id');
             $table->timestamps();
         });
     }

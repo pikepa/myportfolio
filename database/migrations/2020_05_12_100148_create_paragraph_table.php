@@ -15,9 +15,8 @@ class CreateParagraphTable extends Migration
     {
         Schema::create('paras', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unSignedBiginteger('page_id');
             $table->longText('para_content');
-            $table->text('owner');
+            $table->unsignedInteger('page_id');
             $table->timestamps();
         });
     }
