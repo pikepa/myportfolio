@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Page;
+use App\Models\Page;
 use Tests\TestCase;
 use Livewire\Livewire;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -51,6 +51,7 @@ class AddingPagesTest extends TestCase
             'name' => 'Albert',
             'slug' => 'albert',
             'title' => 'Fred',
+            'owner_id' => 1,
             'active' => True,
         ]);
 
@@ -71,6 +72,7 @@ class AddingPagesTest extends TestCase
             'slug' => 'albert',
             'title' => 'Fred',
             'active' => True,
+            'owner_id' => 1,
         ]);
 
         Livewire::test('pages.manage-pages')
@@ -105,6 +107,7 @@ class AddingPagesTest extends TestCase
     /** @test */
     function update_a_page_returns_correct_values()
     {
+        $this->signIn();
         $page = factory(Page::class)->create();
 
         Livewire::test('pages.manage-pages')

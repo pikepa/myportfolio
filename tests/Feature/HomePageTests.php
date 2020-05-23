@@ -26,9 +26,9 @@ class HomePageTests extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $response = $this->get('/theartist');
-        $response->assertStatus(200);
-        $response->assertSee('Hellen Dutch');
+    //   $response = $this->get('/theartist');
+     //   $response->assertStatus(200);
+     //   $response->assertSee('Hellen Dutch');
 
         $response = $this->get('/whyborneo');
         $response->assertStatus(200);

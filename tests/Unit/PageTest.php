@@ -15,6 +15,7 @@ class PageTest extends TestCase
     public function a_page_has_a_path()
     {
         $this->withoutExceptionHandling();
+        $this->signIn();
         $page = factory(Page::class)->create();
         $this->assertEquals('/page/'.$page->id, $page->path());
     }
