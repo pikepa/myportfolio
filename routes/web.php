@@ -11,9 +11,8 @@
 |
 */
 Route::livewire('dashboard','dashboard.dashboard');
-Route::livewire('pages','pages.manage-pages');
 
-/* Home Routes th web security */
+/* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'ProductController@index')->name('root');
     Route::get('/theartist', function () {return view('homepages.theartist');});
@@ -48,7 +47,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UserController@show')->name('user.profile');
     Route::patch('/users/{id}', 'UserController@update')->name('user.update');
 
-    //  Route::get('/category', 'CategoryController@index');
-  //  Route::get('/category/{id}/edit', 'CategoryController@edit')->name('category.edit');
-  //  Route::get('/category/create', 'CategoryController@create')->name('category.create');
 });
