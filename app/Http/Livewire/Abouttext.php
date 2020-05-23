@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Paragraph;
+use App\Models\Paragraph;
 use Livewire\Component;
 
 class Abouttext extends Component
