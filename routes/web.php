@@ -10,26 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::livewire('dashboard','dashboard.dashboard');
 Route::livewire('pages','pages.manage-pages');
-Route::livewire('paras','paragraphs.manage-paras');
 
-Route::get('/', 'ProductController@index')->name('root');
-Route::get('/theartist', function () {
-    return view('homepages.theartist');
-});
-Route::get('/whyborneo', function () {
-    return view('homepages.whyborneo');
-});
-Route::get('/materials', function () {
-    return view('homepages.materials');
-});
-Route::get('/contactme', function () {
-    return view('messages.create');
+/* Home Routes th web security */
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', 'ProductController@index')->name('root');
+    Route::get('/theartist', function () {return view('homepages.theartist');});
+    Route::get('/whyborneo', function () {return view('homepages.whyborneo');});
+    Route::get('/materials', function () {return view('homepages.materials');});
+    Route::get('/contactme', function () {return view('messages.create');});
+    Route::get('/coming_soon', function () {return view('homepages.comingsoon');});
 });
 
-Route::get('/coming_soon', function () {
-    return view('homepages.comingsoon');
-});
 
 Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
 
