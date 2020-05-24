@@ -23,7 +23,7 @@
 
                 <div class="flex flex-col flex-1  items-center ml-4 ">
 
-                    @livewire('abouttext')
+                    @livewire('top-pages.static-page',['page' => 1])
 
                 </div>
 
