@@ -15,7 +15,9 @@ class AddingPagesTest extends TestCase
     function page_management_contains_livewire_componet()
     {
 
-        $this->get('/pages')->assertSeeLivewire('pages.manage-pages');
+        $this->get('/dashboard')
+        ->assertStatus(200)
+        ->assertSee('Dashboard');
 
     }
 
