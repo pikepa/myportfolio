@@ -9,6 +9,7 @@ use Livewire\Component;
 class ManageParas extends Component
 {
     public $select;
+    public $key=0;
     public $thisid;
     public $content;
     public $paras;

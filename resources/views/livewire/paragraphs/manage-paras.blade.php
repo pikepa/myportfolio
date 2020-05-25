@@ -42,12 +42,12 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            @foreach($paras as $item)
+                            @foreach($paras as $key => $item)
                             <tr>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                     <div class="flex items-center">
                                         <div class="">
-                                            <div class="text-sm leading-5 font-medium text-gray-900">{{$item->id}}</div>
+                                            <div class="text-sm leading-5 font-medium text-gray-900">{{$key+1}}</div>
                                         </div>
                                     </div>
                                 </td>
