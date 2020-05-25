@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\Paragraph;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
@@ -24,11 +22,10 @@ class Page extends Model
     {
         return $this->hasMany(Paragraph::class);
     }
-    
 
     public function owner()
     {
-        return $this->belongsTo(User::class,'owner_id');
+        return $this->belongsTo(User::class, 'owner_id');
     }
 
     /**

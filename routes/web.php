@@ -10,18 +10,27 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::livewire('dashboard','dashboard.dashboard');
+Route::livewire('dashboard', 'dashboard.dashboard');
 
 /* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'ProductController@index')->name('root');
-    Route::get('/theartist', function () {return view('homepages.theartist');});
-    Route::get('/whyborneo', function () {return view('homepages.whyborneo');});
-    Route::get('/materials', function () {return view('homepages.materials');});
-    Route::get('/contactme', function () {return view('messages.create');});
-    Route::get('/coming_soon', function () {return view('homepages.comingsoon');});
+    Route::get('/theartist', function () {
+        return view('homepages.theartist');
+    });
+    Route::get('/whyborneo', function () {
+        return view('homepages.whyborneo');
+    });
+    Route::get('/materials', function () {
+        return view('homepages.materials');
+    });
+    Route::get('/contactme', function () {
+        return view('messages.create');
+    });
+    Route::get('/coming_soon', function () {
+        return view('homepages.comingsoon');
+    });
 });
-
 
 Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
 
@@ -46,5 +55,4 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UserController@show')->name('user.profile');
     Route::patch('/users/{id}', 'UserController@update')->name('user.update');
-
 });

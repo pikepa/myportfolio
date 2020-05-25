@@ -19,7 +19,7 @@ class ParagraphTableSeeder extends Seeder
         DB::table('paras')->insert([
             'page_id' => 1,
             'para_content' => 'Coming from a hectic job back in Holland (her home country), which consumed all her time, she finally found time in Borneo to explore her long lost hobbies making paintings & sculptures. Living in Sabah and exploring the underwater world inspired her and shows in a lot of her work that makes her “grow wings". *',
-            ]);
+        ]);
 
         DB::table('paras')->insert([
             'page_id' => 1,

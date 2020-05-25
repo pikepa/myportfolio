@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Paragraphs;
 use App\Models\Page;
 use App\Models\Paragraph;
 use Livewire\Component;
-use Livewire\ComponentConcerns\ValidatesInput;
 
 class ManageParas extends Component
 {
@@ -16,10 +15,10 @@ class ManageParas extends Component
     public $updateMode = false;
     public $createMode = false;
 
-
     public function render()
     {
         $this->paras = Paragraph::where('page_id', $this->select)->get();
+
         return view('livewire.paragraphs.manage-paras')
             ->withPagenames(Page::orderBy('name')->get());
     }
@@ -35,9 +34,8 @@ class ManageParas extends Component
             'page_id' => $this->select,
         ]);
 
-        $this->reset('createMode','content');
+        $this->reset('createMode', 'content');
     }
-
 
     public function destroy($id)
     {
@@ -53,7 +51,6 @@ class ManageParas extends Component
     {
         $this->createMode = 'true';
     }
-
 
     public function editPara($id)
     {

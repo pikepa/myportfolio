@@ -3,39 +3,36 @@
 namespace Tests\Feature;
 
 use App\Models\Page;
-use Tests\TestCase;
-use Livewire\Livewire;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
+use Tests\TestCase;
 
 class AddingPagesTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function page_management_contains_livewire_componet()
+    public function page_management_contains_livewire_componet()
     {
-
         $this->get('/dashboard')
         ->assertStatus(200)
         ->assertSee('Dashboard');
-
     }
 
     /** @test */
-    function can_add_pages()
+    public function can_add_pages()
     {
         Livewire::test('pages.manage-pages')
-            ->set('name','About Me')
-            ->set('title','Hellen Dutch')
-            ->set('active','false')
+            ->set('name', 'About Me')
+            ->set('title', 'Hellen Dutch')
+            ->set('active', 'false')
             ->call('add');
 
         $this->assertTrue(Page::whereName('About Me')->exists());
-
     }
 
     /** @test */
-    function name_is_required()
+    public function name_is_required()
     {
         Livewire::test('pages.manage-pages')
             ->set('name', '')
@@ -44,17 +41,16 @@ class AddingPagesTest extends TestCase
             ->call('add')
             ->assertHasErrors(['name' => 'required']);
     }
-    
 
     /** @test */
-    function name_is_unique()
+    public function name_is_unique()
     {
         $page = Page::create([
             'name' => 'Albert',
             'slug' => 'albert',
             'title' => 'Fred',
             'owner_id' => 1,
-            'active' => True,
+            'active' => true,
         ]);
 
         Livewire::test('pages.manage-pages')
@@ -64,28 +60,27 @@ class AddingPagesTest extends TestCase
             ->call('add')
             ->assertHasErrors(['name' => 'unique']);
     }
-    
 
     /** @test */
-    function see_name_hasnt_already_been_taken_validation_message_as_user_types()
+    public function see_name_hasnt_already_been_taken_validation_message_as_user_types()
     {
         $page = Page::create([
             'name' => 'Albert',
             'slug' => 'albert',
             'title' => 'Fred',
-            'active' => True,
+            'active' => true,
             'owner_id' => 1,
         ]);
 
         Livewire::test('pages.manage-pages')
             ->set('name', 'Alber')
             ->assertHasNoErrors()
-            ->set('name', 'Albert') 
+            ->set('name', 'Albert')
             ->assertHasErrors(['name' => 'unique']);
     }
-    
+
     /** @test */
-    function name_has_min_5_chars()
+    public function name_has_min_5_chars()
     {
         Livewire::test('pages.manage-pages')
             ->set('name', 'a')
@@ -96,10 +91,10 @@ class AddingPagesTest extends TestCase
     }
 
     /** @test */
-    function name_has_max_24_chars()
+    public function name_has_max_24_chars()
     {
         Livewire::test('pages.manage-pages')
-            ->set('name', str_repeat('a',25))
+            ->set('name', str_repeat('a', 25))
             ->set('title', 'Hellen Dutch')
             ->set('active', 'false')
             ->call('add')
@@ -107,23 +102,21 @@ class AddingPagesTest extends TestCase
     }
 
     /** @test */
-    function update_a_page_returns_correct_values()
+    public function update_a_page_returns_correct_values()
     {
         $this->signIn();
         $page = factory(Page::class)->create();
 
         Livewire::test('pages.manage-pages')
-            ->call('edit',$page->id)
+            ->call('edit', $page->id)
             ->set('name', 'AboutMe')
             ->set('title', 'Hellen Dutch')
             ->set('active', 'true')
             ->call('update');
 
-        $page=Page::find($page->id);   
-         $this->assertEquals("AboutMe", $page->name );
-         $this->assertEquals("Hellen Dutch", $page->title );
-         $this->assertEquals("true", $page->active );
-
+        $page = Page::find($page->id);
+        $this->assertEquals('AboutMe', $page->name);
+        $this->assertEquals('Hellen Dutch', $page->title);
+        $this->assertEquals('true', $page->active);
     }
-
 }
