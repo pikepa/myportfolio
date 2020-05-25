@@ -16,6 +16,7 @@
             <div class="text-center">
                 <h1 class="font-bold text-3xl m-2 ">Hellen Dutch</h1>
             </div>
+            
             <div class="flex flex-col md:flex-row ">
                 <div class="card mx-auto px-4 mx-2">
                     <img class="rounded-lg border-white border-8" src="{{URL::asset('images/8_tijger_met_mij.JPG')}}" width=350px alt="Profile Pic">
