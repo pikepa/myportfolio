@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\TopPages;
 
-use Livewire\Component;
 use App\Models\Paragraph;
+use Livewire\Component;
 
 class StaticPage extends Component
 {
@@ -18,6 +18,7 @@ class StaticPage extends Component
     public function render()
     {
         $this->paras = Paragraph::where('page_id', $this->page)->get();
+
         return view('livewire.top-pages.static-page');
     }
 }

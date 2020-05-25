@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Page;
 use Illuminate\Database\Eloquent\Model;
 
 class Paragraph extends Model
@@ -10,7 +9,6 @@ class Paragraph extends Model
     protected $dates = ['created_at', 'published_at'];
 
     protected $guarded = [];
-
 
     /**
      * The table associated with the model.
@@ -28,5 +26,4 @@ class Paragraph extends Model
     {
         return "/paragraph/{$this->id}";
     }
-
 }
