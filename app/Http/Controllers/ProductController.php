@@ -137,8 +137,8 @@ class ProductController extends Controller
     {
         return request()->validate([
             'featured_img' => '',
-            'title' => 'required',
-            'description'=>'required',
+            'title' => 'required|min:4|max:124',
+            'description'=> 'required|min:10|max:500',
             'status'=>'required|in:For Sale,Not For Sale,Sold,',
             'price' => 'required',
             'discount' => 'required',

@@ -32,9 +32,6 @@
                                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium uppercase tracking-wider">
                                     Content
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium uppercase tracking-wider">
-                                    Last Edit
-                                </th>
                                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                                 @if($select)
                                 <th><button wire:click="addPara()" class="px-6 py-3 border-b border-gray-200 bg-gray-50"><i class="fas fa-plus"></i></button> </th>
@@ -51,15 +48,9 @@
                                         </div>
                                     </div>
                                 </td>
-
                                 <td class="px-6 py-4  border-b border-gray-200">
                                     <div class="text-sm leading-5 text-gray-900">{{$item->para_content}}</div>
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Author
-                                    </span>
-
                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                     <button wire:click="editPara({{$item->id}})" class="mr-4 text-indigo-600 hover:text-indigo-900">Edit</button>
                                     <button wire:click="destroy({{$item->id}})" class="text-red-600 hover:text-red-900">Delete</button>
