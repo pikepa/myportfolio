@@ -26,7 +26,7 @@ class AddIsAdminFieldToUsers extends Migration
     public function down()
     {
         Schema::table('Users', function (Blueprint $table) {
-            //
+            $table->dropColumn('type');
         });
     }
 }
