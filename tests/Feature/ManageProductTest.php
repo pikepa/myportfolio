@@ -2,11 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Models\Product;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
+use App\Models\Product;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ManageProductTest extends TestCase
 {
@@ -67,6 +68,7 @@ class ManageProductTest extends TestCase
     {
         return [
             'title' => 'Cool Book Title',
+            'slug' => Str::slug('Cool Book Title', '-'),
             'description' => 'Victors Ferfy',
             'status'=>'For Sale',
             'price' => '10000',
