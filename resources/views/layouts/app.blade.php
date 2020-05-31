@@ -19,9 +19,8 @@
     <div id="app">
 
         @yield('content')
-
     </div>
-
+    
     @livewireScripts
 
 </body>

@@ -1,4 +1,4 @@
-<div class="h-screen flex overflow-hidden bg-white">
+<div class="h-screen flex overflow-hidden bg-gray-100">
     <!-- Off-canvas menu for mobile -->
     <div class="md:hidden">
         <div class="fixed inset-0 flex z-40">
@@ -149,7 +149,7 @@
                         <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        <button wire:click="changePage(0)">Dashboard</button>
+                        <button wire:click="changePage(0)">Profile</button>
                     </a>
                 </nav>
             </div>
@@ -168,8 +168,8 @@
                 <!-- Replace with your content -->
                 <div class="">
                     @if($pagesmode==0)
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                        <h1 class="text-2xl font-semibold text-gray-900">Profile</h1>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mb-4">
+                        @livewire('user.profile')
                     </div>
                     @endif
 

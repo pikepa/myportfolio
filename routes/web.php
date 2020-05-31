@@ -1,16 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::livewire('dashboard', 'dashboard.dashboard');
+Route::redirect('/', 'dashboard');
+
+/**
+ * App Routes
+ */
+Route::group(['middleware' => 'auth'], function () {
+    Route::livewire('dashboard', 'dashboard.dashboard');
+    Route::livewire('profile', 'user.profile');
+});
 
 /* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
