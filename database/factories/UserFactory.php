@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'about' => $faker->sentence(),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => Hash::make('dutchmasters'),
