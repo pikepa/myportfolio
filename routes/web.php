@@ -3,7 +3,7 @@
 Route::redirect('/', 'dashboard');
 
 /**
- * App Routes
+ * App Routes.
  */
 Route::group(['middleware' => 'auth'], function () {
     Route::livewire('dashboard', 'dashboard.dashboard');

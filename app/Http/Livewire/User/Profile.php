@@ -9,7 +9,6 @@ class Profile extends Component
     public $name = '';
     public $about = '';
 
-
     public function mount()
     {
         $this->name = auth()->user()->name;
@@ -30,5 +29,6 @@ class Profile extends Component
 
         auth()->user()->update($profileData);
 
-        $this->emitSelf('notify-saved');    }
+        $this->emitSelf('notify-saved');
+    }
 }
