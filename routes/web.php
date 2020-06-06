@@ -13,7 +13,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 /* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
-    Route::livewire('/contactme', 'messages.contact-me')->layout('layouts.base');
+    Route::livewire('/contactme', 'messages.contact-me');
 
     Route::get('/', 'ProductController@index')->name('root');
     Route::get('/theartist', function () {

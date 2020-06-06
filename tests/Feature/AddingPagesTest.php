@@ -2,10 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Models\Page;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Livewire\Livewire;
 use Tests\TestCase;
+use App\Models\Page;
+use App\Models\User;
+use Livewire\Livewire;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AddingPagesTest extends TestCase
 {
@@ -14,9 +15,12 @@ class AddingPagesTest extends TestCase
     /** @test */
     public function page_management_contains_livewire_componet()
     {
-        $this->get('/dashboard')
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)
+        ->get('/dashboard')
         ->assertStatus(200)
-        ->assertSee('Dashboard');
+        ->assertSee('Profile');
     }
 
     /** @test */

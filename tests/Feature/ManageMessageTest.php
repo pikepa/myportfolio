@@ -2,19 +2,22 @@
 
 namespace Tests\Feature;
 
-use App\Models\Message;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Livewire\Livewire;
+use App\Models\Message;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ManageMessageTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
 
+ 
+
     /** @test */
     public function a_guest_can_create_a_message()
     {
-        $response = $this->get('/message/create')
+        $response = $this->get('/contactme')
             ->assertStatus(200)
             ->assertSee('Message');
     }
