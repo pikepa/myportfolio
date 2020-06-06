@@ -25,7 +25,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/materials', function () {
         return view('homepages.materials');
     });
- 
+
     Route::get('/coming_soon', function () {
         return view('homepages.comingsoon');
     });

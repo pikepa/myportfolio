@@ -7,9 +7,11 @@ use Livewire\Component;
 
 class ContactMe extends Component
 {
-    public $name, $email, $subject, $content, $my_question;
-
-
+    public $name;
+    public $email;
+    public $subject;
+    public $content;
+    public $my_question;
 
     public function render()
     {

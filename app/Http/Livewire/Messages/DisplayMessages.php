@@ -7,18 +7,19 @@ use Livewire\Component;
 
 class DisplayMessages extends Component
 {
-    public $messages=[];
-    public $detail=[];
-    public $readMode=false;
+    public $messages = [];
+    public $detail = [];
+    public $readMode = false;
     public $email;
-    public $name ;
-    public $subject ;
+    public $name;
+    public $subject;
     public $content;
     public $messageId;
 
     public function render()
     {
         $this->messages = Message::get();
+
         return view('livewire.messages.display-messages');
     }
 
@@ -28,12 +29,12 @@ class DisplayMessages extends Component
             $record = Message::where('id', $id);
             $record->delete();
             $this->readMode = false;
-
         }
     }
+
     public function read($id)
     {
-        $detail= Message::find($id);
+        $detail = Message::find($id);
         $this->name = $detail->name;
         $this->email = $detail->email;
         $this->subject = $detail->subject;
@@ -42,6 +43,7 @@ class DisplayMessages extends Component
 
         $this->readMode = true;
     }
+
     public function back($id)
     {
         $this->readMode = false;
