@@ -6,7 +6,7 @@
             <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist</a></li>
             <li><a href="{{ url('/whyborneo') }}" class="hover:font-semibold no-underline">Why Borneo</a></li>
             <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials</a></li>
-            <li><a href="{{ url('/message/create') }}" class="hover:font-semibold no-underline">Contact Me</a></li>
+            <li><a href="{{ url('/contactme') }}" class="hover:font-semibold no-underline">Contact Me</a></li>
         </ul>
     </div>
     <div class="mb-2">
