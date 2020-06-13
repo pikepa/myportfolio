@@ -50,12 +50,12 @@
                                 Save
                             </button>
                         </span>
-                                                <span x-data="{ open: false }" x-init="
+                        <span x-data="{ open: false }" x-init="
                         @this.on('notify-saved', () => {
                             if (open === false) setTimeout(() => { open = false }, 2500);
                             open = true;
                         })
-                    " x-show.transition.out.duration.1000ms="open" style="display: none;" class="mt-4 text-green-500">Saved!</span>
+                    " x-show.transition.out.duration.1000ms="open" style="display: none;" class="ml-4 text-green-500">Saved!</span>
                     </div>
                 </div>
             </div>
