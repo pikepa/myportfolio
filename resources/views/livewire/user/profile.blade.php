@@ -39,12 +39,7 @@
                 </div>
                 <div class="mt-8 border-t border-gray-200 pt-5">
                     <div class=" flex justify-start items-center">
-                        <span x-data="{ open: false }" x-init="
-                        @this.on('notify-saved', () => {
-                            if (open === false) setTimeout(() => { open = false }, 2500);
-                            open = true;
-                        })
-                    " x-show.transition.out.duration.1000ms="open" style="display: none;" class="text-green-500">Saved!</span>
+
                         <span class="ml-3 inline-flex rounded-md shadow-sm">
                             <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                 Cancel
@@ -55,6 +50,12 @@
                                 Save
                             </button>
                         </span>
+                                                <span x-data="{ open: false }" x-init="
+                        @this.on('notify-saved', () => {
+                            if (open === false) setTimeout(() => { open = false }, 2500);
+                            open = true;
+                        })
+                    " x-show.transition.out.duration.1000ms="open" style="display: none;" class="mt-4 text-green-500">Saved!</span>
                     </div>
                 </div>
             </div>
