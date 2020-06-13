@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer(['dashboard.components.dash_left',
             'products.form',
+            'components.layout.dash_left',
         ], function ($view) {
             $view->with('categories', Category::where('active', 1)->orderBy('category', 'asc')->get());
         });

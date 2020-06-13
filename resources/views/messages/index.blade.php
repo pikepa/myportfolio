@@ -10,8 +10,8 @@
 
   <div class="flex flex-col md:flex-row justify-between">
 
-    @include('dashboard.components.dash_left')
-
+    <x-layout.dash_left/>
+    
     @livewire('messages.display-messages')
 
   </div>

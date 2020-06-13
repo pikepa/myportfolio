@@ -14,7 +14,8 @@
 </head>
 
 <body class="font-sans antialiased">
-    @include('layouts.partials.nav')
+
+    <x-layout.header/>
 
     <div id="app">
 
