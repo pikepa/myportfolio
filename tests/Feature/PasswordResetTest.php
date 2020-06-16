@@ -64,7 +64,7 @@ class PasswordResetTest extends TestCase
                 'email' => $this->faker->unique()->safeEmail,
             ])
             ->assertSuccessful()
-            ->assertSee(e(__('passwords.user')));
+            ->assertSee('t find a user with that e-mail address.');
     }
 
     /**
@@ -81,9 +81,7 @@ class PasswordResetTest extends TestCase
                 'email' => $user->email,
             ])
             ->assertSuccessful()
-            ->
-            assertSee(e(__('passwords.sent')));
+            ->assertSee(e(__('passwords.sent')));
 
-        //  Notification::assertSentTo($user, ResetPassword::class);
     }
 }
