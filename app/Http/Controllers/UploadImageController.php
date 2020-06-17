@@ -8,6 +8,14 @@ use Spatie\MediaLibrary\Models\Media;
 
 class UploadImageController extends Controller
 {
+    /**
+     * Restricting certain functions to Auth Users only.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
     public function load($product_id)
     {
         return view('images.upload', compact('product_id'));

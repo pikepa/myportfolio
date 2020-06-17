@@ -41,13 +41,13 @@ Route::resource('category', 'CategoryController');
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/images', 'UploadImageController@index');
-    Route::get('/images/{product}/load', 'UploadImageController@load');
-    Route::get('/images/{product}/{image}/delete', 'UploadImageController@delete');
-    Route::get('/images/{product}/{image}/featured', 'UploadImageController@featured');
-    Route::get('/images/{image}', 'UploadImageController@show');
-    Route::post('/images/upload', 'UploadImageController@upload');
+Route::name('image.')->group(function () {
+    Route::get('/images', 'UploadImageController@index')->name('index');
+    Route::get('/images/{product}/load', 'UploadImageController@load')->name('load');
+    Route::get('/images/{product}/{image}/delete', 'UploadImageController@delete')->name('delete');
+    Route::get('/images/{product}/{image}/featured', 'UploadImageController@featured')->name('makefeatured');
+    Route::get('/images/{image}', 'UploadImageController@show')->name('show');
+    Route::post('/images/upload', 'UploadImageController@upload')->name('upload');
 });
 
 Route::group(['middleware' => 'auth'], function () {

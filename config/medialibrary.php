@@ -6,7 +6,7 @@ return [
      * The disk on which to store added files and derived images by default. Choose
      * one or more of the disks you've configured in config/filesystems.php.
      */
-    'disk_name' => 'public',
+    'disk_name' => 's3',
 
     /*
      * The maximum file size of an item in bytes.
@@ -29,7 +29,7 @@ return [
         /*
          * The domain that should be prepended when generating urls.
          */
-        'domain' => 'https://'.env('AWS_URL'),
+        'domain' => 'https://' . env('AWS_URL'),
     ],
 
     'remote' => [
