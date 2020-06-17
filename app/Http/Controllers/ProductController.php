@@ -74,7 +74,7 @@ class ProductController extends Controller
         $foundcats = $product->categories;
         $assignedCats = $product->categories->pluck('id')->toArray();
         //     dd($assignedCats);
-        return view('homepages.product_detail', compact('product', 'images', 'foundcats'));
+        return view('products.product_detail', compact('product', 'images', 'foundcats'));
     }
 
     /**
