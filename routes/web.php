@@ -41,7 +41,7 @@ Route::resource('category', 'CategoryController');
 
 Auth::routes();
 
-Route::name('image.')->group(function () {
+Route::name('images.')->group(function () {
     Route::get('/images', 'UploadImageController@index')->name('index');
     Route::get('/images/{product}/load', 'UploadImageController@load')->name('load');
     Route::get('/images/{product}/{image}/delete', 'UploadImageController@delete')->name('delete');
