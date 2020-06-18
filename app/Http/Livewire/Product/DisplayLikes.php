@@ -8,7 +8,6 @@ use Livewire\Component;
 class DisplayLikes extends Component
 {
     public $count = 0;
-    public $startCount = 0;
     public $prodid ;
     public $product ;
     public $liked=false ;
