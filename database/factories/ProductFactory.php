@@ -13,6 +13,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'status' =>$faker->randomElement(['For Sale', 'Sold', 'Not for Sale']),
         'price' =>$faker->numberBetween(12300, 50000),
         'discount' =>'Yes',
+        'likes' =>$faker->numberBetween(10, 50),
         'publish_at' =>$faker->date,
     ];
 });
