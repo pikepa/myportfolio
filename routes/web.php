@@ -6,9 +6,9 @@ Route::redirect('/', 'dashboard');
  * App Routes.
  */
 Route::group(['middleware' => 'auth'], function () {
-    Route::livewire('dashboard', 'dashboard.dashboard');
+    Route::livewire('dashboard', 'dashboard.dashboard')->name('dashboard');
     Route::livewire('profile', 'user.profile');
-    Route::livewire('message', 'messages.display-messages');
+    Route::livewire('message', 'messages.display-messages')->name('messages');
 });
 
 /* Home Routes web security */
