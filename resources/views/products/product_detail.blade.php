@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('og_meta')
+<meta property="og:site_name" content="Hellen Dutch Art.">
+<meta property="og:title" content="Hellen Dutch Art : Home">
+<meta property="og:description" content="{!! nl2br($product->description) !!}">
+<meta property="og:image" content="{{URL::asset( $product->featured_img)}}">
+<meta property="og:url" content="https://hellendutch.art">
+<meta name="twitter:card" content="summary_large_image">
+<title>Hellen Dutch Art : Home</title>
+@endsection
+
 @section('addstyles')
 <script src="{{url('js/dropzone.js')}}"></script>
 <link rel="stylesheet" href="{{url('css/dropzone.css')}}">
@@ -23,7 +33,7 @@
                 <p class="pb-4"> {!! nl2br($product->description) !!}</p>
 
                 <x-dashboard.pricing :product="$product" />
-                
+
                 <div class="block mb-4">
                     <span class="text-gray-700">Categories</span>
                     <div class="mt-2">
