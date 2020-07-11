@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('og_meta')
 <meta property="og:site_name" content="Hellen Dutch Art.">
 <meta property="og:title" content="Hellen Dutch Art : Home">
@@ -17,8 +16,8 @@
 
 <div class="container mx-auto pb-4">
     <div class="flex flex-col md:flex-row justify-between">
-        <x-layout.dash_left />        
-        
+        <x-layout.dash_left />
+
         @include('dashboard.components.dash_main')
 
     </div>
