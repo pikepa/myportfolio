@@ -5,9 +5,9 @@
 <meta property="og:title" content="Hellen Dutch Art : {{$product->title}}">
 <meta property="og:description" content="{!! nl2br($product->description) !!}">
 <meta property="og:image" content="{{URL::asset( $product->featured_img)}}">
-<meta property="og:url" content="https://hellendutch.art/product/55">
+<meta property="og:url" content="{{ env('APP_URL') }}{{$product->path()}}">
 <meta name="twitter:card" content="summary_large_image">
-<title>Hellen Dutch Art : Home</title>
+<title>Hellen Dutch Art :{{$product->title}}</title>
 @endsection
 
 @section('addstyles')
