@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
 @section('og_meta')
-<meta property="og:site_name" content="Hellen Dutch Art.">
-<meta property="og:title" content="Hellen Dutch Art : {{$product->title}}">
-<meta property="og:description" content="{!! nl2br($product->description) !!}">
-<meta property="og:image" content="{{URL::asset( $product->featured_img)}}">
-<meta property="og:url" content="{{ env('APP_URL') }}{{$product->path()}}">
-<meta name="twitter:card" content="summary_large_image">
-<title>Hellen Dutch Art :{{$product->title}}</title>
+    <x-products.product_meta :product=$product/>
 @endsection
 
 @section('addstyles')
