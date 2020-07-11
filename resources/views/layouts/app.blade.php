@@ -5,6 +5,8 @@
 
     @include('layouts.partials.meta')
 
+    @yield('og_meta')
+    
     @yield('addstyles')
 
     @livewireStyles
@@ -15,14 +17,14 @@
 
 <body class="font-sans antialiased">
 
-    <x-layout.header/>
+    <x-layout.header />
 
     <div id="app">
 
         @yield('content')
 
     </div>
-    
+
     @livewireScripts
 
 </body>
