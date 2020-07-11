@@ -22,7 +22,8 @@
                 <h1 class=" font-semibold text-2xl text-center text-base-700 pb-2"> {{ $product->title }}</h1>
                 <p class="pb-4"> {!! nl2br($product->description) !!}</p>
 
-                @include('dashboard.components._pricing')
+                <x-dashboard.pricing :product="$product" />
+                
                 <div class="block mb-4">
                     <span class="text-gray-700">Categories</span>
                     <div class="mt-2">

@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $products = Product::orderBy('publish_at', 'desc')->get();
 
-        return view('dashboard.home', compact('products'));
+        return view('homepages.home', compact('products'));
     }
 
     /**
