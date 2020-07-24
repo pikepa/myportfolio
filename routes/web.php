@@ -1,6 +1,6 @@
 <?php
 
-Route::redirect('/', 'dashboard');
+Route::redirect('/', 'root');
 
 /**
  * App Routes.

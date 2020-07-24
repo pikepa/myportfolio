@@ -9,7 +9,7 @@
 <div  class="container mx-auto ">
     <div class="w-1/2 mx-auto card p-6  px-16 rounded shadow">
         <h1 class="text-2xl font-normal mb-10 text-center">
-            My Product
+            My Product 1
         </h1>
 
         <form 
