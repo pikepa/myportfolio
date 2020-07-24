@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $products = Product::OfStatus($status)->get();
 
-        return view('dashboard.home', compact('products'));
+        return view('homepages.home', compact('products'));
     }
 
     /**

@@ -28,20 +28,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function bycategory($id)
-    {
-        $cat = Category::findOrFail($id);
-
-        $products = $cat->products;
-
-        return view('dashboard.home', compact('products', 'cat'));
-    }
-
-    /**
      * Create a new Category.
      *
      * @return \Illuminate\Http\Response
@@ -117,4 +103,20 @@ class CategoryController extends Controller
 
         return redirect('category')->with('Success', 'Category has been deleted');
     }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function bycategory($id)
+    {
+        $cat = Category::findOrFail($id);
+
+        $products = $cat->products;
+
+        return view('homepages.home', compact('products', 'cat'));
+    }
+
 }
