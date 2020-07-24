@@ -10,6 +10,7 @@
 <title>Hellen Dutch Art : Home</title>
 @endsection
 
+
 @section('title', 'Home')
 
 @section('content')
