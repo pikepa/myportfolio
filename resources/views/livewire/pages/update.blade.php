@@ -1,5 +1,4 @@
                        <div class="pt-2 pb-2 mx-auto rounded rounded-b-none text-center rounded font-semibold text-gray-900 bg-gray-200 text-2xl">Add Page</div>
-                       text-2xl
                        <div class="rounded-md shadow-sm">
                            <div class="flex justify-between">
                                <label class="w-1/2 block mx-4 pt-2 ">

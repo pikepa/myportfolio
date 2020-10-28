@@ -74,13 +74,17 @@
     <div class="flex flex-wrap ">
       @foreach($categories as $category)
       <label class="mx-2 inline-flex items-center">
-        <input class="form-checkbox text-indigo-600" type="checkbox" name='categories[]' value='{{$category->id}}' {{in_array($category->id,$assignedCats)?'checked':''}} />
+        <input class="form-checkbox text-indigo-600" type="checkbox" name='categories[]' value='{{$category->id}}'
+        {{in_array($category->id,$assignedCats)?'checked':''}} />
         <span class="ml-2">{{ $category->category }},</span>
       </label>
       @endforeach
     </div>
   </div>
 </div>
+
+
+
 
 <div class="field mb-6">
   <label class="block">

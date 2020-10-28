@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Setup;
+namespace tests\setup;
 
 use App\Models\Product;
 use App\Models\User;
