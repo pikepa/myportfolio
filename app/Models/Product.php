@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use InteractsWithMedia, HasFactory;
 
     protected $dates = ['publish_at'];
 
@@ -64,16 +65,16 @@ class Product extends Model implements HasMedia
     }
 
     // Media Definitions
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
-              ->width(300)
-              ->height(300)
-              ->sharpen(10);
+        ->width(300)
+            ->height(300)
+            ->sharpen(10);
 
         $this->addMediaConversion('full')
-              ->width(800)
-              ->height(800)
-              ->sharpen(10);
+        ->width(800)
+            ->height(800)
+            ->sharpen(10);
     }
 }

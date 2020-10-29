@@ -15,7 +15,7 @@ class AddingPagesTest extends TestCase
     /** @test */
     public function page_management_contains_livewire_componet()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user)
         ->get('/dashboard')
@@ -109,7 +109,7 @@ class AddingPagesTest extends TestCase
     public function update_a_page_returns_correct_values()
     {
         $this->signIn();
-        $page = factory(Page::class)->create();
+        $page = Page::factory()->create();
 
         Livewire::test('pages.manage-pages')
             ->call('edit', $page->id)

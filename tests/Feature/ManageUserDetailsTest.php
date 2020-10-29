@@ -15,7 +15,7 @@ class ManageUserDetailsTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user);
 
@@ -26,7 +26,7 @@ class ManageUserDetailsTest extends TestCase
     /** @test */
     public function a_guest_cannot_see_a_profile_page()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $response = $this->get('/profile/'.$user->id)->assertRedirect('/login');
     }
@@ -34,8 +34,8 @@ class ManageUserDetailsTest extends TestCase
     /** @test */
     public function a_logged_in_user_cannot_see_another_users_profile_page()
     {
-        $user = factory(User::class)->create();
-        $user2 = factory(User::class)->create();
+        $user = User::factory()->create();
+        $user2 = User::factory()->create();
 
         $this->actingAs($user);
 
@@ -45,7 +45,7 @@ class ManageUserDetailsTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_update_their_profile_name()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $this->actingAs($user);
 
         $user->name = 'Peter Pike';

@@ -68,8 +68,8 @@ class ManageProductTest extends TestCase
     /** @test */
     public function a_product_can_belong_to_a_category()
     {
-        $category = factory(Category::class)->create();
-        $product = factory(Product::class)->create();
+        $category = Category::factory()->create();
+        $product = Product::factory()->create();
 
         $category->products()->sync($product);
 
