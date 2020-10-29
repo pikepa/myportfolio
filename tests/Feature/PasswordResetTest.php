@@ -70,7 +70,7 @@ class PasswordResetTest extends TestCase
      */
     public function testSubmitPasswordResetRequest()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $this
             ->followingRedirects()
