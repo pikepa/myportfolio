@@ -1,5 +1,6 @@
     <!-- Alpine -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
