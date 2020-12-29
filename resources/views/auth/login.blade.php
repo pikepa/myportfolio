@@ -1,4 +1,5 @@
 <x-layout.app >
+    
 @section('title', 'Login')
 
 <x-layout.pageheader />

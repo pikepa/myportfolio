@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\User\Profile;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\Messages\ContactMe;
 use App\Http\Livewire\Dashboard\Dashboard;
 use App\Http\Controllers\ProductController;
@@ -59,6 +60,6 @@ Route::name('images.')->group(function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/profile/{id}', 'UserController@show')->name('user.profile');
-    Route::patch('/users/{id}', 'UserController@update')->name('user.update');
+    Route::get('/profile/{id}', [UserController::class, 'show'])->name('user.profile');
+    Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.update');
 });
