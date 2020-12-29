@@ -23,13 +23,13 @@
 
     <div id="app">
 
-        @yield('content')
-
+{{ $slot }}
     </div>
 
     @livewireScripts
 
 </body>
+
 @include('layouts.partials.scripts')
 
 </html>

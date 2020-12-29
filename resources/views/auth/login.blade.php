@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
+<x-layout.app >
 @section('title', 'Login')
 
-@section('content')
+<x-layout.pageheader />
 
-@include('layouts.partials.pageheader')
     <div class="container mx-auto">
         <div class="mt-12 flex flex-wrap justify-center">
             <div class="w-full max-w-sm">
@@ -78,4 +76,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layout.app>

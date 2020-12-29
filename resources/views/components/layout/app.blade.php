@@ -1,10 +1,9 @@
+<x-layout.base>
 
-    <x-layout.base >
+    <div id="app">
 
-        <div id="app">
+        {{$slot}}
+        
+    </div>
 
-            {{ slot }}
-
-        </div>
-
-    </x-layout.base>
+</x-layout.base>

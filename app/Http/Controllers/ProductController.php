@@ -16,8 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('publish_at', 'desc')->get();
-
-        return view('homepages.home', compact('products'));
+        $cat='';
+        return view('homepages.home', compact('products', 'cat'));
     }
 
     /**
@@ -28,8 +28,9 @@ class ProductController extends Controller
     public function status($status)
     {
         $products = Product::OfStatus($status)->get();
+        $cat = '';
 
-        return view('homepages.home', compact('products'));
+        return view('homepages.home', compact('products','cat'));
     }
 
     /**
