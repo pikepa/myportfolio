@@ -15,6 +15,19 @@ class ManageProductTest extends TestCase
     use withFaker, RefreshDatabase;
 
     /** @test */
+    public function a_product_detail_can_be_viewed()
+    {
+        $this->signIn();
+
+        $response = $this->post('/product', $this->data());
+        $response = $this->get('/product/1')
+                ->assertStatus(200)
+                ->assertSee('Cool Book Title');
+
+        $this->assertCount(1, Product::all());
+    }
+
+    /** @test */
     public function a_product_can_be_added()
     {
         $this->withoutExceptionHandling();

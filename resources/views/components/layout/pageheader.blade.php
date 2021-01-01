@@ -1,3 +1,5 @@
+@props(['cat' => ''])
+
 <div class="bg-gray-200">
     <div class="container mx-auto md:px-0 px-4">
         <div class="flex justify-between text-center md:text-left  py-2  text-xl">

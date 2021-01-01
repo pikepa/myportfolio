@@ -1,10 +1,9 @@
-@extends('layouts.app')
+<x-layout.app >
 
 @section('title', 'Edit User')
 
-@section('content')
 
-@include('layouts.partials.pageheader')
+<x-layout.pageheader /)
 
 <div  class="container mx-auto ">
     <div class="w-2/3 mx-auto card p-6  px-16 rounded shadow">
@@ -25,4 +24,4 @@
     </div>
     </div>
 
-@endsection
+</x-layout.pageheader>

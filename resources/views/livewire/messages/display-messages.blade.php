@@ -1,7 +1,7 @@
 <div>
     @section('title', 'My Messages')
-    @include('layouts.partials.pageheader')
 
+<x-layout.pageheader />
 
     <div class="container mx-auto pb-4">
 

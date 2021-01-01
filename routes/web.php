@@ -1,21 +1,31 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UploadImageController;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Dashboard\Dashboard;
+use App\Http\Livewire\Messages\ContactMe;
+use App\Http\Livewire\Messages\DisplayMessages;
+use App\Http\Livewire\User\Profile;
+
 Route::redirect('/', 'root');
 
 /**
  * App Routes.
  */
 Route::group(['middleware' => 'auth'], function () {
-    Route::livewire('dashboard', 'dashboard.dashboard')->name('dashboard');
-    Route::livewire('profile', 'user.profile');
-    Route::livewire('message', 'messages.display-messages')->name('messages');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('/message', DisplayMessages::class)->name('messages');
 });
 
 /* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
-    Route::livewire('/contactme', 'messages.contact-me');
+    Route::get('/contactme', ContactMe::class);
 
-    Route::get('/', 'ProductController@index')->name('root');
+    Route::get('/', [ProductController::class, 'index'])->name('root');
+
     Route::get('/theartist', function () {
         return view('homepages.theartist');
     });
@@ -25,32 +35,30 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/materials', function () {
         return view('homepages.materials');
     });
-
     Route::get('/coming_soon', function () {
         return view('homepages.comingsoon');
     });
 });
 
-Route::get('/status/{status}', 'ProductController@status')->name('productStatus');
+Route::get('/status/{status}', [ProductController::class, 'status'])->name('productStatus');
 
-Route::get('/bycategory/{id}', 'CategoryController@bycategory')->name('bycategory');
+Route::get('/bycategory/{id}', [CategoryController::class, 'bycategory'])->name('bycategory');
 
-Route::resource('product', 'ProductController');
-Route::resource('category', 'CategoryController');
-// Route::resource('page', 'PageController');
+Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
 
 Auth::routes();
 
 Route::name('images.')->group(function () {
-    Route::get('/images', 'UploadImageController@index')->name('index');
-    Route::get('/images/{product}/load', 'UploadImageController@load')->name('load');
-    Route::get('/images/{product}/{image}/delete', 'UploadImageController@delete')->name('delete');
-    Route::get('/images/{product}/{image}/featured', 'UploadImageController@featured')->name('makefeatured');
-    Route::get('/images/{image}', 'UploadImageController@show')->name('show');
-    Route::post('/images/upload', 'UploadImageController@upload')->name('upload');
+    Route::get('/images', [UploadImageController::class, 'index'])->name('index');
+    Route::get('/images/{product}/load', [UploadImageController::class, 'load'])->name('load');
+    Route::get('/images/{product}/{image}/delete', [UploadImageController::class, 'delete'])->name('delete');
+    Route::get('/images/{product}/{image}/featured', [UploadImageController::class, 'featured'])->name('makefeatured');
+    Route::get('/images/{image}', [UploadImageController::class, 'show'])->name('show');
+    Route::post('/images/upload', [UploadImageController::class, 'upload'])->name('upload');
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/profile/{id}', 'UserController@show')->name('user.profile');
-    Route::patch('/users/{id}', 'UserController@update')->name('user.update');
+    Route::get('/profile/{id}', [UserController::class, 'show'])->name('user.profile');
+    Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.update');
 });

@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-layout.app>
 
-@section('content')
 <div class="container mx-auto">
     <div class="flex flex-wrap justify-center mt-8 ">
         <div class="w-full max-w-sm">
@@ -50,4 +49,5 @@
         </div>
     </div>
 </div>
-@endsection
+
+</x-layout.app>

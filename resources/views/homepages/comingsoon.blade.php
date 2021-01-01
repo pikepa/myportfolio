@@ -1,27 +1,25 @@
-@extends('layouts.app')
+<x-layout.app>
 
-@section('title', 'Why Borneo')
+    @section('title', 'Why Borneo')
 
-@section('content')
+    <x-layout.pageheader />
 
-@include('layouts.partials.pageheader')
+    <div class="container mx-auto pb-4">
 
-<div class="container mx-auto pb-4">
+        <div class="flex flex-col md:flex-row justify-between">
 
-    <div class="flex flex-col md:flex-row justify-between">
+            @include('dashboard.components.dash_left')
 
-        @include('dashboard.components.dash_left')
-
-        <div class="flex flex-col container mx-auto pb-4">
-            <div class="text-center">
-                <h1 class="font-bold text-3xl m-2 ">New Feature Coming Soon</h1>
+            <div class="flex flex-col container mx-auto pb-4">
+                <div class="text-center">
+                    <h1 class="font-bold text-3xl m-2 ">New Feature Coming Soon</h1>
+                </div>
+                <div class=" mb-4  mx-auto ">
+                    <img class="  " src="{{URL::asset( '/images/smiley.jpg')}}">
+                </div>
             </div>
-            <div class=" mb-4  mx-auto ">
-                <img class="  " src="{{URL::asset( '/images/smiley.jpg')}}">
-            </div>
+
         </div>
-
     </div>
-</div>
 
-@endsection
+</x-layout.app>

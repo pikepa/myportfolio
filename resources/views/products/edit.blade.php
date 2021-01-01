@@ -1,10 +1,11 @@
-@extends('layouts.app')
-
+<<<<<<< Updated upstream
+<x-layout.app >
+=======
+<x-layout.app>
+>>>>>>> Stashed changes
 @section('title', 'Edit My Product')
 
-@section('content')
-
-@include('layouts.partials.pageheader')
+<x-layout.pageheader />
 
 <div  class="container mx-auto ">
     <div class="w-1/2 mx-auto card p-6  px-16 rounded shadow">
@@ -25,4 +26,4 @@
     </div>
     </div>
 
-@endsection
+</x-layout.app>
