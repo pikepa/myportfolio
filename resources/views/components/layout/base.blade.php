@@ -5,8 +5,10 @@
 
     @include('layouts.partials.meta')
 
+    <title>HellenDutch - @yield('title')</title>
+
     @yield('og_meta')
-    
+
     @yield('addstyles')
 
     @livewireStyles

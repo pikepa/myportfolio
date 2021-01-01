@@ -30,6 +30,13 @@ return [
      */
     'media_model' => Spatie\MediaLibrary\MediaCollections\Models\Media::class,
 
+    's3' => [
+        /*
+         * The domain that should be prepended when generating urls.
+         */
+        'domain' => 'https://' . env('AWS_URL'),
+    ],
+    
     'remote' => [
         /*
          * Any extra headers that should be included when uploading media to

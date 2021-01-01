@@ -70,6 +70,8 @@ class ProductController extends Controller
     {
         $product = Product::findorFail($id);
         $images = $product->getMedia('photos');
+     //   dd($images);
+
         $foundcats = $product->categories;
         $assignedCats = $product->categories->pluck('id')->toArray();
         //     dd($assignedCats);
