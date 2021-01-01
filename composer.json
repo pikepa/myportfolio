@@ -21,9 +21,10 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/flysystem-cached-adapter": "^1.0",
         "livewire/livewire": "^2.0",
-        "spatie/laravel-medialibrary": "^9.0.0"
+        "spatie/laravel-medialibrary": "^9.4"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "beyondcode/laravel-dump-server": "^1.0",
         "fakerphp/faker": "^1.13",
         "filp/whoops": "^2.0",

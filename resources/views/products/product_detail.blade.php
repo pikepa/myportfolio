@@ -16,11 +16,19 @@
 
     <div class="container mx-auto pb-4">
         <div class="mt-12 flex justify-around items-center flex-col">
+<<<<<<< Updated upstream
             @if(isset($product->featured_img))
             <div class="max-w-md card mb-4 w-2/3 flex items-center justify-center">
                 <img class="object-cover object-centre p-4  " src="{{URL::asset( $product->featured_img)}}">
             </div>
             @endif
+=======
+            <!-- @if(isset($product->featured_img))
+            <div class="max-w-md card mb-4 w-2/3 flex items-center justify-center">
+                <img class="object-cover object-centre p-4  " src="{{URL::asset( $product->featured_img)}}">
+            </div>
+            @endif -->
+>>>>>>> Stashed changes
             <div class="card w-2/3">
                 <div class="mb-4">
                     <h1 class=" font-semibold text-2xl text-center text-base-700 pb-2"> {{ $product->title }}</h1>
@@ -65,7 +73,11 @@
                     @forelse($images as $image)
                     <div class="w-1/3 px-2 py-2">
                         <div class="card flex-1  overflow-hidden">
+<<<<<<< Updated upstream
                             <img class="w-full object-cover object-centre rounded" src="https://{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
+=======
+                            <img class="w-full object-cover object-centre rounded" src="{{$image->getUrl('thumb')}}" alt="Picture is Missing here">
+>>>>>>> Stashed changes
                             <div class='flex justify-between'>
                                 @auth
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
@@ -92,6 +104,10 @@
         </div>
     </div>
 </x-layout.app>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 @section('scripts')
 <script type="text/javascript">
@@ -108,5 +124,9 @@
             });
         }
     };
+<<<<<<< Updated upstream
 </script>
 @endsection
+=======
+</script>
+>>>>>>> Stashed changes
