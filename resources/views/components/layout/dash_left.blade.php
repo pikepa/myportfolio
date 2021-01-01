@@ -1,4 +1,5 @@
     <div class="font-sans card bg-grey-light mx-4 mt-2 md:ml-0 md:w-1/6">
+    
         <x-menus.group groupname='Home'>
             <x-menus.item routename='root'>Catalogue</x-menus.item>
             <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist</a></li>
