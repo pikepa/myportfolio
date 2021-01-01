@@ -1,7 +1,7 @@
 <div>
     @section('title', 'Message Me')
 
-   <x-layout.pageheader')
+   <x-layout.pageheader)
 
     <div class="container mx-auto">
         <h1 class="text-2xl font-normal mb-4 text-center">
