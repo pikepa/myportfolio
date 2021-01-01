@@ -6,6 +6,7 @@
             <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials</a></li>
             <li><a href="{{ url('/contactme') }}" class="hover:font-semibold no-underline">Contact Me</a></li>
         </x-menus.group>
+        
         <x-menus.group groupname='By Category'>
             <ul>
                 @forelse($categories as $category)
