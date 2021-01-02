@@ -94,10 +94,6 @@
         </div>
     </div>
 </x-layout.app>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 @section('scripts')
 <script type="text/javascript">
@@ -114,9 +110,5 @@
             });
         }
     };
-<<<<<<< Updated upstream
 </script>
 @endsection
-=======
-</script>
->>>>>>> Stashed changes

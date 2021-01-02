@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
 <x-layout.app >
-=======
-<x-layout.app>
->>>>>>> Stashed changes
+
 @section('title', 'Edit My Product')
 
 <x-layout.pageheader />
