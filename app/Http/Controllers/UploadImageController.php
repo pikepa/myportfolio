@@ -28,8 +28,8 @@ class UploadImageController extends Controller
         ]);
 
         $product = Product::find($request->product_id);
-
-        $product->addMedia($request->file('image'))
+        
+        $product->addMediaFromRequest('image')
                 ->toMediaCollection('photos', 's3');
 
         return redirect('/product/'.$request->product_id);
@@ -46,6 +46,7 @@ class UploadImageController extends Controller
     {
         $product = Product::find($aid);
         $product->featured_img = Media::find($id)->getUrl();
+
         $product->save();
 
         return redirect('/product/'.$aid);
