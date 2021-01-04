@@ -18,7 +18,7 @@
 
     <div class="container mx-auto pb-4">
         <div class="flex flex-col md:flex-row justify-between">
-            <x-layout.dash_left />
+            <x-layout.dash-left />
 
             <x-dashboard.dash_main :products='$products' />
 

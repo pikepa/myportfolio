@@ -1,13 +1,13 @@
     <div class="font-sans card bg-grey-light mx-4 mt-2 md:ml-0 md:w-1/6">
-    
+
         <x-menus.group groupname='Home'>
             <x-menus.item routename='root'>Catalogue</x-menus.item>
             <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist</a></li>
             <li><a href="{{ url('/whyborneo') }}" class="hover:font-semibold no-underline">Why Borneo</a></li>
-            <!-- <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials</a></li> -->
+            <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials</a></li>
             <li><a href="{{ url('/contactme') }}" class="hover:font-semibold no-underline">Contact Me</a></li>
         </x-menus.group>
-        
+
         <x-menus.group groupname='By Category'>
             <ul>
                 @forelse($categories as $category)
