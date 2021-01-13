@@ -1,1 +1,11 @@
-preset :  laravel
+If([# of PO Items]>0  or ([Accepted Quote Step1]= false and [A1-Total On Order Qty]>=[Requested Item - Qty] and [RecType]="")
+or
+([Accepted Quote Step1]= false and [A1-Total On Order Qty]>=[Qte_Qty] )
+,"",
+If(( ([RFQ Status]="Assessing Quotes" or [RFQ Status]="Incomplete") and Includes([Vendor RFQ - RFQ - Allocated Buyer],ToUserList(User()))),
+If(([Accepted Quote Step1]= false and [A1-Total On Order Qty]<>[Requested Item - Qty] and [RecType]="") or
+([Accepted Quote Step1]= false and [A1-Total On Order Qty]<>[Qte_Qty] ) ,
+
+URLRoot() & "db/" & Dbid() & "?act=API_EditRecord&apptoken=c9wkjbczi957eb5k26fqdghxmvn&_fid_44=True&rid=" & [Record ID#] & "\n&rdr=" & URLEncode(URLRoot() & "db/" & [_DBID_REQUEST_FOR_QUOTATIONS] & "?a=dr&rid=" & [Vendor RFQ - Related RFQ]),
+
+URLRoot() & "db/" & Dbid() & "?act=API_EditRecord&apptoken=c9wkjbczi957eb5k26fqdghxmvn&_fid_44=False&rid=" & [Record ID#] & "\n&rdr=" & URLEncode(URLRoot() & "db/" & [_DBID_REQUEST_FOR_QUOTATIONS] & "?a=dr&rid=" & [Vendor RFQ - Related RFQ])),""))
