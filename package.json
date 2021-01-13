@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@tailwindcss/custom-forms": "^0.1.4",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "cross-env": "^5.2.1",
         "laravel-mix": "^4.1.4",
         "laravel-mix-purgecss": "^4.2.0",
