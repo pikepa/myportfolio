@@ -4,8 +4,8 @@
 <x-layout.pageheader />
 
     <div class="container mx-auto">
-        <div class="lg:w-1/2 lg:mx-auto bg-card p-6 md:py-12 md:px-16 rounded shadow">
-            <h1 class="text-2xl font-normal mb-10 text-center">
+        <div class="p-6 rounded shadow lg:w-1/2 lg:mx-auto bg-card md:py-12 md:px-16">
+            <h1 class="mb-10 text-2xl font-normal text-center">
                 New Product
             </h1>
 

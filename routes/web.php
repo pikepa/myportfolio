@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UploadImageController;
-use App\Http\Controllers\UserController;
-use App\Http\Livewire\Dashboard\Dashboard;
-use App\Http\Livewire\Messages\ContactMe;
-use App\Http\Livewire\Messages\DisplayMessages;
 use App\Http\Livewire\User\Profile;
+use App\Http\Livewire\Images\LaraFileUpload;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Messages\ContactMe;
+use App\Http\Livewire\Dashboard\Dashboard;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UploadImageController;
+use App\Http\Livewire\Messages\DisplayMessages;
 
 Route::redirect('/', 'root');
-
+Route::mediaLibrary();
 /**
  * App Routes.
  */
@@ -19,6 +20,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/message', DisplayMessages::class)->name('messages');
 });
+
+
+Route::get('/uploadtest', function () {
+    return view('livewire.images.upload');
+});
+
 
 /* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
@@ -37,6 +44,9 @@ Route::group(['middleware' => 'web'], function () {
     });
     Route::get('/coming_soon', function () {
         return view('homepages.comingsoon');
+    });
+    Route::get('/loadimages', function () {
+        return view('images.load');
     });
 });
 

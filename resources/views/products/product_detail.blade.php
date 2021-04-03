@@ -14,18 +14,18 @@
 
     <x-layout.pageheader />
 
-    <div class="container mx-auto pb-4">
-        <div class="mt-12 flex justify-around items-center flex-col">
+    <div class="container pb-4 mx-auto">
+        <div class="flex flex-col items-center justify-around mt-12">
 
             @if(isset($product->featured_img))
-            <div class="max-w-md card mb-4 w-2/3 flex items-center justify-center">
-                <img class="object-cover object-centre p-4  " src="{{URL::asset( $product->featured_img)}}">
+            <div class="flex items-center justify-center w-2/3 max-w-md mb-4 card">
+                <img class="object-cover p-4 object-centre " src="{{URL::asset( $product->featured_img)}}">
             </div>
             @endif
 
-            <div class="card w-2/3">
+            <div class="w-2/3 card">
                 <div class="mb-4">
-                    <h1 class=" font-semibold text-2xl text-center text-base-700 pb-2"> {{ $product->title }}</h1>
+                    <h1 class="pb-2 text-2xl font-semibold text-center text-base-700"> {{ $product->title }}</h1>
                     <p class="pb-4"> {!! nl2br($product->description) !!}</p>
 
                     <x-dashboard.pricing :product="$product" />
@@ -49,7 +49,7 @@
                         <p><a class="no-underline" href="{{ $url = '/' }}"><i class="fas fa-backward"></i> Back</a></p>
                     </div>
                     @auth
-                    <div class="text-sm mr-4">
+                    <div class="mr-4 text-sm">
                         <p><a class="no-underline" href="{{ $url = action('ProductController@edit', $product->id) }}"><i class="far fa-edit"></i> Edit</a></p>
                     </div>
                     <div class="text-sm">
@@ -63,11 +63,11 @@
                 </div>
 
 
-                <main class="flex flex-wrap -mx-2 py-4">
+                <main class="flex flex-wrap py-4 -mx-2">
                     @forelse($images as $image)
                     <div class="w-1/3 px-2 py-2">
-                        <div class="card flex-1  overflow-hidden">
-                            <img class="w-full object-cover object-centre rounded" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
+                        <div class="flex-1 overflow-hidden card">
+                            <img class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
                             <div class='flex justify-between'>
                                 @auth
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
@@ -78,37 +78,18 @@
                         </div>
                     </div>
                     @empty
-                    <div class="card mx-2"> No Pictures Yet</div>
+                    <div class="mx-2 card"> No Pictures Yet</div>
                     @endforelse
+
+
                 </main>
+                @auth
+                    <livewire:images.upload :product="$product" />
+                @endauth
             </div>
-            @auth
-            <div class="my-4 w-2/3" id="dropzone">
-                <form method="post" action="/images/upload" enctype="multipart/form-data" class="dropzone card" id="addPhotosForm">
-                    {{csrf_field()}}
-                    <input type="hidden" name="product_id" value={{$product->id}}>
 
-                </form>
-            </div>
-            @endauth
         </div>
-    </div>
-</x-layout.app>
 
-@section('scripts')
-<script type="text/javascript">
-    Dropzone.options.addPhotosForm = {
-        paramName: 'image',
-        maxFilesize: 4,
-        timeout: 0,
-        acceptedFiles: '.jpg, .JPG, .JPEG, .jpeg, .png, .bmp',
-        init: function() {
-            this.on('success', function() {
-                if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
-                    location.reload();
-                }
-            });
-        }
-    };
-</script>
-@endsection
+    </div>
+
+</x-layout.app>
