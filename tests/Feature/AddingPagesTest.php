@@ -12,16 +12,6 @@ class AddingPagesTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function page_management_contains_livewire_componet()
-    {
-        $user = User::factory()->create();
-
-        $this->actingAs($user)
-        ->get('/dashboard')
-        ->assertStatus(200)
-        ->assertSee('Profile');
-    }
 
     /** @test */
     public function can_add_pages()
@@ -35,16 +25,6 @@ class AddingPagesTest extends TestCase
         $this->assertTrue(Page::whereName('About Me')->exists());
     }
 
-    /** @test */
-    public function name_is_required()
-    {
-        Livewire::test('pages.manage-pages')
-            ->set('name', '')
-            ->set('title', 'Hellen Dutch')
-            ->set('active', 'false')
-            ->call('add')
-            ->assertHasErrors(['name' => 'required']);
-    }
 
     /** @test */
     public function name_is_unique()
