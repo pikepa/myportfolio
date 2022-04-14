@@ -27,7 +27,7 @@ class ManageParas extends Component
     public function save()
     {
         $data = $this->validate([
-            'content' => 'required | min:5| max:500',
+            'content' => 'required | min:5| max:15000',
         ]);
 
         Paragraph::create([
@@ -65,7 +65,7 @@ class ManageParas extends Component
     public function update()
     {
         $data = $this->validate([
-            'content' => 'required | min:5| max:500',
+            'content' => 'required | min:5| max:15000',
 
         ]);
 
