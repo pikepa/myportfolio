@@ -10,7 +10,7 @@
     <main class="flex flex-wrap  py-4">
         <div class="w-3/5 mx-auto px-2 py-2">
             <div class="card flex-grow  overflow-hidden">
-                <img class="w-full rounded" src="https://{{$image->geturl('full')}}" alt="{{$image->name}}">
+                <img class="w-full rounded" src="{{$image->geturl('full')}}" alt="{{$image->name}}">
             </div>
         </div>
 
