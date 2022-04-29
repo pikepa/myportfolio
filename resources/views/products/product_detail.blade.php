@@ -73,7 +73,7 @@
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
                                 <a href="/images/{{$product->id}}/{{$image->id}}/featured"><i class="fas fa-bolt"></i></a>
                                 @endauth
-                                <a href="{!! Route('images.show',$image->id) !!}"><i class="fas fa-external-link-alt"></i> See full size</a>
+                                <a href="{!! Route('images.show',$image->id) !!}"><i class="fas fa-external-link-alt"></i> Enlarge Image</a>
                             </div>
                         </div>
                     </div>
