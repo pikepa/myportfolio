@@ -8,7 +8,7 @@
     <!-- / Fathom -->
     @include('layouts.partials.meta')
 
-    <title>HellenDutch - @yield('title')</title>
+    <title>{{env('APP_NAME')}} - @yield('title')</title>
 
     @yield('og_meta')
 

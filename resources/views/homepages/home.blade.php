@@ -7,7 +7,7 @@
     <meta property="og:image" content="https://d32wdolnlcperg.cloudfront.net/172/IMG_7029.JPG">
     <meta property="og:url" content="https://hellendutch.art">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Hellen Dutch Art : Home</title>
+    <title>{{env('APP_NAME')}} : Home</title>
     @endsection
 
 
