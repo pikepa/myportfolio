@@ -85,11 +85,10 @@
 
 
 
-
 <div class="field mb-6">
   <label class="block">
     <span class="text-gray-700">Published </span>
-    <input type="date" name="publish_at" value="{{ old('publish_at', ($product->publish_at? $product->publish_at->format('Y-m-j') : date('Y-m-j'))) }}" class="form-input mt-1 block w-full">
+    <input type="date" name="publish_at" value="{{ $product->publish_at->format('Y-m-d') }}"  class="form-input mt-1 block w-full">
   </label>
 </div>
 
