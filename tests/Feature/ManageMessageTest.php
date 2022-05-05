@@ -42,4 +42,6 @@ class ManageMessageTest extends TestCase
         $response = $this->get('/message');
         $response->assertStatus(200);
     }
+
+    
 }
