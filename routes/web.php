@@ -33,8 +33,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/theartist', function () {
         return view('homepages.theartist');
     });
-    Route::get('/whyborneo', function () {
-        return view('homepages.whyborneo');
+    Route::get('/atwork', function () {
+        return view('homepages.atwork');
     });
     Route::get('/materials', function () {
         return view('homepages.materials');
