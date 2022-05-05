@@ -13,7 +13,7 @@
 
             <div class="container mx-auto pb-4">
                 <div class="text-center">
-                    <h1 class="font-bold text-3xl m-2 ">{{env('ARTIST_NAME')}}</h1>
+                    <h1 class="font-bold text-3xl m-2 ">The Artist @if(env('ARTIST_NAME') !== '') - {{env('ARTIST_NAME')}}@endif</h1>
                 </div>
 
                 <div class="flex flex-col md:flex-row ">
