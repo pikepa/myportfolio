@@ -18,7 +18,7 @@
 
                 <div class="flex flex-col md:flex-row ">
                     <div class="card mx-auto px-4 mx-2">
-                        <img class="rounded-lg border-white border-8" src="{{URL::asset('images/RayWinfield.jpeggs')}}" width=350px alt="Profile Pic">
+                        <img class="rounded-lg border-white border-8" src="{{URL::asset('images/RayWinfield.jpeg')}}" width=350px alt="Profile Pic">
                     </div>
 
                     <div class="flex flex-col flex-1  items-center ml-4 ">
