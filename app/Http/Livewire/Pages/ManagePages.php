@@ -17,7 +17,7 @@ class ManagePages extends Component
     public $thisid;
     public $currentuser;
     public $updateMode = false;
-    public $active = 0;
+    public $active = false;
     public $addPageVisible = false;
     public $owner_id;
     public $templates;
@@ -40,6 +40,7 @@ class ManagePages extends Component
             'name' => 'required | min:5| max:24 |unique:pages',
             'title' => 'required | min:5| max:24',
             'featured_img' => '',
+            'active'=> 'required | in:false,true'
         ]);
 
         Page::create([

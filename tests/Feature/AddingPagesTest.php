@@ -65,10 +65,25 @@ class AddingPagesTest extends TestCase
     {
         Livewire::test('pages.manage-pages')
             ->set('name', 'a')
-            ->set('title', 'Hellen Dutch')
-            ->set('active', 'false')
             ->call('add')
             ->assertHasErrors(['name' => 'min']);
+    }
+
+    /** @test */
+    public function Active_is_required()
+    {
+        Livewire::test('pages.manage-pages')
+            ->set('active', '')
+            ->call('add')
+            ->assertHasErrors(['active' => 'required']);
+    }
+    /** @test */
+    public function Active_is_true_or_false()
+    {
+        Livewire::test('pages.manage-pages')
+            ->set('active', 'happy')
+            ->call('add')
+            ->assertHasErrors(['active' => 'In']);
     }
 
     /** @test */

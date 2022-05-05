@@ -5,20 +5,16 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class HomePageTests extends TestCase
+class HomePageTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    /** @test */
+    public function testRootPageTest()
     {
         $response = $this->get('/');
-        $response->assertStatus(200);
-        $response->assertSee('Hellen Dutch Art');
+        $name=env('APP_NAME');
+        $response->assertStatus(200)->assertSee($name);
     }
 
     /** @test */
@@ -28,15 +24,11 @@ class HomePageTests extends TestCase
 
         $response = $this->get('/theartist');
         $response->assertStatus(200);
-        $response->assertSee('Hellen Dutch');
+        $response->assertSee('The Artist');
 
-        $response = $this->get('/whyborneo');
+        $response = $this->get('/atwork');
         $response->assertStatus(200);
-        $response->assertSee('Why Borneo ?');
-
-        $response = $this->get('/materials');
-        $response->assertStatus(200);
-        $response->assertSee('Use of Materials');
+        $response->assertSee('At Work');
 
         $response = $this->get('/contactme');
         $response->assertStatus(200);
