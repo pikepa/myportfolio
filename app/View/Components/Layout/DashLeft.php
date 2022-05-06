@@ -16,7 +16,9 @@ class DashLeft extends Component
      */
     public function __construct()
     {
-        $this->categories = Category::where('active', true)->get();
+        $this->categories = Category::where('active', true)
+                            ->orderBy('category', 'asc')
+                            ->get();
     }
 
     /**
