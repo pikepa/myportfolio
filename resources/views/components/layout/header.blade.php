@@ -1,4 +1,4 @@
-<nav class="sticky w-full bg-green-900 shadow py-2">
+<nav class="sticky w-full bg-green-900 shadow py-5">
     <div class="container mx-auto px-6 md:px-0">
         <div class="font-muli text-gray-200 flex flex-col justify-end items-center"> 
             <h1 class="font-bold text-3xl">{{env('APP_NAME')}}
