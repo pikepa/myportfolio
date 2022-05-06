@@ -17,6 +17,7 @@
     </textarea>
   </label>
 </div>
+
 <div class='flex flex-row justify-around space-x-2'>
     <div class="field mb-6 w-1/2">
       <label class="block">
@@ -71,19 +72,21 @@
   </label>
 </div>
 {{--
-<div class="block mb-4">
-  <span class="text-gray-700 font-bold">Existing Categories</span>
-  <div class="mt-2">
-    <div class="flex flex-wrap ">
-      @foreach($product->categories as $existing)
-        <div class="mx-4 font-semibold">
-          {{ $existing->category }}
-</div>
-@endforeach
-</div>
-</div>
-</div>
+      <div class="block mb-4">
+        <span class="text-gray-700 font-bold">Existing Categories</span>
+        <div class="mt-2">
+          <div class="flex flex-wrap ">
+            @foreach($product->categories as $existing)
+              <div class="mx-4 font-semibold">
+                {{ $existing->category }}
+      </div>
+      @endforeach
+      </div>
+      </div>
+      </div>
 --}}
+
+
 <div class="block mb-4">
   <span class="text-gray-700 font-bold">Categories</span>
   <div class="mt-2">
@@ -104,7 +107,11 @@
 <div class="field mb-6">
   <label class="block">
     <span class="text-gray-700 font-bold">Published </span>
-    <input type="date" name="publish_at" value="{{ $product->publish_at->format('Y-m-d') }}"  class="form-input mt-1 block w-full">
+    @if($product->publish_at != null)
+    <input type="date" name="publish_at" value="{{  $product->publish_at->format('Y-m-d')  }}"  class="form-input mt-1 block w-full">
+    @else
+    <input type="date" name="publish_at"  class="form-input mt-1 block w-full">
+    @endif
   </label>
 </div>
 
