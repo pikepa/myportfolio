@@ -28,6 +28,8 @@
                     <h1 class="pb-2 text-2xl font-semibold text-center text-base-700"> {{ $product->title }}</h1>
                     <p class="pb-4"> {!! nl2br($product->description) !!}</p>
 
+                    <x-dashboard.medium :product="$product" />
+
                     <x-dashboard.pricing :product="$product" />
 
                     <div class="block mb-4">

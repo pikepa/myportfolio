@@ -4,7 +4,7 @@
 
 <div class="field mb-6">
   <label class="block">
-    <span class="text-gray-700">Display Name</span>
+    <span class="text-gray-700 font-bold">Display Name</span>
     <input type="text" class="form-input mt-1 block w-full" name='title' placeholder="Enter the name of the piece." value="{{old('title', $product->title)}}">
   </label>
 </div>
@@ -12,15 +12,31 @@
 
 <div class="field mb-6">
   <label class="block">
-    <span class="text-gray-700">Description</span>
+    <span class="text-gray-700 font-bold">Description</span>
     <textarea class="form-textarea mt-1 block w-full" name='description' rows="5" placeholder="Please enter the description of the piece.">{{old('description', $product->description) }}
     </textarea>
   </label>
 </div>
+<div class='flex flex-row justify-around space-x-2'>
+    <div class="field mb-6 w-1/2">
+      <label class="block">
+        <span class="text-gray-700 font-bold">Medium</span>
+        <input type="text" class="form-input mt-1 block w-full" name='medium'  value="{{old('medium', $product->medium)}}">
+      </label>
+    </div>
+
+  <div class="field mb-6 w-1/2">
+      <label class="block">
+        <span class="text-gray-700 font-bold">Size</span>
+        <input type="text" class="form-input mt-1 block w-full" name='size' value="{{old('size', $product->size)}}">
+      </label>
+    </div>
+</div>
+
 
 <div class="field mb-6">
   <div class="block">
-    <span class="text-gray-700">Status</span>
+    <span class="text-gray-700 font-bold">Status</span>
     <div class="mt-2 flex">
       <div>
         <label class="inline-flex items-center mr-4">
@@ -50,13 +66,13 @@
 
 <div class="field mb-6">
   <label class="block">
-    <span class="text-gray-700">Price (in Cents)</span>
+    <span class="text-gray-700 font-bold">Price (in Cents)</span>
     <input type="text" class="form-input mt-1 block w-1/2" name='price' placeholder="Price of the piece, in cents." value={{old('price', $product->price)}}>
   </label>
 </div>
 {{--
 <div class="block mb-4">
-  <span class="text-gray-700">Existing Categories</span>
+  <span class="text-gray-700 font-bold">Existing Categories</span>
   <div class="mt-2">
     <div class="flex flex-wrap ">
       @foreach($product->categories as $existing)
@@ -69,7 +85,7 @@
 </div>
 --}}
 <div class="block mb-4">
-  <span class="text-gray-700">Categories</span>
+  <span class="text-gray-700 font-bold">Categories</span>
   <div class="mt-2">
     <div class="flex flex-wrap ">
       @foreach($categories as $category)
@@ -87,7 +103,7 @@
 
 <div class="field mb-6">
   <label class="block">
-    <span class="text-gray-700">Published </span>
+    <span class="text-gray-700 font-bold">Published </span>
     <input type="date" name="publish_at" value="{{ $product->publish_at->format('Y-m-d') }}"  class="form-input mt-1 block w-full">
   </label>
 </div>

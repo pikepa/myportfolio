@@ -22,7 +22,8 @@ class ManageProductTest extends TestCase
         $response = $this->post('/product', $this->data());
         $response = $this->get('/product/1')
                 ->assertStatus(200)
-                ->assertSee('Cool Book Title');
+                ->assertSee('Cool Book Title')
+                ->assertSee('Oil on Canvas');
 
         $this->assertCount(1, Product::all());
     }
@@ -51,6 +52,8 @@ class ManageProductTest extends TestCase
         $response = $this->patch($product->path(), [
             'title' => 'Changed Title',
             'description' => 'New Description',
+            'medium' => 'Oil on Canvas',
+            'size' => "4' X 4'",
             'status'=>'For Sale',
             'price' => '10000',
             'discount' => '0',
@@ -98,6 +101,8 @@ class ManageProductTest extends TestCase
             'title' => 'Cool Book Title',
             'slug' => Str::slug('Cool Book Title', '-'),
             'description' => 'Victors Ferfy',
+            'medium' => 'Oil on Canvas',
+            'size' => "3' X 4'",
             'status'=>'For Sale',
             'price' => '10000',
             'discount' => '0',
