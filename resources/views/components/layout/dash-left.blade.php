@@ -11,7 +11,7 @@
         <x-menus.group groupname='By Category'>
             <ul>
                 @forelse($categories as $category)
-                <li><a href="{{ url('/bycategory/'. $category->id ) }}" class="hover:font-semibold">{{ $category->category }}</li></a>
+                <li><a href="{{ url('/bycategory/'. $category->id ) }}" class="hover:font-semibold">{{ $category->category }} ({{$category->products_count}})</li></a>
                 @empty
                 <div class=" mx-2"> No Pictures Yet</div>
                 @endforelse
