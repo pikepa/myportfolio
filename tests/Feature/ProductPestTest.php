@@ -15,7 +15,6 @@ test('a guest can vist a product detail page', function () {
     $response->assertStatus(200)
              ->assertSee('my Title');
 
-    $this->assertCount(1, Product::all());
 
 });
 
@@ -23,6 +22,9 @@ test('guests cannot create a product', function () {
     $response = $this->get(route('product.create'));
 
     $response->assertRedirect('/login');
+
+    $this->assertCount(0, Product::all());
+
 });
 
 test('guests cannot edit a product', function () {
@@ -40,7 +42,7 @@ test('a logged in user can edit a product', function () {
 
     $response = $this->actingAs($user)->get('/product/1/edit');
 
-    $response->assertSee($product->title);
+    $response->assertSee($product->title)->assertSee('Update');
 });
 
 
@@ -50,7 +52,7 @@ test('logged in users can view the create product page', function () {
     $response = $this->actingAs($user)->get(route('product.create'));
 
     $response->assertSuccessful();
-    $response->assertSee('New Product');
+    $response->assertSee('New Product')->assertSee('Save');
 });
 
 
@@ -61,7 +63,7 @@ test('logged in users can create a product', function () {
         ->followingRedirects()
         ->post(route('product.store'), [
             'title'         => 'My Title',
-            'description'   => 'Thiw is a description',
+            'description'   => 'This is a description',
             'medium'        => 'Oil on Canvas', 
             'size'          => "4' x 4'", 
             'status'        => 'For Sale',
