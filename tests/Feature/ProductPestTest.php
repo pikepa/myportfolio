@@ -2,7 +2,6 @@
 
 use App\Models\User;
 use App\Models\Product;
-use function Pest\Faker\faker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
