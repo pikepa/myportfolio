@@ -2,11 +2,10 @@
 
 namespace App\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Contracts\Validation\DataAwareRule;
+use Illuminate\Contracts\Validation\Rule;
 
 class PriceRule implements Rule, DataAwareRule
-
 {
     /**
      * Create a new rule instance.
@@ -15,7 +14,8 @@ class PriceRule implements Rule, DataAwareRule
      */
     public function __construct($status)
     {
-        $this->status = $status;    }
+        $this->status = $status;
+    }
 
     /**
      * Determine if the validation rule passes.
@@ -26,11 +26,11 @@ class PriceRule implements Rule, DataAwareRule
      */
     public function passes($attribute, $value)
     {
-        if ($this->status == 'For Sale' AND $value > 0) {
+        if ($this->status == 'For Sale' and $value > 0) {
             return $value > 0;
         } else {
-           return false;
-        }            
+            return false;
+        }
     }
 
     /**
@@ -43,8 +43,6 @@ class PriceRule implements Rule, DataAwareRule
         return 'An item For Sale must have price > 0 .';
     }
 
-
-
     /**
      * Set the data under validation.
      *
@@ -54,8 +52,7 @@ class PriceRule implements Rule, DataAwareRule
     public function setData($data)
     {
         $this->data = $data;
- 
+
         return $this;
     }
-
 }

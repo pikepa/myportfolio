@@ -17,7 +17,7 @@ class ExampleTest extends TestCase
     public function testBasicTest()
     {
         $response = $this->get('/');
-        $name=env('APP_NAME');
+        $name = env('APP_NAME');
         $response->assertStatus(200)->assertSee($name);
     }
 }

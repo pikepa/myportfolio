@@ -77,6 +77,7 @@ class AddingPagesTest extends TestCase
             ->call('add')
             ->assertHasErrors(['active' => 'required']);
     }
+
     /** @test */
     public function Active_is_true_or_false()
     {

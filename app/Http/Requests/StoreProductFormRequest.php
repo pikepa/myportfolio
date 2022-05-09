@@ -30,7 +30,7 @@ class StoreProductFormRequest extends FormRequest
             'medium' => 'required',
             'size' => 'required',
             'status'=>'required|in:For Sale,Not For Sale,Sold,',
-            'price' => "required ",
+            'price' => 'required ',
             'discount' => 'required',
             'publish_at'=>'required|date',        ];
     }

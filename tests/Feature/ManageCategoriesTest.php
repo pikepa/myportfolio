@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class ManageCategoriesTest extends TestCase
 {
@@ -25,7 +25,7 @@ class ManageCategoriesTest extends TestCase
         $this->signIn();
         $category = Category::factory()->make();
 
-        $response =$this->post('/category', [
+        $response = $this->post('/category', [
             'category' => 'Snales',
             'active' => '1',
         ]);
@@ -61,6 +61,7 @@ class ManageCategoriesTest extends TestCase
         $response = $this->get('/bycategory/'.$category->id);
         $response->assertSee($product->title);
     }
+
     /** @test */
     public function test_that_the_number_of_products_is_displayed_next_to_the_category()
     {

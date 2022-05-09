@@ -13,7 +13,7 @@ class HomePageTest extends TestCase
     public function testRootPageTest()
     {
         $response = $this->get('/');
-        $name=env('APP_NAME');
+        $name = env('APP_NAME');
         $response->assertStatus(200)->assertSee($name);
     }
 

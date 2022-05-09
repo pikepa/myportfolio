@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+use App\Http\Requests\StoreProductFormRequest;
 use App\Models\Product;
 use App\Rules\PriceGtZero;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreProductFormRequest;
 
 class ProductController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('auth')->except('show','index','status');
-
+        $this->middleware('auth')->except('show', 'index', 'status');
     }
-
 
     /**
      * Display a listing of the resource.
@@ -136,5 +133,4 @@ class ProductController extends Controller
 
         return redirect('/');
     }
-
 }

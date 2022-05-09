@@ -16,7 +16,4 @@ return [
 
     'currency' => env('DISP_CURRENCY', 'USD'),
 
-
-
-    
 ];
