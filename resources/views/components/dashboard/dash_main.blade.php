@@ -21,7 +21,7 @@
 
             <div class="flex justify-between">
                 <div>
-                    <p>Published {{ $product->published_date }}</p>
+                    <p>Published: {{ $product->published_date }}</p>
                 </div>
                 <div>
                     <livewire:product.display-likes :likes='$product->likes' :prodid='$product->id' />

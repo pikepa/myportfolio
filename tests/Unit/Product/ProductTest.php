@@ -37,4 +37,13 @@ test('the discounted price is calculated and formatted correctly', function () {
         $this->assertEquals( '80.00', $product->discounted_price);
 });
 
+test('the Retail price is calculated and formatted correctly', function () {
+    
+    $product = Product::factory([
+        'price' => '10000'])
+        ->make();
+
+        $this->assertEquals( '100.00', $product->retail_price);
+});
+
 

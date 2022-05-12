@@ -36,6 +36,15 @@ class Product extends Model implements HasMedia
         // return $this->price - $discount;
         return number_format( ($this->price - $discount )/100,2,'.', ',');
     }
+    /**
+     * Get the user's Retaail Price.
+     *
+     * @return string
+     */
+    public function getRetailPriceAttribute()
+    {
+        return number_format( ($this->price )/100,2,'.', ',');
+    }
 
     /**
      * Scope a query to only include users of a given status.
