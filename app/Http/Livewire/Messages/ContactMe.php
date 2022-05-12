@@ -32,7 +32,7 @@ class ContactMe extends Component
             'my_question' => 'required',
         ]);
 
-        if (strtoupper($this->my_question) !== 'DUTCH') {
+        if (strtoupper($this->my_question) !== env("KEY_WORD")) {
             return view('livewire.messages.contact-me');
         }
         $message = new Message;

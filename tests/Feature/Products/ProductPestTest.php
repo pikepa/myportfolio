@@ -77,3 +77,9 @@ test('logged in users can create a product', function () {
     ]);
 });
 
+test('A guest can select products by their status For Sale Not for Sale etc', function () {
+
+    $product = Product::factory()->create(['status' => 'For Sale']);
+
+    $response = $this->get('/status/For Sale')->assertSee('For Sale :');
+});

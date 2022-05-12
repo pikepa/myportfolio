@@ -16,4 +16,18 @@ return [
 
     'currency' => env('DISP_CURRENCY', 'USD'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Secret Word to be inserted in Messages for human validation
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify a specific word , and the placeholder text to be
+    | entered on the messages screen to validate it's a human and not a 
+    | bot
+    |
+    */
+
+    'my_word' => env('KEY_WORD', 'KEYWORD'),
+    'my_phrase' => env('MY_PHRASE', 'Concatenate the two words key and word'),
+
 ];

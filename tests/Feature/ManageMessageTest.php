@@ -2,9 +2,10 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
+use Livewire\Livewire;
 use App\Models\Message;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
 class ManageMessageTest extends TestCase
 {
@@ -21,9 +22,15 @@ class ManageMessageTest extends TestCase
     /** @test */
     public function a_message_is_added_to_the_database()
     {
-        $message = Message::factory()->create();
+        Livewire::test('messages.contact-me')
+                ->set('name', 'Peter Pike')
+                ->set('email', 'pikepeter@gmail.com')
+                ->set('subject', 'this is the subject field')
+                ->set('content', 'this is the content of the message')
+                ->set('my_question', env("KEY_WORD"))
+                ->call('save');
 
-        $this->assertDatabaseHas('messages', ['subject' => $message->subject]);
+        $this->assertDatabaseHas('messages', ['name' => 'Peter Pike']);
     }
 
     /** @test */
