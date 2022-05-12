@@ -33,8 +33,8 @@ class Product extends Model implements HasMedia
     {
         $discount = $this->price * ($this->discount / 100);
 
-        return $this->price - $discount;
-        // return number_format( ($this->price - $discount ),2,'.', ',');
+        // return $this->price - $discount;
+        return number_format( ($this->price - $discount )/100,2,'.', ',');
     }
 
     /**

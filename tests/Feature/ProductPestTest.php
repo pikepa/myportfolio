@@ -4,6 +4,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use function PHPUnit\Framework\assertInstanceOf;
+
 uses(RefreshDatabase::class);
 
 test('a guest can vist a product detail page', function () {
@@ -74,3 +76,4 @@ test('logged in users can create a product', function () {
         'title' => 'My Title',
     ]);
 });
+
