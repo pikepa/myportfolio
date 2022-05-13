@@ -1,5 +1,5 @@
 <!-- <main class=" flex flex-1  flex-wrap justify-between -mx-2 px-2 py-4"> -->
-<main class="grid grid-cols-3 py-4">
+<main class="grid md:grid-cols-3 py-4">
 
     @foreach ($products as $product)
     <div class="flex flex-col card  mb-2 " >
