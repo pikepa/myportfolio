@@ -25,23 +25,6 @@ test('guests cannot create a product', function () {
     $this->assertCount(0, Product::all());
 });
 
-test('guests cannot edit a product', function () {
-    $product = Product::factory()->create();
-
-    $response = $this->get('/product/1/edit');
-
-    $response->assertRedirect('/login');
-});
-
-test('a logged in user can edit a product', function () {
-    $user = User::factory()->create();
-    $product = Product::factory()->create();
-
-    $response = $this->actingAs($user)->get('/product/1/edit');
-
-    $response->assertSee($product->title)->assertSee('Update');
-});
-
 test('logged in users can view the create product page', function () {
     $user = User::factory()->create();
 
@@ -67,6 +50,8 @@ test('logged in users can create a product', function () {
             'owner_id'      => User::factory()->create()->id,
             'likes'         => '10',
             'publish_at'    => '2010-05-03',
+
+
         ]);
 
     $response->assertSuccessful();
@@ -76,6 +61,52 @@ test('logged in users can create a product', function () {
         'title' => 'My Title',
     ]);
 });
+
+test('guests cannot view the edit a product page', function () {
+    $product = Product::factory()->create();
+
+    $response = $this->get('/product/1/edit');
+
+    $response->assertRedirect('/login');
+});
+
+test('a logged in user can view the edit a product page', function () {
+    $user = User::factory()->create();
+    $product = Product::factory()->create();
+
+    $response = $this->actingAs($user)->get('/product/1/edit');
+
+    $response->assertSee($product->title)->assertSee('Update');
+});
+
+test('A logged in user can update a product', function () {
+
+    $this->withoutExceptionHandling();
+
+    $user = User::factory()->create();
+    $product = Product::factory()->create();
+
+
+    $response = $this->actingAs($user)->put('/product/1/', [
+        'title'         => 'New Product',
+        'description'   => 'This is a new description',
+        'medium'        => 'Oil on Canvas',
+        'size'          => "4' x 4'",
+        'status'        => 'For Sale',
+        'price'         => '12300',
+        'discount'      => 'Yes',
+        'owner_id'      => '1',
+        'likes'         => '10',
+        'publish_at'    => '2010-05-03',
+        'categories'    => '1,2'
+    ]);
+
+    $product->refresh();
+    
+    $this->assertEquals('New Product', $product->title);
+
+});
+
 
 test('A guest can select products by their status For Sale Not for Sale etc', function () {
 

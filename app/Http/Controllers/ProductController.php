@@ -111,8 +111,9 @@ class ProductController extends Controller
      */
     public function update(StoreProductFormRequest $request, Product $product)
     {
+
         $request->publish_at = new Carbon($request->get('publish_at'));
-        $product->update($request->all);
+        $product->update($request->except(['categories']));
         $product->categories()->sync($request->categories);
 
         return redirect($product->path());
