@@ -17,9 +17,10 @@
     <x-layout.pageheader  :cat="$cat" />
 
     <div class="container mx-auto pb-4">
-        <div class="flex flex-col md:flex-row justify-between">
-            <x-layout.dash-left />
-
+        <div class="flex flex-col md:flex-row justify-left">
+            <div class=" mr-3">
+                <x-layout.dash-left />
+            </div>
             <x-dashboard.dash_main :products='$products' />
 
         </div>

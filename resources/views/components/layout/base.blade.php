@@ -5,6 +5,8 @@
     <!-- Fathom - beautiful, simple website analytics -->
     <script src="https://cdn.usefathom.com/script.js" data-site="UQLNUHGV" defer></script>
 
+
+
     <!-- / Fathom -->
     @include('layouts.partials.meta')
 
