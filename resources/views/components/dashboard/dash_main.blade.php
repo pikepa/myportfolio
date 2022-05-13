@@ -1,6 +1,8 @@
-<main class=" flex flex-1  flex-wrap justify-between -mx-2 px-2 py-4">
+<!-- <main class=" flex flex-1  flex-wrap justify-between -mx-2 px-2 py-4"> -->
+<main class="grid grid-cols-3 py-4">
+
     @foreach ($products as $product)
-    <div class="flex flex-col card  mb-2 " style=" width:325px">
+    <div class="flex flex-col card  mb-2 " >
         @if(isset($product->featured_img))
         <div class="mx-auto text-center">
             <img class="rounded-lg object-cover object-centre w-full" src={{ $product->featured_img }} style="height:325px" alt="<{{ $product->title }}>">

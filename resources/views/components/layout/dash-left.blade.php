@@ -5,7 +5,7 @@
                     <span x-show="open" ><i class="fa fa-arrow-left  text-md" aria-hidden="true"></i></span>
             </div>
 
-        <div x-show="open" class="w-full p-4 bg-gray-200 max-w-sm rounded-lg overflow-hidden shadow  mr-4 pl-4 -mt-8 ">
+        <div x-show="open" class="w-48 p-4 bg-gray-200 max-w-sm rounded-lg overflow-hidden shadow  mr-4 pl-4 -mt-8 ">
             <x-menus.group groupname='Home' class="pr-36">
                 <x-menus.item routename='root'>Catalogue</x-menus.item>
                 <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist</a></li>
