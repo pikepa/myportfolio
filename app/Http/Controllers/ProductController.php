@@ -62,7 +62,7 @@ class ProductController extends Controller
     public function store(StoreProductFormRequest $request)
     {
         $request->publish_at = new Carbon($request->get('publish_at'));
-        $product = auth()->user()->products()->create($request->all());
+        $product = auth()->user()->products()->create($request->except(['categories']));
         $product->categories()->sync($request->categories);
 
         return redirect($product->path());
