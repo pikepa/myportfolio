@@ -42,7 +42,6 @@
       <div>
         <label class="inline-flex items-center mr-4">
           <input type="radio" class="form-radio text-indigo-600" name="status" @if(old('status',$product->status)=="For Sale") checked @endif
-          checked
           value = 'For Sale'/>
           <span class="ml-2">For Sale</span>
         </label>
@@ -50,6 +49,7 @@
       <div>
         <label class="inline-flex items-center mr-4">
           <input type="radio" class="form-radio text-pink-600" name="status" @if(old('status',$product->status)=="Not For Sale") checked @endif
+          checked
           value = 'Not For Sale'/>
           <span class="ml-2">Not for Sale</span>
         </label>
@@ -68,7 +68,7 @@
 <div class="field mb-6">
   <label class="block">
     <span class="text-gray-700 font-bold">Price (in Cents)</span>
-    <input type="text" class="form-input mt-1 block w-1/2" name='price' placeholder="Price of the piece, in cents." value={{old('price', $product->price)}}>
+    <input type="text" class="form-input mt-1 block w-1/2" name='price' value=0 placeholder="Price of the piece, in cents." value={{old('price', $product->price)}}>
   </label>
 </div>
 {{--

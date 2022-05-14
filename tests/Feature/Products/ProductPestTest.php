@@ -53,19 +53,16 @@ test('logged in users can create a product', function () {
             'categories'    => '1,2,3'
 
 
-        ]);
-
-    $response->assertSuccessful();
-    $response->assertSee('My Title');
+        ])->assertSuccessful()->assertSee('My Title');
 
     $this->assertDatabaseHas('products', [
         'title' => 'My Title',
     ]);
+    $this->assertDatabaseHas('category_product', [
+        'Product_id' => '1',
+        'category_id'=> '1,2,3'
+    ]);
 });
-
-test('that categories are added to a product correctly', function () {
-    //expect()->
-})->skip();
 
 
 test('guests cannot view the edit a product page', function () {
@@ -110,8 +107,12 @@ test('A logged in user can update a product', function () {
     $product->refresh();
     
     $this->assertEquals('New Product', $product->title);
+    $this->assertDatabaseHas('category_product', [
+        'Product_id' => '1',
+        'category_id'=> '1,2'
+    ]);
 
-})->skip();
+});
 
 
 test('A guest can select products by their status For Sale Not for Sale etc', function () {
