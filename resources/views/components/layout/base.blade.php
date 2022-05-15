@@ -25,7 +25,6 @@
 
 <body class="font-sans antialiased">
 
-    <x-layout.header />
 
     <div>
 

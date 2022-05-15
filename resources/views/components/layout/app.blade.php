@@ -1,4 +1,6 @@
 <x-layout.base>
+    
+    <x-layout.header /> 
 
     <div id="app">
 
