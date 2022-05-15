@@ -3,37 +3,42 @@
 
     @foreach ($products as $product)
     <div class="flex flex-col card  mb-2 " >
-        @if(isset($product->featured_img))
-        <div class="mx-auto text-center">
-            <img class="rounded-lg object-cover object-centre w-full" src={{ $product->disp_featured_img() }} style="height:325px" alt="<{{ $product->title }}>">
-        </div>
-        @endif
-        <div class=" card mt-2 text-center">
-            <h1 class="text-xl font-semibold p-2">{{ $product->title }}</h1>
-        </div>
-        <div class="flex flex-col justify-between ">
-            <div class="flex-1 h-auto ">
-                <p class=" mt-4">{{ substr($product->description ,0,100) }} ...
-                    <br>
-                    <a class="text-blue-700 font-extrabold no-underline" href="{{ $url = action('ProductController@show', $product->id) }}">More <i class="fas fa-angle-double-right"></i></a></p>
-            </div>
+        <span>
+            <a href="{{ $url = action('ProductController@show', $product->id) }}">
 
-            <div class="">
-                <x-dashboard.pricing :product="$product" />
+            @if(isset($product->featured_img))
+            <div class="mx-auto text-center">
+                <img class="rounded-lg object-cover object-centre w-full" src={{ $product->disp_featured_img() }} style="height:325px" alt="<{{ $product->title }}>">
             </div>
+            @endif
+            <div class=" card mt-2 text-center">
+                <h1 class="text-xl font-semibold p-2">{{ $product->title }}</h1>
+            </div>
+            <div class="flex flex-col justify-between ">
+                <div class="flex-1 h-auto ">
+                    <p class=" mt-4">{{ substr($product->description ,0,100) }} ...
+                        <br>
+                        <a class="text-blue-700 font-extrabold no-underline" href="{{ $url = action('ProductController@show', $product->id) }}">More <i class="fas fa-angle-double-right"></i></a></p>
+                </div>
 
-            <div class="flex justify-between">
-                <div>
-                    <p>Published: {{ $product->published_date }}</p>
+                <div class="">
+                    <x-dashboard.pricing :product="$product" />
                 </div>
-                <div>
-                    <livewire:product.display-likes :likes='$product->likes' :prodid='$product->id' />
+
+                <div class="flex justify-between">
+                    <div>
+                        <p>Published: {{ $product->published_date }}</p>
+                    </div>
+                    <div>
+                        <livewire:product.display-likes :likes='$product->likes' :prodid='$product->id' />
+                    </div>
                 </div>
             </div>
-        </div>
+            </a>
+        </span>
+
     </div>
     @endforeach
-
 
 
 </main>
