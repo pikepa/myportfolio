@@ -18,8 +18,9 @@
         <div class="flex flex-col items-center justify-around mt-12">
 
             @if(isset($product->featured_img))
-            <div class="flex items-center justify-center w-2/3 max-w-md mb-4 card">
+            <div class="flex flex-col items-center justify-center w-2/3 max-w-md mb-4 card">
                 <img class="object-cover p-4 object-centre " src="{{URL::asset( $product->featured_img)}}">
+                <a href="{!! Route('images.show',$product->id) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>
             </div>
             @endif
 
@@ -70,7 +71,7 @@
                     <div class="w-1/3 px-2 py-2">
                         <div class="flex-1 overflow-hidden card">
                             <img class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
-                            <div class='flex justify-between'>
+                            <div class='flex justify-between mt-2'>
                                 @auth
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
                                 <a href="/images/{{$product->id}}/{{$image->id}}/featured"><i class="fas fa-bolt"></i></a>
