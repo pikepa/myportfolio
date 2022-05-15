@@ -73,7 +73,7 @@
                             <img class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
                             <div class='flex justify-between mt-2'>
                                 @auth
-                                <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
+                                <a href="/images/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
                                 <a href="/images/{{$product->id}}/{{$image->id}}/featured"><i class="fas fa-bolt"></i></a>
                                 @endauth
                                 <a href="{!! Route('images.show',$image->id) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>

@@ -78,6 +78,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findorFail($id);
+        
         $images = $product->getMedia('photos');
 
         $foundcats = $product->categories;

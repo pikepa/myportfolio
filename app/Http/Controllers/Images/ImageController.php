@@ -42,11 +42,12 @@ class ImageController extends Controller
      */
     public function make_featured($prod_id, $image_id)
     {
+        
         $product = Product::find($prod_id);
 
         $product->update(['featured_img' => $image_id]);
+
         return redirect()->back();
-        // return view('images.show', compact('image'));
     }
 
     
@@ -57,10 +58,10 @@ class ImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($prod_id, $image_id)
+    public function destroy( $image_id )
     {
         $mediaitem = Media::find($image_id)->delete();
 
-        return redirect('/product/'.$prod_id);
+        return redirect()->back();
     }
 }

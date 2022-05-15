@@ -64,7 +64,7 @@ Route::name('images.')->group(function () {
     
     Route::get('/images/{product}/{image}/featured', [ImageController::class, 'make_featured'])->name('makefeatured');
     Route::get('/images/{image}', [ImageController::class, 'show'])->name('show');
-    Route::get('/images/{product}/{image}/delete', [UploadImageController::class, 'delete'])->name('delete');
+    Route::get('/images/{image}/delete', [ImageController::class, 'destroy'])->name('destroy');
 });
 
 Route::group(['middleware' => 'auth'], function () {

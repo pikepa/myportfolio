@@ -23,7 +23,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'featured_img'  => $this->faker->url,
+            'featured_img'  => $this->faker->numberBetween(10, 50),
             'title'         => $this->faker->name,
             'description'   => $this->faker->paragraph,
             'medium'        => $this->faker->randomElement(['Oil on Canvas', 'Acrylic on Canvas', 'Oil on Wood']),
