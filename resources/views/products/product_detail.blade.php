@@ -70,7 +70,7 @@
                     @forelse($product->getMedia('photos') as $image)
                     <div class="w-1/3 px-2 py-2">
                         <div class="flex-1 overflow-hidden card">
-                            <img class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
+                            <img height='100px' class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
                             <div class='flex justify-between mt-2'>
                                 @auth
                                 <a href="/images/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
