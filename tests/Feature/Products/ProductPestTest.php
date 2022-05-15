@@ -101,7 +101,7 @@ test('A logged in user can update a product', function () {
         'owner_id'      => '1',
         'likes'         => '10',
         'publish_at'    => '2010-05-03',
-        'categories'    => '1,2'
+        'categories'    => '1,2,3'
     ]);
 
     $product->refresh();
@@ -109,7 +109,7 @@ test('A logged in user can update a product', function () {
     $this->assertEquals('New Product', $product->title);
     $this->assertDatabaseHas('category_product', [
         'Product_id' => '1',
-        'category_id'=> '1,2'
+        'category_id'=> '1,2,3'
     ]);
 
 });
