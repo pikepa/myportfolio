@@ -5,7 +5,7 @@
     <div class="flex flex-col card  mb-2 " >
         @if(isset($product->featured_img))
         <div class="mx-auto text-center">
-            <img class="rounded-lg object-cover object-centre w-full" src={{ $product->featured_img }} style="height:325px" alt="<{{ $product->title }}>">
+            <img class="rounded-lg object-cover object-centre w-full" src={{ $product->disp_featured_img() }} style="height:325px" alt="<{{ $product->title }}>">
         </div>
         @endif
         <div class=" card mt-2 text-center">

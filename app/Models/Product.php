@@ -73,6 +73,16 @@ class Product extends Model implements HasMedia
         return $this->belongsToMany(Category::class);
     }
 
+    public function disp_featured_img()
+    {
+        if( !Media::find($this->featured_img)){
+            return null;
+        }else{
+            return Media::find($this->featured_img)->getFullUrl();
+            }
+        
+    }
+
     // Media Definitions
     public function registerMediaConversions(Media $media = null): void
     {

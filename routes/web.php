@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UploadImageController;
-use App\Http\Controllers\UserController;
-use App\Http\Livewire\Dashboard\Dashboard;
-use App\Http\Livewire\Messages\ContactMe;
-use App\Http\Livewire\Messages\DisplayMessages;
 use App\Http\Livewire\User\Profile;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Messages\ContactMe;
+use App\Http\Livewire\Dashboard\Dashboard;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UploadImageController;
+use App\Http\Livewire\Messages\DisplayMessages;
+use App\Http\Controllers\Images\ImageController;
 
 Route::redirect('/', 'root');
 Route::mediaLibrary();
@@ -59,10 +60,11 @@ Auth::routes();
 Route::name('images.')->group(function () {
     Route::get('/images', [UploadImageController::class, 'index'])->name('index');
     Route::get('/images/{product}/load', [UploadImageController::class, 'load'])->name('load');
-    Route::get('/images/{product}/{image}/delete', [UploadImageController::class, 'delete'])->name('delete');
-    Route::get('/images/{product}/{image}/featured', [UploadImageController::class, 'featured'])->name('makefeatured');
-    Route::get('/images/{image}', [UploadImageController::class, 'show'])->name('show');
     Route::post('/images/upload', [UploadImageController::class, 'upload'])->name('upload');
+    
+    Route::get('/images/{product}/{image}/featured', [ImageController::class, 'make_featured'])->name('makefeatured');
+    Route::get('/images/{image}', [ImageController::class, 'show'])->name('show');
+    Route::get('/images/{product}/{image}/delete', [UploadImageController::class, 'delete'])->name('delete');
 });
 
 Route::group(['middleware' => 'auth'], function () {

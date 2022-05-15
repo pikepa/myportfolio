@@ -42,21 +42,20 @@ class UploadImageController extends Controller
         return redirect('/product/'.$aid);
     }
 
-    public function featured($aid, $id)
-    {
-        $product = Product::find($aid);
-        $product->featured_img = Media::find($id)->getUrl();
+    // public function featured($aid, $id)
+    // {
+    //     $product = Product::find($aid);
+    //     $product->featured_img = Media::find($id)->getUrl();
 
-        $product->save();
+    //     $product->save();
 
-        return redirect('/product/'.$aid);
-    }
+    //     redirect()->back();
+    // }
 
     // Show a media Item
     public function show($id)
     {
         $image = Media::find($id);
-
         return view('images.show', compact('image'));
     }
 }

@@ -19,8 +19,8 @@
 
             @if(isset($product->featured_img))
             <div class="flex flex-col items-center justify-center w-2/3 max-w-md mb-4 card">
-                <img class="object-cover p-4 object-centre " src="{{URL::asset( $product->featured_img)}}">
-                <a href="{!! Route('images.show',$product->id) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>
+                <img class="object-cover p-4 object-centre " src="{{$product->disp_featured_img() }}">
+                <a href="{!! Route('images.show',$product->featured_img) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>
             </div>
             @endif
 

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductFormRequest;
+use Carbon\Carbon;
 use App\Models\Product;
 use App\Rules\PriceGtZero;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductFormRequest;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductController extends Controller
 {
@@ -78,7 +79,6 @@ class ProductController extends Controller
     {
         $product = Product::findorFail($id);
         $images = $product->getMedia('photos');
-        //   dd($images);
 
         $foundcats = $product->categories;
         $assignedCats = $product->categories->pluck('id')->toArray();

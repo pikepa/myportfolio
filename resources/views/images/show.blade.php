@@ -2,8 +2,9 @@
 
     <header>
 
-        <div class="flex justify-end w-4/5 mx-auto ">
-            <a class="button bg-blue-500 hover:bg-blue-700 text-white mt-8 float-right" href="/product/{{$image->model_id}}">Go Back</a>
+        <div class="flex justify-end w-4/5 mx-auto">
+            <div hidden>{{ $image->name}}</div>
+            <a class="rounded  p-2 shoadow text-xl text-gray-100  bg-blue-500 hover:bg-blue-700  mt-8 float-right" onclick="window.open('', '_self', ''); window.close();" >Close</a>
         </div>
     </header>
     
