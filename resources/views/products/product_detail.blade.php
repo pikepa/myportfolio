@@ -67,7 +67,7 @@
 
 
                 <main class="flex flex-wrap py-4 -mx-2">
-                    @forelse($images as $image)
+                    @forelse($product->getMedia('photos') as $image)
                     <div class="w-1/3 px-2 py-2">
                         <div class="flex-1 overflow-hidden card">
                             <img class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
@@ -83,9 +83,8 @@
                     @empty
                     <div class="mx-2 card"> No Pictures Yet</div>
                     @endforelse
-
-
                 </main>
+
                 @auth
                     <livewire:images.upload :product="$product" />
                 @endauth
