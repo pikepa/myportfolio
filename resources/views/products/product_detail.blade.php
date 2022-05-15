@@ -75,7 +75,7 @@
                                 <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
                                 <a href="/images/{{$product->id}}/{{$image->id}}/featured"><i class="fas fa-bolt"></i></a>
                                 @endauth
-                                <a href="{!! Route('images.show',$image->id) !!}"><i class="fas fa-external-link-alt"></i> Enlarge Image</a>
+                                <a href="{!! Route('images.show',$image->id) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>
                             </div>
                         </div>
                     </div>
@@ -95,3 +95,19 @@
     </div>
 
 </x-layout.app>
+
+<script type="text/javascript">
+function click (e) {
+  if (!e)
+    e = window.event;
+  if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+    if (window.opera)
+      window.alert("");
+    return false;
+  }
+}
+if (document.layers)
+  document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = click;
+document.oncontextmenu = click;
+</script>
