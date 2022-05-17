@@ -113,7 +113,7 @@ class CategoryController extends Controller
     {
         $cat = Category::findOrFail($id);
 
-        $products = $cat->products;
+        $products = $cat->products()->paginate(6);
 
         return view('homepages.home', compact('products', 'cat'));
     }

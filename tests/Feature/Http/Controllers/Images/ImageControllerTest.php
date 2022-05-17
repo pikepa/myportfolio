@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Product;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 
@@ -17,7 +19,7 @@ test('an image can be displayed on its own in a full page', function () {
 
 
 test('An image can be deleted and removed from s3', function () {
-    //expect()->
+
 })->skip();
 
 test('An image can be set as a featured image', function () {
@@ -34,3 +36,15 @@ test('An image can be set as a featured image', function () {
 });
 
 
+test('an image can be uploaded', function () {
+
+    Storage::fake('images');
+ 
+    $file = UploadedFile::fake()->image('avatar.jpg');
+
+    $response = $this->post('/images/upload', [
+        'images' => $file,
+    ]);
+
+    Storage::disk('images')->assertMissing($file->hashName());
+});
