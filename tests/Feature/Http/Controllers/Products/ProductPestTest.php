@@ -14,7 +14,8 @@ test('a guest can vist a product detail page', function () {
     $response = $this->get(route('product.show', '1'));
 
     $response->assertStatus(200)
-             ->assertSee('my Title');
+             ->assertSee('my Title')
+             ->assertSee('Categories');
 });
 
 test('guests cannot create a product', function () {
@@ -109,7 +110,7 @@ test('A logged in user can update a product', function () {
     $this->assertEquals('New Product', $product->title);
     $this->assertDatabaseHas('category_product', [
         'Product_id' => '1',
-        'category_id'=> '1,2,3'
+        'category_id'=> '1,2,3',
     ]);
 
 });

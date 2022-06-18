@@ -45,7 +45,7 @@
         </div>
         @empty
 <div class="ml-48">
-<div class="font-2xl font-semibold"> 
+<div class="font-xl"> 
                 No Pictures in this category
             </div>
 </div>

@@ -99,7 +99,6 @@ class ProductController extends Controller
 
         $product = Product::findorFail($product->id);
         $assignedCats = $product->categories->pluck('id')->toArray();
-
         return view('products.edit', compact('product', 'assignedCats'));
     }
 
