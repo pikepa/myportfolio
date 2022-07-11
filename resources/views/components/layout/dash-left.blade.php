@@ -8,10 +8,10 @@
         <div x-show="open" x-transition.duration.2s class="w-56 p-4 bg-gray-200 max-w-sm rounded-lg overflow-hidden shadow  mr-4 pl-4 -mt-8 ">
             <x-menus.group groupname='Home' class="pr-36">
                 <x-menus.item routename='root'>Catalogue</x-menus.item>
-                <li><a href="{{ url('/theartist') }}" class="hover:font-semibold no-underline">The Artist</a></li>
-                <li><a href="{{ url('/atwork') }}" class="hover:font-semibold no-underline">At Work</a></li>
-                <!-- <li><a href="{{ url('/materials') }}" class="hover:font-semibold no-underline">Use of Materials</a></li> -->
-                <li><a href="{{ url('/contactme') }}" class="hover:font-semibold no-underline">Contact Me</a></li>
+                <x-menus.item routename='theartist'>The Artist</x-menus.item>
+                <x-menus.item routename='atwork'>At Work</x-menus.item>
+                <!-- <x-menus.item routename='materials'>Materials</x-menus.item> -->
+                <x-menus.item routename='contactme'>Contact Me</x-menus.item>
             </x-menus.group>
 
             <x-menus.group groupname='By Category'>

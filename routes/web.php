@@ -27,25 +27,15 @@ Route::get('/uploadtest', function () {
 
 /* Home Routes web security */
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/contactme', ContactMe::class);
 
     Route::get('/', [ProductController::class, 'index'])->name('root');
+    Route::view('/theartist', 'homepages.theartist')->name('theartist');
+    Route::view('/atwork', 'homepages.atwork')->name('atwork');
+    Route::view('/materials', 'homepages.materials')->name('materials');
+    Route::get('/contactme', ContactMe::class)->name('contactme');
+    Route::view('/coming_soon', 'homepages.comingsoon')->name('comingsoon');
+    Route::view('/loadimages', 'images.load')->name('loadimages');
 
-    Route::get('/theartist', function () {
-        return view('homepages.theartist');
-    });
-    Route::get('/atwork', function () {
-        return view('homepages.atwork');
-    });
-    Route::get('/materials', function () {
-        return view('homepages.materials');
-    });
-    Route::get('/coming_soon', function () {
-        return view('homepages.comingsoon');
-    });
-    Route::get('/loadimages', function () {
-        return view('images.load');
-    });
 });
 
 Route::get('/status/{status}', [ProductController::class, 'status'])->name('productStatus');
