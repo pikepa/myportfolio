@@ -18,8 +18,9 @@
         <div class="flex flex-col items-center justify-around mt-12">
 
             @if(isset($product->featured_img))
-            <div class="flex items-center justify-center w-2/3 max-w-md mb-4 card">
-                <img class="object-cover p-4 object-centre " src="{{URL::asset( $product->featured_img)}}">
+            <div class="flex flex-col items-center justify-center w-2/3 max-w-md mb-4 card">
+                <img class="object-cover p-4 object-centre " src="{{$product->disp_featured_img() }}">
+                <a href="{!! Route('images.show',$product->featured_img) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>
             </div>
             @endif
 
@@ -27,6 +28,8 @@
                 <div class="mb-4">
                     <h1 class="pb-2 text-2xl font-semibold text-center text-base-700"> {{ $product->title }}</h1>
                     <p class="pb-4"> {!! nl2br($product->description) !!}</p>
+
+                    <x-dashboard.medium :product="$product" />
 
                     <x-dashboard.pricing :product="$product" />
 
@@ -64,25 +67,24 @@
 
 
                 <main class="flex flex-wrap py-4 -mx-2">
-                    @forelse($images as $image)
+                    @forelse($product->getMedia('photos') as $image)
                     <div class="w-1/3 px-2 py-2">
                         <div class="flex-1 overflow-hidden card">
-                            <img class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
-                            <div class='flex justify-between'>
+                            <img height='100px' class="object-cover w-full rounded object-centre" src="{{$image->getUrl('thumb')}}" alt="Thumbnail is Missing here">
+                            <div class='flex justify-between mt-2'>
                                 @auth
-                                <a href="/images/{{$product->id}}/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
+                                <a href="/images/{{$image->id}}/delete"><i class="fas fa-trash"></i></a>
                                 <a href="/images/{{$product->id}}/{{$image->id}}/featured"><i class="fas fa-bolt"></i></a>
                                 @endauth
-                                <a href="{!! Route('images.show',$image->id) !!}"><i class="fas fa-external-link-alt"></i> Enlarge Image</a>
+                                <a href="{!! Route('images.show',$image->id) !!}" target="_blank"><i class="fas fa-external-link-alt" ></i> Enlarge Image</a>
                             </div>
                         </div>
                     </div>
                     @empty
                     <div class="mx-2 card"> No Pictures Yet</div>
                     @endforelse
-
-
                 </main>
+
                 @auth
                     <livewire:images.upload :product="$product" />
                 @endauth
@@ -93,3 +95,19 @@
     </div>
 
 </x-layout.app>
+
+<script type="text/javascript">
+function click (e) {
+  if (!e)
+    e = window.event;
+  if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+    if (window.opera)
+      window.alert("");
+    return false;
+  }
+}
+if (document.layers)
+  document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = click;
+document.oncontextmenu = click;
+</script>

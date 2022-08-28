@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -19,11 +20,17 @@ class ManageCategoriesTest extends TestCase
     }
 
     /** @test */
-    public function a_category_can_be_added_to_the_database()
+    public function a_category_can_be_added_to_the_database_by_a_registered_User()
     {
+        $this->signIn();
         $category = Category::factory()->make();
-        $category->save();
-        $this->assertDatabaseHas('categories', ['category' => $category['category']]);
+
+        $response = $this->post('/category', [
+            'category' => 'Snales',
+            'active' => '1',
+        ]);
+
+        $this->assertDatabaseHas('categories', ['category' => 'Snales']);
     }
 
     /** @test */
@@ -53,5 +60,17 @@ class ManageCategoriesTest extends TestCase
 
         $response = $this->get('/bycategory/'.$category->id);
         $response->assertSee($product->title);
+    }
+
+    /** @test */
+    public function test_that_the_number_of_products_is_displayed_next_to_the_category()
+    {
+        $category = Category::factory()->create();
+        $product = Product::factory()->create();
+
+        $category->products()->sync($product);
+
+        $response = $this->get('/');
+        $response->assertSee('(1)');
     }
 }

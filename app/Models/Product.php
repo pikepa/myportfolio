@@ -33,8 +33,17 @@ class Product extends Model implements HasMedia
     {
         $discount = $this->price * ($this->discount / 100);
 
-        return $this->price - $discount;
-        // return number_format( ($this->price - $discount ),2,'.', ',');
+        // return $this->price - $discount;
+        return number_format( ($this->price - $discount )/100,2,'.', ',');
+    }
+    /**
+     * Get the user's Retaail Price.
+     *
+     * @return string
+     */
+    public function getRetailPriceAttribute()
+    {
+        return number_format( ($this->price )/100,2,'.', ',');
     }
 
     /**
@@ -62,6 +71,16 @@ class Product extends Model implements HasMedia
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function disp_featured_img()
+    {
+        if( !Media::find($this->featured_img)){
+            return null;
+        }else{
+            return Media::find($this->featured_img)->getFullUrl();
+            }
+        
     }
 
     // Media Definitions

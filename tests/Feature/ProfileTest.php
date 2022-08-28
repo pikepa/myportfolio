@@ -80,7 +80,7 @@ class ProfileTest extends TestCase
     }
 
     /** @test */
-    public function about_must_less_than_140_characters()
+    public function about_must_be_less_than_140_characters()
     {
         $user = User::factory()->create();
 

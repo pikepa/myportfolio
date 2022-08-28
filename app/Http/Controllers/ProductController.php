@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Carbon\Carbon;
+use App\Models\Product;
+use App\Rules\PriceGtZero;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductFormRequest;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show', 'index', 'status');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +23,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('publish_at', 'desc')->get();
-        $cat = '';
+        $products = Product::orderBy('publish_at', 'desc')->Paginate(6);
 
+        $cat = '';
         return view('homepages.home', compact('products', 'cat'));
     }
 
@@ -28,7 +36,7 @@ class ProductController extends Controller
      */
     public function status($status)
     {
-        $products = Product::OfStatus($status)->get();
+        $products = Product::OfStatus($status)->paginate(6);
         $cat = '';
 
         return view('homepages.home', compact('products', 'cat'));
@@ -52,10 +60,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductFormRequest $request)
     {
         $request->publish_at = new Carbon($request->get('publish_at'));
-        $product = auth()->user()->products()->create($this->validateRequest());
+        $product = auth()->user()->products()->create($request->except(['categories']));
         $product->categories()->sync($request->categories);
 
         return redirect($product->path());
@@ -70,8 +78,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findorFail($id);
+        
         $images = $product->getMedia('photos');
-        //   dd($images);
 
         $foundcats = $product->categories;
         $assignedCats = $product->categories->pluck('id')->toArray();
@@ -91,7 +99,6 @@ class ProductController extends Controller
 
         $product = Product::findorFail($product->id);
         $assignedCats = $product->categories->pluck('id')->toArray();
-
         return view('products.edit', compact('product', 'assignedCats'));
     }
 
@@ -102,10 +109,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(StoreProductFormRequest $request, Product $product)
     {
+
         $request->publish_at = new Carbon($request->get('publish_at'));
-        $product->update($this->validateRequest());
+        $product->update($request->except(['categories']));
         $product->categories()->sync($request->categories);
 
         return redirect($product->path());
@@ -125,18 +133,5 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect('/');
-    }
-
-    protected function validateRequest()
-    {
-        return request()->validate([
-            'featured_img' => '',
-            'title' => 'required|min:4|max:124',
-            'description'=> 'required|min:10|max:1500',
-            'status'=>'required|in:For Sale,Not For Sale,Sold,',
-            'price' => 'required',
-            'discount' => 'required',
-            'publish_at'=>'required|date',
-        ]);
     }
 }

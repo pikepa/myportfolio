@@ -16,7 +16,10 @@ class DashLeft extends Component
      */
     public function __construct()
     {
-        $this->categories = Category::get();
+        $this->categories = Category::withCount('products')
+                            ->where('active', true)
+                            ->orderBy('category', 'asc')
+                            ->get();
     }
 
     /**

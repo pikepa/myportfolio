@@ -13,7 +13,7 @@
 
             <div class="container mx-auto pb-4">
                 <div class="text-center">
-                    <h1 class="font-bold text-3xl m-2 ">Why Borneo ?</h1>
+                    <h1 class="font-bold text-3xl m-2 ">At Work</h1>
                 </div>
                 <div class="flex flex-col ">
                     <div class=" ml-4 mb-2 ">

@@ -47,7 +47,7 @@
                 <div class="field mb-6">
                     <label class="block">
                         <span class="text-gray-700">Question for Humans</span>
-                        <input wire:model='my_question' type="text" class="form-input mt-1 block w-full" name='my_question' placeholder="Please enter the nationality of the artist stated in the title.">
+                        <input wire:model='my_question' type="text" class="form-input mt-1 block w-full" name='my_question' placeholder="{{env('KEY_PHRASE')}}">
                         @error('my_question') <span class="mt-1 text-red-700 font-bold text-sm"> {{ $message }}</span> @enderror
                     </label>
                 </div>
